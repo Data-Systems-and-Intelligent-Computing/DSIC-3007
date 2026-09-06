@@ -1,0 +1,53 @@
+experiment:
+  primary_question: "Does domain-conditioned utilization predict causal expert importance better than global utilization on OLMoE?"
+  seed: 42
+  layers: [0, 7, 15]
+  domains: [general_web, scientific, source_code]
+
+metrics:
+  M0:
+    name: random_active_expert
+    role: negative_control
+  M1:
+    name: global_utilization
+    formula: "P(e active)"
+    role: global_population_baseline
+  M2:
+    name: domain_utilization
+    formula: "P(e active | domain)"
+    role: primary_domain_conditioned_metric
+  M3:
+    name: domain_enrichment
+    formula: "log((U_domain + eps)/(U_not_domain + eps))"
+    epsilon: 1.0e-8
+    role: secondary
+  M4:
+    name: per_token_routing_weight
+    role: positive_control
+
+intervention:
+  type: token_level_single_expert_zero_ablation
+  replacement_expert: false
+  reroute: false
+  renormalize_routing: false
+  modify_model_weights: false
+
+primary_endpoint:
+  layers: [15]
+  domains: [scientific, source_code]
+  metric: "delta_CD = CD_M2 - CD_M1"
+
+statistics:
+  paired_bootstrap: true
+  bootstrap_ci: 0.95
+  wilcoxon_sensitivity: true
+  holm_secondary_tests: true
+  unit_of_analysis: token_position
+
+verification:
+  no_intervention: true
+  noop_hook: true
+  random_active_expert: true
+  per_token_routing_weight_positive_control: true
+  state_cleanup: true
+  position_specificity: true

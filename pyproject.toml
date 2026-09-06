@@ -1,0 +1,28 @@
+[project]
+name = "dsic-3007-moe-domain-causal-audit"
+version = "0.1.0"
+description = "Causal audit of domain-conditioned routing statistics in Mixture-of-Experts language models."
+requires-python = ">=3.10"
+dependencies = [
+  "torch>=2.3",
+  "transformers>=4.44",
+  "datasets>=2.20",
+  "accelerate>=0.33",
+  "numpy>=1.26",
+  "pandas>=2.2",
+  "scipy>=1.13",
+  "scikit-learn>=1.5",
+  "matplotlib>=3.9",
+  "pyyaml>=6.0",
+  "tqdm>=4.66"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2",
+  "ruff>=0.5",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

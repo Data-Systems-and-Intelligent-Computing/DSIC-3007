@@ -1,0 +1,33 @@
+domains:
+  general_web:
+    code: D0
+    source: C4 Validation
+    role: generic_control
+  scientific:
+    code: D1
+    source: peS2o_or_arXiv_subset
+    role: contrast_domain
+  source_code:
+    code: D2
+    source: StarCoderData_Python_or_GitHub_subset
+    role: contrast_domain
+
+sampling:
+  calibration_tokens_min_per_domain: 50000
+  evaluation_documents_min_per_domain: 100
+  intervention_positions_per_domain: 200
+  deterministic_document_split: true
+  seed: 42
+
+leakage_rules:
+  routing_statistics_from_calibration_only: true
+  evaluation_documents_disjoint: true
+  freeze_manifest_before_ablation: true
+  source_defined_domain_labels_only: true
+
+position_filter:
+  exclude_padding: true
+  exclude_first_token: true
+  require_valid_next_token: true
+  exclude_whitespace_or_control_only: true
+  require_non_tied_active_expert_ranking: true

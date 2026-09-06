@@ -1,0 +1,24 @@
+model:
+  name: OLMoE-1B-7B-0924
+  variant: base
+  revision: PIN_EXACT_REVISION_BEFORE_MAIN_RUN
+  trust_remote_code: true
+  precision: bf16
+  device: cuda
+
+architecture:
+  total_parameters_approx: 7B
+  active_parameters_per_token_approx: 1B
+  moe_layers: 16
+  experts_per_layer: 64
+  top_k: 8
+  shared_experts: false
+
+main_layers: [0, 7, 15]
+article_layers: [0, 4, 7, 11, 15]
+
+rules:
+  fine_tuning: false
+  instruct_model: false
+  frozen_weights: true
+  next_token_loss: true
