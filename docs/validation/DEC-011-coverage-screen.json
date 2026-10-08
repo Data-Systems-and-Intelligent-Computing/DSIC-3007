@@ -1,0 +1,55 @@
+{
+  "kind": "synthetic_method_screen_not_pretrained_or_pilot_evidence",
+  "python": "3.14.6",
+  "numpy": "2.4.6",
+  "trials": 2000,
+  "replicates": 1999,
+  "units_per_domain": 200,
+  "seed": 3007011,
+  "rows": [
+    {
+      "scenario": "normal",
+      "coverage": 0.945,
+      "wilson_95": [
+        0.9341286162883299,
+        0.9541652116313549
+      ],
+      "invalid_trials": 0,
+      "mean_width": 0.1957836912789405,
+      "screen_pass": true
+    },
+    {
+      "scenario": "skew",
+      "coverage": 0.952,
+      "wilson_95": [
+        0.9417339082484883,
+        0.9605330810092589
+      ],
+      "invalid_trials": 0,
+      "mean_width": 0.19915380357601958,
+      "screen_pass": true
+    },
+    {
+      "scenario": "informative_sizes",
+      "coverage": 0.9475,
+      "wilson_95": [
+        0.9368392097083899,
+        0.9564450329748887
+      ],
+      "invalid_trials": 0,
+      "mean_width": 0.2154725135632417,
+      "screen_pass": true
+    },
+    {
+      "scenario": "heavy_t3",
+      "coverage": 0.9435,
+      "wilson_95": [
+        0.9325050206793213,
+        0.9527945583822073
+      ],
+      "invalid_trials": 0,
+      "mean_width": 0.1963790070219,
+      "screen_pass": true
+    }
+  ]
+}

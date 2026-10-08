@@ -1,0 +1,16 @@
+# History and large assets stay outside routine searches. Current source,
+# tests and config are searchable for implementation; defaults remain scaffold.
+/history/
+/data/
+/models/
+/results/
+
+# Search small input manifests/templates while keeping corpus out of routine searches.
+!/data/
+/data/*
+!/data/manifests/
+!/data/manifests/**
+!/data/samples/
+!/data/samples/**
+**/.venv/
+**/__pycache__/

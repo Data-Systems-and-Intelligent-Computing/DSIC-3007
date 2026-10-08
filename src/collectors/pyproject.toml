@@ -1,0 +1,10 @@
+[project]
+name = "dsic-3007-collectors"
+version = "0.1.0"
+description = "Retained corpus collection and bounded source profiling for DSIC-3007."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "datasets>=5.0.1",
+    "transformers>=5.17.0",
+]

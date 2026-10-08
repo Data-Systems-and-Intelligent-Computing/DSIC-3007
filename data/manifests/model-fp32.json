@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "kind": "pinned_model_asset_catalog",
+  "selected_on": "2026-10-08",
+  "repo_id": "allenai/OLMoE-1B-7B-0924",
+  "source_branch_at_selection": "fp32",
+  "revision": "c6f6954f182ffdd9f6ab4f4d772714b7dcd6836b",
+  "revision_type": "full_commit_sha",
+  "local_dir": "models/OLMoE-1B-7B-0924-fp32",
+  "storage_dtype_expected": "float32",
+  "runtime_dtype_selected": "float32",
+  "status": "remote_identity_recorded_local_shards_not_acquired",
+  "architecture_metadata_check": {
+    "layers": 16,
+    "experts_per_layer": 64,
+    "top_k": 8,
+    "norm_topk_prob": false
+  },
+  "tokenizer_bytes_match_retained_bf16_manifest": {
+    "special_tokens_map.json": true,
+    "tokenizer.json": true,
+    "tokenizer_config.json": true
+  },
+  "previous_local_identity_record": "docs/validation/DEC-011-local-artifact-hashes.json",
+  "metadata_source": "https://huggingface.co/api/models/allenai/OLMoE-1B-7B-0924/revision/c6f6954f182ffdd9f6ab4f4d772714b7dcd6836b?blobs=true",
+  "acquisition_contract": "download listed files at revision; SHA-256/size verification must pass before local-only loading",
+  "files": [
+    {
+      "path": "config.json",
+      "size_bytes": 755,
+      "sha256": "c50a758ae348b9ac4fd2042ed9137efc3a668912db2f353c62b36bff20348bc7",
+      "hash_evidence": "SHA-256 of JSON bytes fetched at the pinned commit",
+      "local_bytes_verified": false
+    },
+    {
+      "path": "generation_config.json",
+      "size_bytes": 116,
+      "sha256": "075f19787d8f88e56b3b293f039fe8482a0d25bdfe1659f27eb5de58546230a8",
+      "hash_evidence": "SHA-256 of JSON bytes fetched at the pinned commit",
+      "local_bytes_verified": false
+    },
+    {
+      "path": "model-00001-of-00006.safetensors",
+      "size_bytes": 4993992240,
+      "sha256": "21290419529359fc4338f3eb1d6d242e2b6560f6dab1a3e52bf23591fa413a9b",
+      "hash_evidence": "Hugging Face revision API LFS metadata; shard bytes not downloaded",
+      "local_bytes_verified": false
+    },
+    {
+      "path": "model-00002-of-00006.safetensors",
+      "size_bytes": 4992966080,
+      "sha256": "8d7ce7ded74348dec9e7c21fcdad36bbc16edb8146470b222edf54f2a8c7b497",
+      "hash_evidence": "Hugging Face revision API LFS metadata; shard bytes not downloaded",
+      "local_bytes_verified": false
+    },
+    {
+      "path": "model-00003-of-00006.safetensors",
+      "size_bytes": 4992966080,
+      "sha256": "97763865a727456f332544c669753c9d69aa585ecb13db9525c6b9bd611eb4ca",
+      "hash_evidence": "Hugging Face revision API LFS metadata; shard bytes not downloaded",
+      "local_bytes_verified": false
+    },
+    {
+      "path": "model-00004-of-00006.safetensors",
+      "size_bytes": 4992966416,
+      "sha256": "d27ee264369ee879cc45092e43e16322705718e44594b7e32e7b138c2502c40a",
+      "hash_evidence": "Hugging Face revision API LFS metadata; shard bytes not downloaded",
+      "local_bytes_verified": false
+    },
+    {
+      "path": "model-00005-of-00006.safetensors",
+      "size_bytes": 4992966680,
+      "sha256": "917cda1537ff1b32e711db03bef2681ae554c77733f6f85a4c321bdaba6a0050",
+      "hash_evidence": "Hugging Face revision API LFS metadata; shard bytes not downloaded",
+      "local_bytes_verified": false
+    },
+    {
+      "path": "model-00006-of-00006.safetensors",
+      "size_bytes": 2711184968,
+      "sha256": "9622d70b28002524892f27f4036504b6f1da321e4ec312071039a379ec6a31e3",
+      "hash_evidence": "Hugging Face revision API LFS metadata; shard bytes not downloaded",
+      "local_bytes_verified": false
+    },
+    {
+      "path": "model.safetensors.index.json",
+      "size_bytes": 287214,
+      "sha256": "0c1713a6cd423db918a95ec64e2145444d86b19b979075f8326129401ed1cb80",
+      "hash_evidence": "SHA-256 of JSON bytes fetched at the pinned commit",
+      "local_bytes_verified": false
+    },
+    {
+      "path": "special_tokens_map.json",
+      "size_bytes": 65,
+      "sha256": "b77491e270c6fcc5b2ecf22370f7318a6a18d3cabea09ba7bab92e9bf12656c2",
+      "hash_evidence": "SHA-256 of JSON bytes fetched at the pinned commit",
+      "local_bytes_verified": false
+    },
+    {
+      "path": "tokenizer.json",
+      "size_bytes": 2115417,
+      "sha256": "a094266ac6c4982efba277bc251349a5a6d6ad37efb39a2a90f53d8be2a40a40",
+      "hash_evidence": "SHA-256 of JSON bytes fetched at the pinned commit",
+      "local_bytes_verified": false
+    },
+    {
+      "path": "tokenizer_config.json",
+      "size_bytes": 5372,
+      "sha256": "78a839c7851f14f9fb30e664c2b46166dc0628f2900679e5ec160656f702edff",
+      "hash_evidence": "SHA-256 of JSON bytes fetched at the pinned commit",
+      "local_bytes_verified": false
+    }
+  ],
+  "verification_limits": "JSON metadata fetched and hashed; expected weight hashes from HF LFS API. No weight-shard download, tensor loading, GPU execution or runtime verification."
+}

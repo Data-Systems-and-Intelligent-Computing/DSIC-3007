@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "kind": "retained_collection_byte_identity_not_corpus_validation",
+  "recorded_on": "2026-10-08",
+  "collection_id": "collection-10k-v1",
+  "snapshot_identity_sha256": "8957a384bbb9288245a5403f53e18b60ec1d29b211f552e61617f667ca5bd754",
+  "snapshot_identity_encoding": "SHA-256 of UTF-8 canonical JSON, sorted by path, with path/size_bytes/sha256 fields; sorted keys and compact separators",
+  "sources": [
+    {
+      "domain": "c4",
+      "repo_id": "allenai/c4",
+      "revision": "1588ec454efa1a09f29cd18ddd04fe05fc8653a2",
+      "tokenizer_repo_id": "allenai/OLMoE-1B-7B-0924",
+      "tokenizer_revision_at_collection": "6d84c48581ece794365f2b8e9cfb043c68ade9c5",
+      "reported_counts": {
+        "calibration": 1500,
+        "evaluation_pool": 8500
+      },
+      "count_evidence": "retained metadata; no record recount or corpus audit in this step",
+      "license_use_and_redistribution_audit": "pending"
+    },
+    {
+      "domain": "scientific",
+      "repo_id": "common-pile/peS2o",
+      "revision": "2caeba1585aaafa3c965410d80af85b09ed11cd9",
+      "tokenizer_repo_id": "allenai/OLMoE-1B-7B-0924",
+      "tokenizer_revision_at_collection": "6d84c48581ece794365f2b8e9cfb043c68ade9c5",
+      "reported_counts": {
+        "calibration": 1500,
+        "evaluation_pool": 8500
+      },
+      "count_evidence": "retained metadata; no record recount or corpus audit in this step",
+      "license_use_and_redistribution_audit": "pending"
+    },
+    {
+      "domain": "code",
+      "repo_id": "bigcode/starcoderdata",
+      "revision": "9fc30b578cedaec69e47302df72cf00feed7c8c4",
+      "tokenizer_repo_id": "allenai/OLMoE-1B-7B-0924",
+      "tokenizer_revision_at_collection": "6d84c48581ece794365f2b8e9cfb043c68ade9c5",
+      "reported_counts": {
+        "calibration": 1500,
+        "evaluation_pool": 8500
+      },
+      "count_evidence": "retained metadata; no record recount or corpus audit in this step",
+      "license_use_and_redistribution_audit": "pending"
+    }
+  ],
+  "files": [
+    {
+      "path": "data/collection-10k-v1/c4/calibration.jsonl",
+      "domain": "c4",
+      "role": "calibration",
+      "size_bytes": 3598728,
+      "sha256": "52924dd771944b77155a106b67ddc1ff05c9d69a543c5ede26a7d1af8f5a9a4e",
+      "public_url": null,
+      "proposed_r2_object_key": "collection-10k-v1/8957a384bbb9288245a5403f53e18b60ec1d29b211f552e61617f667ca5bd754/c4/calibration.jsonl"
+    },
+    {
+      "path": "data/collection-10k-v1/c4/evaluation.jsonl",
+      "domain": "c4",
+      "role": "evaluation",
+      "size_bytes": 21094942,
+      "sha256": "3403ba0ceda388afd9f65b4b72a659ff89e113007817daac4d26443214b7ef73",
+      "public_url": null,
+      "proposed_r2_object_key": "collection-10k-v1/8957a384bbb9288245a5403f53e18b60ec1d29b211f552e61617f667ca5bd754/c4/evaluation.jsonl"
+    },
+    {
+      "path": "data/collection-10k-v1/c4/metadata.json",
+      "domain": "c4",
+      "role": "collection_metadata",
+      "size_bytes": 2132,
+      "sha256": "f55916a496379cf68bf31cb921a36495fe647560093458360c2ae5e3bd0f6971",
+      "public_url": null,
+      "proposed_r2_object_key": "collection-10k-v1/8957a384bbb9288245a5403f53e18b60ec1d29b211f552e61617f667ca5bd754/c4/metadata.json"
+    },
+    {
+      "path": "data/collection-10k-v1/code/calibration.jsonl",
+      "domain": "code",
+      "role": "calibration",
+      "size_bytes": 7493441,
+      "sha256": "866f3beae418da2fb9a31de1aed373ed15b168d0c74901ab8587505a9f44635c",
+      "public_url": null,
+      "proposed_r2_object_key": "collection-10k-v1/8957a384bbb9288245a5403f53e18b60ec1d29b211f552e61617f667ca5bd754/code/calibration.jsonl"
+    },
+    {
+      "path": "data/collection-10k-v1/code/evaluation.jsonl",
+      "domain": "code",
+      "role": "evaluation",
+      "size_bytes": 46114919,
+      "sha256": "aa79d3a4b37a9f523d5e1a5d1063fad1e88400ebf92bde1b8504c3427b5546d0",
+      "public_url": null,
+      "proposed_r2_object_key": "collection-10k-v1/8957a384bbb9288245a5403f53e18b60ec1d29b211f552e61617f667ca5bd754/code/evaluation.jsonl"
+    },
+    {
+      "path": "data/collection-10k-v1/code/metadata.json",
+      "domain": "code",
+      "role": "collection_metadata",
+      "size_bytes": 2343,
+      "sha256": "cead9b8a38b8a8af886fd7a302fcf7296cc1e3df51ce15bb6c4abc509ad47297",
+      "public_url": null,
+      "proposed_r2_object_key": "collection-10k-v1/8957a384bbb9288245a5403f53e18b60ec1d29b211f552e61617f667ca5bd754/code/metadata.json"
+    },
+    {
+      "path": "data/collection-10k-v1/scientific/calibration.jsonl",
+      "domain": "scientific",
+      "role": "calibration",
+      "size_bytes": 45855891,
+      "sha256": "2e50210ef6f45a10a26f20abb5b341d28ec8504fe673a569dfb22adf599501c9",
+      "public_url": null,
+      "proposed_r2_object_key": "collection-10k-v1/8957a384bbb9288245a5403f53e18b60ec1d29b211f552e61617f667ca5bd754/scientific/calibration.jsonl"
+    },
+    {
+      "path": "data/collection-10k-v1/scientific/evaluation.jsonl",
+      "domain": "scientific",
+      "role": "evaluation",
+      "size_bytes": 259426925,
+      "sha256": "3a87810dc13489b330ed43cc81946f0e129e79cfb98a9689397cba5367b32062",
+      "public_url": null,
+      "proposed_r2_object_key": "collection-10k-v1/8957a384bbb9288245a5403f53e18b60ec1d29b211f552e61617f667ca5bd754/scientific/evaluation.jsonl"
+    },
+    {
+      "path": "data/collection-10k-v1/scientific/metadata.json",
+      "domain": "scientific",
+      "role": "collection_metadata",
+      "size_bytes": 2202,
+      "sha256": "bc7643fff3a806e833e97d0440a56334ee594344d212ba34b72d92565d2ebab3",
+      "public_url": null,
+      "proposed_r2_object_key": "collection-10k-v1/8957a384bbb9288245a5403f53e18b60ec1d29b211f552e61617f667ca5bd754/scientific/metadata.json"
+    }
+  ],
+  "distribution": {
+    "provider": "cloudflare_r2",
+    "status": "planned_not_uploaded",
+    "proposed_snapshot_prefix": "collection-10k-v1/8957a384bbb9288245a5403f53e18b60ec1d29b211f552e61617f667ca5bd754",
+    "public_base_url": null,
+    "access_policy": "pending_source_terms_and_recipient_access_design"
+  },
+  "verification_limits": "Streamed-byte hashing only; source files unchanged. No JSONL record parsing, tokenization, duplicate/group/eligibility audit, model loading or scientific effects.",
+  "asset_role": "retained inventory; technical/probe/pilot/main manifests are pending"
+}
