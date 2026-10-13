@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-10-13T05:46:14.225221+00:00",
+  "run": "runpod/runs/dsic-screen-20261013T053315-10a2bf48",
+  "status": "prep_complete",
+  "cache_ready_gate": "pass; exact volume/catalog/path/all file sizes and hashes",
+  "verified_asset_count": 12,
+  "verified_bytes": 27679451403,
+  "model_revision": "c6f6954f182ffdd9f6ab4f4d772714b7dcd6836b",
+  "model_preparation_seconds": 419.76641297340393,
+  "all_phase_seconds": 581.7737004756927,
+  "cleanup": "confirmed",
+  "global_volume_retained": true,
+  "runtime_gpu_compute_validation": "not_run_setup_only",
+  "native_benchmark": "not_run",
+  "receipt_sha256": "9b80357f7e8e21df67565aedba21895f79d26ca383a97ed32eeb95679ee828e4",
+  "current_source_package": "verified",
+  "paid_agent_runs": 0,
+  "next_paid_action": "none; user requested focus on preparation"
+}

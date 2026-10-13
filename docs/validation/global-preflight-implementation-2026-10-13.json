@@ -1,0 +1,150 @@
+{
+  "recorded_at": "2026-10-13T04:36:53.506415+00:00",
+  "kind": "global_placement_and_critical_benchmark_metrics",
+  "global_volume_id": "cmv66f04p000007l8gngvd5k4",
+  "volume_identity": "user supplied, not independently verified",
+  "default_profile": "Global Volume, selected GPU only, any available data center, no volume-location binding",
+  "paid_ready": false,
+  "paid_resources_created": 0,
+  "deployment_blocker": "REST v2 Global Volume attach field absent; GraphQL introspection disabled; bounded supported attach path or verified console-created pod required",
+  "model_setup": "fresh pinned download pending; setup budget unspecified",
+  "numerical_model_implementation_changed": false,
+  "focused_tests": {
+    "passed": 74,
+    "seconds": 18.45,
+    "files": [
+      "tests/test_global_preflight.py",
+      "tests/test_path_b.py",
+      "tests/test_runpod_screen.py",
+      "tests/test_model_session.py"
+    ]
+  },
+  "final_metric_and_placement_tests": {
+    "passed": 6,
+    "seconds": 2.86
+  },
+  "live_catalog": {
+    "at": "2026-10-13T04:35:26.033095+00:00",
+    "gpus": [
+      {
+        "availability": "NONE",
+        "community": true,
+        "cudaVersions": [
+          {
+            "available": false,
+            "version": "13.0"
+          },
+          {
+            "available": false,
+            "version": "13.2"
+          }
+        ],
+        "id": "NVIDIA L40",
+        "manufacturer": "NVIDIA",
+        "maxCount": {
+          "community": 10,
+          "secure": 8
+        },
+        "memory": 48,
+        "name": "L40",
+        "pool": "ADA_48_PRO",
+        "price": {
+          "community": 0.69,
+          "secure": 0.82,
+          "serverless": 1.75
+        },
+        "secure": true
+      },
+      {
+        "availability": "LOW",
+        "community": true,
+        "cudaVersions": [
+          {
+            "available": true,
+            "version": "12.8"
+          },
+          {
+            "available": true,
+            "version": "13.0"
+          },
+          {
+            "available": true,
+            "version": "13.2"
+          }
+        ],
+        "dataCenters": [
+          {
+            "availability": "LOW",
+            "id": "EU-NL-1",
+            "name": "EU-NL-1"
+          },
+          {
+            "availability": "LOW",
+            "id": "EUR-IS-2",
+            "name": "EUR-IS-2"
+          },
+          {
+            "availability": "LOW",
+            "id": "OC-AU-1",
+            "name": "OC-AU-1"
+          },
+          {
+            "availability": "LOW",
+            "id": "US-MO-1",
+            "name": "US-MO-1"
+          },
+          {
+            "availability": "LOW",
+            "id": "US-TX-4",
+            "name": "US-TX-4"
+          }
+        ],
+        "id": "NVIDIA L40S",
+        "manufacturer": "NVIDIA",
+        "maxCount": {
+          "community": 8,
+          "secure": 8
+        },
+        "memory": 48,
+        "name": "L40S",
+        "pool": "ADA_48_PRO",
+        "price": {
+          "community": 0.79,
+          "secure": 1.09,
+          "serverless": 1.75
+        },
+        "secure": true
+      }
+    ]
+  },
+  "live_global_check": "correctly stopped: selected L40 has no current CUDA/stock capacity",
+  "gpu_choice_pending": "user asked L40S vs wait for L40; no silent substitution",
+  "critical_metrics": [
+    "verified model acquisition duration nested inside validation/load",
+    "baseline with capture ms/batch",
+    "native cleanup ms/batch",
+    "all-eight zero-output replay ms",
+    "peak CUDA allocated/reserved bytes",
+    "peak process RSS KiB",
+    "raw per-input persistence/end-to-end timing",
+    "collector phase windows/second",
+    "GPU utilization sample journal"
+  ],
+  "unmeasured": [
+    "first-ablation isolated timing",
+    "CPU percent",
+    "isolated serialization vs disk write",
+    "R2 upload",
+    "maximum batch-size capacity"
+  ],
+  "scientifically_excluded": [
+    "router-suppression operator"
+  ],
+  "legacy_profiles": "explicit --legacy-regional only; frozen old archives preserved; default paid global CLI cannot invoke legacy fallback",
+  "checks": {
+    "diff_check": "pass",
+    "paid_global_run_test": "raises before any API call",
+    "cross_region_stock_change_test": "pass",
+    "same_gpu_cost_cuda_guards": "pass"
+  }
+}

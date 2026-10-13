@@ -1,0 +1,139 @@
+{
+  "adapter_requirement": "Paired diagnostic adapter and bounded controller are implemented and locally checked. The immutable v6 successor must pass source/archive bindings and live read-only preflight. A separately user-invoked --run with reconciled cash/time limits is required; no paid run has been launched. Diagnostic receipts cannot authorize scientific collection.",
+  "additional_limit": "Further reduce by reconciled remaining cash/time and live all-in quote. Never presume unspent $12 or ten hours now.",
+  "baseline_implementation_sha256": "f7a7e92c7ac5c92368467da986ea413bffb33b1cda8665b903bea32b8a1b5d62",
+  "candidate_implementation_sha256": "23a838e6f838915ce622ee2b63cf9fbd03b3fe10365711a5a95e67f990233304",
+  "deadline_formula": "T <= min(1200, remaining_wall_seconds, 3600*(min(0.40, reconciled_allocated_remaining_cash)-fixed_cost_bound)/live_all_in_hourly_burn). Nonpositive/unknown limits stop preflight. Reserve teardown before measurement; start lease before create; enforce deletion confirmation before absolute deadline.",
+  "durability": "Use existing Journal/append_timing_row/_record atomic receipt patterns. fsync complete raw events and per-expert validation progress before visible completion. Unique successor paths; attempt/plan/model/runtime/source hashes; append-only partials with exact discrepancy metrics, event counts, baseline/capture/cleanup/effect/persistence/end-to-end times, phase ledger, memory and nvidia-smi. Save parameter/hook integrity and cache hit/miss status.",
+  "fixed_cost_bound_evidence": "Planning assumption for additional charges; not invoice measurement or provider hard spending cap. Operator can increase the bound; unknown/insufficient remaining limits stop launch.",
+  "fixed_cost_bound_usd": 0.03,
+  "hardware": "One L40S in retained-volume region, original pinned runtime and weight cache; host RAM >=64GB proposed. Check other running verification before launch; do not change or compete with it.",
+  "image_identity": "Reviewed helper propagates the frozen declared image and checks controller read-back; declaration is not in-container attestation. Historical null-image receipts remain unchanged.",
+  "interpretation": "Report cohort paired elapsed ratios and counts, both first-call/warm and complete persistence totals, and missing cohorts. No complete-workflow feasibility or scientific approval from six windows.",
+  "kind": "paired-collector-benchmark",
+  "layer_shapes": [
+    [
+      15,
+      0,
+      7
+    ],
+    [
+      15
+    ]
+  ],
+  "maximum_all_in_cost_usd": 0.4,
+  "maximum_all_phase_wall_seconds": 1200,
+  "measurement": "For each window run both immutable current optimized baseline and rank-1 candidate with all three layers and with primary layer only; eight effects per requested layer. Alternate AB/BA. Warm up one paired all-layer window per context, time and account it separately. One measured pair per cohort/shape is a bounded diagnostic, not statistically precise speedup proof.",
+  "phase_allowance_evidence": "Planning caps, not measured completion times. Reallocated after v5 boot consumed about81s of the120s shared startup cap, leaving about39s upload before timeout; startup240s, model90s,warmup60s,collector240s. All phase allowances still sum to1200s; global cash/wall guards unchanged. Upload throughput and cached-model timings remain unmeasured.",
+  "phase_allowance_seconds": {
+    "actual_paired_collector_and_durable_persistence": 240,
+    "cached_weight_verification": 180,
+    "independent_native_checks": 240,
+    "model_hash_load_and_identity": 90,
+    "paired_warmup": 60,
+    "provision_startup_upload_preflight": 240,
+    "receipt_finalization": 30,
+    "retrieval_confirmed_teardown": 120
+  },
+  "planned_operation_counts": {
+    "independent_validation_full_forwards": 162,
+    "independent_validation_suffix_replays": 144,
+    "measured_pair_full_forwards": 60,
+    "measured_pair_suffix_replays": 384,
+    "measured_raw_events": 48,
+    "native_comparisons": 144,
+    "total_full_forwards": 232,
+    "total_suffix_replays": 624,
+    "warmup_full_forwards": 10,
+    "warmup_suffix_replays": 96
+  },
+  "purpose": "Measure actual collector schedule versus preserved current optimized collector, with independent native numerical reference; diagnostic outputs cannot authorize scientific collection.",
+  "quote_example": {
+    "compute_usd_per_hour": 1.09,
+    "evidence": "historical quote/readback; must refresh before authorization",
+    "headroom_for_other_charges_usd": 0.03,
+    "storage_allowance_usd_per_hour": 0.02,
+    "twenty_minute_compute_plus_storage_usd": 0.37
+  },
+  "reference": "Six independent _input_case native-vs-suffix cases, preserving all 24 per-expert comparisons per input, plus full candidate events compared to its independently executed native routes/baseline/ablated NLLs. Keep native path free of candidate overrides.",
+  "retry": "One create/attempt; no automatic retry. Incomplete pairs are retained and excluded from speedup aggregates, never zero-filled.",
+  "selection": [
+    {
+      "context_length": 4096,
+      "document_id": "9ff001ac599b74202da5c6e2e040caaeb04215fb89e360264fcb0b3e23be20f4",
+      "domain": "c4",
+      "input_id": "03eaf4fa4d52e6dff5f3b24b0e8d2994e13ea36fcafba67c7bf199f09f8e80b3",
+      "pair_order": "baseline_then_candidate",
+      "predictor_position": 4095,
+      "sample_order": 0,
+      "source_group": "make10louder.co.uk",
+      "target_id": 261
+    },
+    {
+      "context_length": 2048,
+      "document_id": "1ad97fee7fe1d35e106926e7a29bb2253521943913c4ac7b418d9c2ecfe9aca4",
+      "domain": "scientific",
+      "input_id": "25fa91b5a3e5053e115ab9abbcef3068eb50471808e2a96759a7bbb47488f32d",
+      "pair_order": "candidate_then_baseline",
+      "predictor_position": 4095,
+      "sample_order": 0,
+      "source_group": "1413836",
+      "target_id": 6046
+    },
+    {
+      "context_length": 4096,
+      "document_id": "34deb7f6e84bafbe6bbc85d4884237ed9a0e2fda02ab9b3385d3045c36076e29",
+      "domain": "code",
+      "input_id": "5c095561ce2c001c260435555de2c2bfc05c4d00551e3ac34e4a3060618aa696",
+      "pair_order": "baseline_then_candidate",
+      "predictor_position": 4095,
+      "sample_order": 0,
+      "source_group": "iotexpert/docmgr",
+      "target_id": 6647
+    },
+    {
+      "context_length": 2048,
+      "document_id": "9ff001ac599b74202da5c6e2e040caaeb04215fb89e360264fcb0b3e23be20f4",
+      "domain": "c4",
+      "input_id": "b13680b131af949a5d145ea37d0452140d41742e891e8f3efe39a4f559aaea84",
+      "pair_order": "candidate_then_baseline",
+      "predictor_position": 4095,
+      "sample_order": 0,
+      "source_group": "make10louder.co.uk",
+      "target_id": 261
+    },
+    {
+      "context_length": 4096,
+      "document_id": "1ad97fee7fe1d35e106926e7a29bb2253521943913c4ac7b418d9c2ecfe9aca4",
+      "domain": "scientific",
+      "input_id": "caa20ee78b858632dc01dd1427b3e6ef02b3d112d441232404c5174da9e5135a",
+      "pair_order": "baseline_then_candidate",
+      "predictor_position": 4095,
+      "sample_order": 0,
+      "source_group": "1413836",
+      "target_id": 6046
+    },
+    {
+      "context_length": 2048,
+      "document_id": "34deb7f6e84bafbe6bbc85d4884237ed9a0e2fda02ab9b3385d3045c36076e29",
+      "domain": "code",
+      "input_id": "04599fbea87a37f411b0111ac16ba0c2db934b3d081c05d36a55fb50049d9a4e",
+      "pair_order": "candidate_then_baseline",
+      "predictor_position": 4095,
+      "sample_order": 0,
+      "source_group": "iotexpert/docmgr",
+      "target_id": 6647
+    }
+  ],
+  "selection_rule": "First sealed technical group per domain, smallest (sample_order,document_id,input_id) 4096 row; exact parent_input_id 2048 match. Six diagnostic windows total, separate from accepted complete technical plans.",
+  "settings_sha256": "36ae46772623cbbb1fb472aefca24849a6fd9019ad3e948b67a5b0e042533ceb",
+  "status": "prepared_local_not_authorized",
+  "stops": [
+    "cap, phase overrun threatening teardown, cash bound, identity mismatch",
+    "any numerical/route/locality/cleanup discrepancy or nonfinite",
+    "fit failure or unexpected competing verification",
+    "missing weight cache or unavailable placement"
+  ],
+  "target_candidate": "consolidate_reference_with_cleanup",
+  "weights": "Reuse existing verified cache; rehash required assets; no weight redownload. Missing/corrupt cache stops attempt."
+}

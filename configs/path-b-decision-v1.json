@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "kind": "scientific_scope_decision",
+  "decision_id": "path-b-v1",
+  "selected_on": "2026-10-12",
+  "authority": "README.md amendment 2026-10-12 and Arya's explicit Path B selection",
+  "status": "scope_selected_local_migration_implemented_native_acceptance_pending",
+  "executable_settings": false,
+  "user_scope_statement": "jadi ini kita make path b aja right? jadi apa next movenya",
+  "historical_settings": {
+    "path": "configs/research.json",
+    "sha256": "2daadce595cfe6f38747c70c31e07052ed49a926080513873a82abf0ccf24fb4",
+    "migration_required_before_path_b_collection": true
+  },
+  "findings": {
+    "path": "docs/validation/fresh-feasibility-findings-2026-10-11.json",
+    "sha256": "71e67024f5698e5661fc9e539e82a47059b1068ede54f377088d8cfbaa118b7d",
+    "selected_path": "B"
+  },
+  "scope": {
+    "model": "original_pinned_fp32_OLMoE-1B-7B-0924",
+    "context_length": 4096,
+    "predictor": "last_input_token",
+    "target": "actual_next_token_outside_input",
+    "layers": [
+      15
+    ],
+    "calibration_domains": [
+      "c4",
+      "scientific",
+      "code"
+    ],
+    "probe_domains": [
+      "c4",
+      "scientific",
+      "code"
+    ],
+    "technical_domains": [
+      "c4",
+      "scientific",
+      "code"
+    ],
+    "pilot_domains": [
+      "scientific",
+      "code"
+    ],
+    "main_domains": [
+      "scientific",
+      "code"
+    ],
+    "pilot_positions_per_document": 8,
+    "main_positions_per_document": 8,
+    "position_policy": "seeded_uniform_nested_without_replacement; all_available_if_fewer",
+    "pilot_unit_ladder": [
+      20,
+      40,
+      80
+    ],
+    "main_min_scientific_documents": 200,
+    "main_min_code_source_groups": 200,
+    "whole_eligible_code_groups": true,
+    "master_seed": 3007,
+    "calibration_seeds": [
+      3008,
+      3009,
+      3010
+    ],
+    "calibration_document_ladder": [
+      100,
+      250,
+      500
+    ],
+    "primary": "0.5*scientific_document_mean_delta+0.5*code_document_mean_delta",
+    "global_baseline": "equal_document_equal_seed_domain_tables_then_equal_three_domain_M1",
+    "operator": "token_local_zero_contribution_no_replacement_no_survivor_renormalization",
+    "effects_per_layer_event": 8,
+    "exact_cleanup_required": true,
+    "numerical_tolerances": "retain historical frozen FP32 mixture/logit/NLL tolerances",
+    "inference": "paired_whole_source_group_bootstrap_t_10000_draws_95pct_valid; scientific_code_Holm",
+    "target_ci_half_width_nats": 0.005
+  },
+  "deferred_outcomes": [
+    "layers_0_7",
+    "c4_main",
+    "matched_context_2048"
+  ],
+  "retained_controls": [
+    "M0",
+    "M4",
+    "matched_mismatched_domain_rankings"
+  ],
+  "new_extensions_not_yet_selected": [
+    "M3",
+    "M5_activation_norm",
+    "mean_ablation",
+    "TOST_equivalence"
+  ],
+  "precision_fallback": {
+    "status": "pending_user_decision_before_main_outcomes",
+    "allowed_choices_to_discuss": [
+      "precision_limited_reporting",
+      "strict_insufficiency_stop"
+    ],
+    "default_target_relaxed": false
+  },
+  "paid_authorization": {
+    "preflight_diagnostic": true,
+    "maximum_total_usd": 0.2,
+    "maximum_total_wall_seconds": 900,
+    "all_phases_included": [
+      "setup",
+      "weight_verification",
+      "load",
+      "warmup",
+      "native_comparisons",
+      "durable_timing",
+      "seal_transfer",
+      "cleanup"
+    ],
+    "stop_at_first_cost_or_time_limit": true,
+    "live_quote_and_fixed_costs_required": true,
+    "case_scope_and_phase_caps": "runpod/path_b_preflight.py; three windows, layer15/4096,24 native comparisons; cache-only;90s teardown reserve",
+    "automatic_retry": false,
+    "long_command_operator": "user",
+    "full_technical_calibration_pilot_main_authorized": false,
+    "overall_study_remaining_cash_usd": null,
+    "overall_study_remaining_wall_hours": null,
+    "original_study_ceiling_usd": 12,
+    "original_study_ceiling_wall_hours": 10,
+    "historical_spending_and_elapsed_time_not_reset": true
+  },
+  "migration_plan": "docs/validation/PATH-B-IMPLEMENTATION-2026-10-12.md",
+  "preservation": [
+    "historical_executable_settings_until_consumer_migration",
+    "sealed_plans",
+    "frozen_packages",
+    "raw_receipts",
+    "accepted_numerical_tolerances"
+  ],
+  "native_acceptance_status": "pending_new_full_scope_receipts; diagnostic_PASS_is_not_full_acceptance",
+  "executable_settings_path": "configs/research-path-b-v1.json",
+  "implementation_status": "local_scope_plans_receipts_calibration_analysis_and_remaining_budget_admission_implemented; native_preflight_not_run"
+}

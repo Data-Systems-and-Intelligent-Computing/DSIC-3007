@@ -1,0 +1,155 @@
+{
+  "additional_optimization_candidates": [
+    {
+      "candidate": "skip suffix expert work only for proven unchanged dependencies/shapes",
+      "evidence": "current suffix totals measured; expert-vs-attention split not yet measured",
+      "risk": "expert membership changes native GEMM row counts; cached prefix equality must be established, not assumed",
+      "scope": "reconsider O10 after profiling, retain natural routing and native accumulation",
+      "status": "hypothesis"
+    },
+    {
+      "candidate": "reduce redundant tensor copies and per-hook synchronization",
+      "evidence": "operations visible in current capture source; their contribution to GPU elapsed not measured",
+      "scope": "profile full-tensor finite checks, CPU transfers and temporary clones; consolidate work while keeping finite-output/identity/cleanup gates and durable progress",
+      "status": "profile before optimizing"
+    },
+    {
+      "candidate": "bounded CPU input preparation overlap",
+      "evidence": "no measured throughput claim",
+      "scope": "prefetch verified windows while GPU processes current input; cap memory; keep sampling order and commit complete events durably before advancing",
+      "status": "conditional on actual host/input-wait profile"
+    },
+    {
+      "candidate": "use implemented reuse consistently across calibration/pilot budgets and model stages",
+      "scope": "VerifiedModelSession and exact observation reuse already implemented; avoid counting as a new optimization; preserve executor-bound provenance",
+      "status": "existing implementation, native end-to-end benefit pending"
+    }
+  ],
+  "authority": "README.md and configs/research.json unchanged",
+  "context_tradeoff_discussion": {
+    "actual_input": "all4096 input tokens used, including final predictor token; target next token is outside input; loss taken only at final predictor position",
+    "claim_boundary": "a2k study can remain scientifically valid, but findings apply to2k conditioning; direction,size,ranking and statistical significance equivalence to4k are unproven",
+    "comparison_control": "preserve source documents/groups, predictor positions and targets; compare only prefix length; use matched context calibration for scientific comparisons; do not infer findings are stable from speed-only diagnostics",
+    "context_1024": "outside accepted core; requires explicit scientific amendment before execution",
+    "primary_4096": "accepted primary context,4095 preceding tokens plus predictor",
+    "ratio_interpretation": "ideal arithmetic work only; not measured wall-time, guaranteed speedups or fit proof. Fixed costs and kernels affect runtime. No2048 or1024 GPU timing exists in current receipt.",
+    "recommended_sequence": "optimize unchanged4k collector locally; benchmark actual4k and accepted matched2k after candidate is ready; use measured end-to-end forecast to decide whether a primary-context amendment is necessary. No1k addition or paid run authorized.",
+    "scientific_changes": [
+      "conditional next-token prediction has a different information set",
+      "active expert membership, coefficients and ablation effects can change",
+      "all-window utilization/calibration rankings can change",
+      "a newly eligible shorter-document pool would change population if sampling is regenerated"
+    ],
+    "sensitivity_2048": "already accepted matched25percent source-group subset sensitivity, preserving predictor/target, matched2048 calibration; does not authorize replacing primary",
+    "source": "src/preparation.py:193 and src/run_experiment.py:47",
+    "status": "discussion_only_no_setting_changed",
+    "theoretical_work_ratios_vs4096": [
+      {
+        "dense_attention_pair_work_ratio": 1.0,
+        "input_tokens": 4096,
+        "per_token_projection_expert_work_ratio": 1.0
+      },
+      {
+        "dense_attention_pair_work_ratio": 0.25,
+        "input_tokens": 2048,
+        "per_token_projection_expert_work_ratio": 0.5
+      },
+      {
+        "dense_attention_pair_work_ratio": 0.0625,
+        "input_tokens": 1024,
+        "per_token_projection_expert_work_ratio": 0.25
+      }
+    ]
+  },
+  "corrected_illustration": {
+    "added_main_hours": 10.033136473131469,
+    "added_seconds_per_input": 0.943160938564688,
+    "all_workflow_feasibility": "UNKNOWN",
+    "current_main_4096_illustrative_hours": 60.03545264239535,
+    "excludes_model_download": true,
+    "excludes_other_workflow_stages_and_actual_production_overheads": true,
+    "interpretation": "rough scale of required improvement, not a measured production forecast",
+    "missing_current_collector_component": "one pristine native reference per input",
+    "previous_50h_formula": "P*(captured baseline + cleanup + layer15 suffix) + Q*(layer0 + layer7 suffix)",
+    "required_speedup_if_main_alone_must_fit_10h": 6.003545264239535,
+    "status": "assumption_based_source_correction_not_complete_forecast",
+    "timing_transfer_assumptions": [
+      "17 observed C4/scientific windows transfer to all main domains, sizes and event counts",
+      "diagnostic synchronized components transfer to actual optimized production collector",
+      "main layer0/7 positions are subsets of layer15 positions, so baseline/cleanup counted once"
+    ]
+  },
+  "do_not_change": [
+    "sample counts or source groups",
+    "4096/2048 contexts",
+    "FP32/eager/batch1/no KV cache/TF32 policy",
+    "numerical tolerances",
+    "running verification"
+  ],
+  "findings": {
+    "cleanup_source": "src/run_experiment.py:181-186",
+    "current_effect_collector": "measure_input(optimized=True) runs pristine reference + captured baseline + mandatory clean forward, then eight suffix replays per selected layer",
+    "graph_limit": "existing graph has stale function line ranges; findings verified against current source",
+    "last_predictor_position": "input length minus one; ablation local to final input token",
+    "partial_evidence_insufficient_for": "full technical acceptance or acceptance of any future executor",
+    "partial_evidence_sufficient_for": "prioritizing optimization hypotheses",
+    "partial_native_comparisons": 408,
+    "protected_file_sha256": {
+      "README.md": "2f857b3c96f559b5cb063d5c58d123c5f97917d44b20376534b54c145f0920e9",
+      "configs/research.json": "2daadce595cfe6f38747c70c31e07052ed49a926080513873a82abf0ccf24fb4",
+      "src/verify.py": "6d750f101780e36d999dec9d3bc61c931b2d8b60a1079bd96a4f8cf2c259a319"
+    },
+    "reference_forward_source": "src/run_experiment.py:135-145",
+    "source_consumer_review": [
+      "collect calls measure_input and requires exact accepted executor receipt",
+      "optimized_validation compares pristine native and optimized outputs independently",
+      "observation reuse and VerifiedModelSession bind implementation identity; modified code invalidates old receipt/reuse identity",
+      "tests/test_optimized_measurement.py checks native agreement and exception cleanup"
+    ],
+    "suffix_current_scope": "full-shape decoder layers across all original input positions",
+    "suffix_source": "src/run_experiment.py:95-108"
+  },
+  "next_steps": [
+    "Prototype one isolated candidate locally and retain current reference executor. No mutation of frozen packages or old raw receipts.",
+    "Run differential and failure/cleanup CPU tests on the full event outputs, then independently review exact provenance/executor gates.",
+    "Prepare a small baseline-versus-new-candidate GPU comparison spanning code/scientific/C4 and both contexts; reuse verified weight cache, bound all phases to <=20min/$0.40, progress and durable results, one attempt/no retry. No launch authorized now.",
+    "Proceed to research collection only after native acceptance and a measured full-workflow forecast fits the reconciled $12/10h envelope."
+  ],
+  "no_paid_actions": true,
+  "prior_native_evidence": "optimization-l40s-partial-results-2026-10-11.json",
+  "priorities": [
+    {
+      "candidate": "consolidate duplicate pristine reference with mandatory cleanup comparison",
+      "illustrative_best_saving_for_main_hours": 10.033136473131469,
+      "limit": "even this conditional saving leaves about50h main4096; not enough by itself",
+      "order": 1,
+      "preserve": "retain full clean forward, exact recovered logits/NLL, all8 interventions and failure-before-persist; do not simply remove cleanup",
+      "status": "design/prototype pending",
+      "why": "optimized collector currently executes three full forwards per input"
+    },
+    {
+      "candidate": "reuse provably unchanged suffix work and investigate final-token-only suffix calculations",
+      "order": 2,
+      "preserve": "original complete context, natural downstream routing, all8 effects and frozen FP32 tolerances; keep full-shape reference executor",
+      "risk": "mathematical causal-prefix invariance alone does not prove FP32 bitwise prefix equality; changed expert routing can change native GEMM batch shapes. Reuse only verified unchanged inputs/shapes; reduced-shape arithmetic requires independent native agreement. No silent KV-cache setting change.",
+      "status": "experimental hypothesis, no promised speedup",
+      "why": "all8 suffix totals are 7.292s at layer0 and3.900s at layer7 while layer15 is0.0196s"
+    },
+    {
+      "candidate": "profile actual collector component costs before declaring feasibility",
+      "measure": [
+        "pristine/captured/cleanup forwards separately",
+        "attention vs expert suffix work",
+        "hook synchronization and capture",
+        "durable event persistence and peak memory"
+      ],
+      "order": 3,
+      "status": "local CPU fixtures first; actual GPU profile needs separate authorized bounded run",
+      "why": "diagnostic comparison timings differ from production and current estimate omitted a real forward"
+    }
+  ],
+  "recorded_at": "2026-10-11T01:34:46.309310+00:00",
+  "schema_version": 1,
+  "scope": "local optimization investigation; no new GPU resource or research setting changes",
+  "status": "source_audited_optimization_direction_not_implemented_or_gpu_proven"
+}

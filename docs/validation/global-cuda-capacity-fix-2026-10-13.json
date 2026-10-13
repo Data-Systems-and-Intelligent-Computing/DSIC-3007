@@ -1,0 +1,99 @@
+{
+  "recorded_at": "2026-10-13T05:13:00.311362+00:00",
+  "package": "data/optimization/path-b-global-preflight-2026-10-13-v5",
+  "identity_sha256": "3c7a2158bfccaf5b18a38fbc4fc23da1dc06391d58e4846aa7b62783727ae808",
+  "setup": "CPU-only; advertised host CUDA >=12.8; no torch.cuda initialization",
+  "benchmark": "advertised host CUDA >=13.0; unchanged container runtime CUDA13.0; native validation still mandatory",
+  "numerical_implementation_sha256": "52b1c9a3b2a6bfa2e0141d7795a11fa7edff0d8d9b8daa95414dc7e38e61dfbf",
+  "package_and_source_hashes": "pass",
+  "local_regression_tests": {
+    "passed": 76,
+    "seconds": 3.26
+  },
+  "paid_pods_created_by_agent": 0,
+  "cost_and_time_authorization": "unchanged; user runs paid commands; no retries",
+  "dashboard_cuda13_report": "user supplied; same host/pool identity not established",
+  "evidence_directory": "docs/validation/global-cuda-capacity-fix-2026-10-13",
+  "latest_live_check": {
+    "attachment_backend": "official Runpod SDK GraphQL volumeMounts",
+    "available_placements": [
+      {
+        "allowed_cuda_versions": [
+          "13.0"
+        ],
+        "availability": "LOW",
+        "data_center_id": "EU-NL-1",
+        "gpu": "NVIDIA L40S",
+        "gpu_usd_per_hour": 1.09
+      },
+      {
+        "allowed_cuda_versions": [
+          "13.0"
+        ],
+        "availability": "LOW",
+        "data_center_id": "EUR-IS-2",
+        "gpu": "NVIDIA L40S",
+        "gpu_usd_per_hour": 1.09
+      },
+      {
+        "allowed_cuda_versions": [
+          "13.0"
+        ],
+        "availability": "LOW",
+        "data_center_id": "US-TX-4",
+        "gpu": "NVIDIA L40S",
+        "gpu_usd_per_hour": 1.09
+      }
+    ],
+    "blockers": [
+      "fresh pinned model download and checksum verification before benchmark"
+    ],
+    "cuda_capacity_scope": "GPU-wide catalog; exact host CUDA still requires pod read-back",
+    "global_attachment_backend": "official SDK GraphQL volumeMounts",
+    "global_volume_id": "cmv66f04p000007l8gngvd5k4",
+    "gpu": "NVIDIA L40S",
+    "model_path": "/workspace-global/models/OLMoE-fp32",
+    "model_setup_placements": [
+      {
+        "allowed_cuda_versions": [
+          "13.0"
+        ],
+        "availability": "LOW",
+        "data_center_id": "EU-NL-1",
+        "gpu": "NVIDIA L40S",
+        "gpu_usd_per_hour": 1.09
+      },
+      {
+        "allowed_cuda_versions": [
+          "13.0"
+        ],
+        "availability": "LOW",
+        "data_center_id": "EUR-IS-2",
+        "gpu": "NVIDIA L40S",
+        "gpu_usd_per_hour": 1.09
+      },
+      {
+        "allowed_cuda_versions": [
+          "13.0"
+        ],
+        "availability": "LOW",
+        "data_center_id": "US-TX-4",
+        "gpu": "NVIDIA L40S",
+        "gpu_usd_per_hour": 1.09
+      }
+    ],
+    "package_verified": true,
+    "paid_resources_created": 0,
+    "placement_policy": "any_available_data_center; no volume-region filter",
+    "preferred_data_center": "EU-NL-1",
+    "ready_for_paid_run": false,
+    "status": "global_setup_pending",
+    "verified_volume": {
+      "id": "cmv66f04p000007l8gngvd5k4",
+      "name": "yelling_amber_shark"
+    },
+    "volume_identity_evidence": "live GraphQL ID/name read-back",
+    "working_directory": "/tmp/dsic3007-screen-attempts"
+  },
+  "latest_live_check_recorded_at": "2026-10-13T05:13:07.528310+00:00"
+}

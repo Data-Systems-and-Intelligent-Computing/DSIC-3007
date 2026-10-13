@@ -1,0 +1,33 @@
+{
+  "failed_run": "runpod/runs/dsic-screen-20261013T052553-60516a78",
+  "cause": "inherited150s startup cap; SSH readiness not reached; host startup reason unknown",
+  "cleanup": "confirmed",
+  "no_upload_or_model_download_in_failed_resume": true,
+  "setup_startup_seconds": 600,
+  "upload_preflight_seconds_after_ssh": 90,
+  "cash_cap_usd": 0.3,
+  "all_phase_wall_cap_seconds": 900,
+  "cleanup_reserve_seconds": 90,
+  "authorization": {
+    "authorization_id": "global-model-resume-2026-10-13-v2",
+    "parent_run": "runpod/runs/dsic-screen-20261013T051330-477db619",
+    "preceding_resume_run": "runpod/runs/dsic-screen-20261013T052553-60516a78",
+    "startup_seconds": 600,
+    "maximum_usd": 0.3,
+    "maximum_wall_seconds": 900,
+    "maximum_attempts": 1,
+    "operator": "user",
+    "automatic_retry": false
+  },
+  "package": "data/optimization/path-b-global-preflight-2026-10-13-v8",
+  "identity_sha256": "e4acaa22197a9b7bd7e84ae04e71d5d0d32df2a86462b9a68bc328c2b312bebb",
+  "source_hashes": "pass",
+  "science_and_numerical_implementation": "unchanged",
+  "local_tests": {
+    "passed": 80,
+    "seconds": 3.11,
+    "regression": "simulated SSH readiness at180s passes"
+  },
+  "paid_agent_runs": 0,
+  "test_log": "........................................................................ [ 90%]\n........                                                                 [100%]\n80 passed in 3.11s\n"
+}

@@ -1,0 +1,95 @@
+{
+  "attempt": "runpod/runs/dsic-screen-20261011T041923-c13a6277",
+  "cost": {
+    "actual_invoice_and_wallet": "UNKNOWN",
+    "all_previous_attempts_count_toward_original_work_limits": true,
+    "new_paid_retry_authorized_or_launched_by_coordinator": false,
+    "nominal_compute_plus_storage_allowance_usd": 0.04044538731972377,
+    "nominal_compute_usd": 0.03971664160225127
+  },
+  "diagnosis": "Hardcoded120s shared boot/upload/preflight allowance expired; overall1200s lease was not exhausted. WAIT and timeout mislabeled stage budget as attempt lease. Upload throughput is unknown; logs cannot establish it would finish with more time.",
+  "local_fix": {
+    "collector_implementation_unchanged": "23a838e6f838915ce622ee2b63cf9fbd03b3fe10365711a5a95e67f990233304",
+    "deadline_clipping": "startup <= overall work deadline;90s shutdown reserve; operator cash/wall limits further reduce lease",
+    "maximum_aggregate_seconds": 1200,
+    "maximum_planned_cash_usd": 0.4,
+    "no_retry": "unchanged single create/no automatic paid retry",
+    "phase_allowances": {
+      "actual_paired_collector_and_durable_persistence": 240,
+      "cached_weight_verification": 180,
+      "independent_native_checks": 240,
+      "model_hash_load_and_identity": 90,
+      "paired_warmup": 60,
+      "provision_startup_upload_preflight": 240,
+      "receipt_finalization": 30,
+      "retrieval_confirmed_teardown": 120
+    },
+    "phase_sum_seconds": 1200,
+    "planning_not_runtime_proof": true,
+    "progress": "WAIT remaining stage budget; SETUP separately records boot elapsed, stage remaining, overall lease remaining",
+    "science_and_tolerances_unchanged": true,
+    "startup_upload_preflight_seconds": 240
+  },
+  "measured": {
+    "benchmark_started": false,
+    "boot_to_upload_approx_seconds": 81,
+    "collector_measurement_rows": 0,
+    "local_teardown_confirmed": {
+      "confirmed_at": 1791692494.7967935,
+      "pod_id": "o3r9sgr09m4far",
+      "status": "confirmed",
+      "volume_deleted": false
+    },
+    "model_verification_started": false,
+    "old_shared_startup_cap_seconds": 120,
+    "overall_lease_seconds": 1200.0,
+    "stop_reason": "TimeoutError: upload immutable candidate and screens reached the attempt deadline",
+    "total_elapsed_seconds_including_teardown": 131.17422914505005,
+    "upload_before_stop_approx_seconds": 39
+  },
+  "package": {
+    "archives": {
+      "baseline.tar.gz": {
+        "sha256": "0ba3ebce9928c7cb6f980897664dbac529e9d3b847d55c885ee67481a34d6e19",
+        "size_bytes": 308672
+      },
+      "screen.tar.gz": {
+        "sha256": "6ab77c8fc5d3830f1d08d77492bd14523c85a66c987bef58051aec328db4d0ba",
+        "size_bytes": 8725857
+      },
+      "source.tar.gz": {
+        "sha256": "055554e792a6ac2bc773181d64962a390bb83e61fc1e2e22df28df8f2a3102cb",
+        "size_bytes": 329990
+      }
+    },
+    "identity_sha256": "f7982992c672263aaa26550bc7e505760a48d0b6de516573c84244cd04caf286",
+    "path": "data/optimization/paired-collector-2026-10-11-v6",
+    "prior_frozen_packages_preserved": true
+  },
+  "paid_retry_launched": false,
+  "raw_evidence_sha256": {
+    "attempt.json": "a3aafefd9109c107f4466b0dfea1c924c9a44f6d6c3048c6a5aa6c533df4834f",
+    "cleanup.json": "01641d8791235e5fe87063aa9130a0b50278b25e38a00870f27036d0f4c53fec",
+    "console.log": "a86a6a499088ffdf617bfb5d3916c32ffc65c8c9826eb034bad73245518ff121",
+    "result.json": "64f8c66f197ab92b5516a4ab6f76329ea3a5b9ab9792fa55aa7508e65b28839b"
+  },
+  "recorded_at_utc": "2026-10-11T04:32:52.738340+00:00",
+  "remaining_blockers": [
+    "measured upload throughput",
+    "successful cached model/load/paired GPU measurements within reallocated caps",
+    "actual invoice/remaining work cash and clock reconciliation",
+    "fresh live stock/rate/account-pod check before a separately user-invoked attempt"
+  ],
+  "remote_readback": "Fresh GET preflight request did not execute: automatic permission approval review timed out; local teardown receipt confirms deletion at run end. No current API state/wallet inferred.",
+  "schema_version": 1,
+  "status": "v5_stopped_before_measurement_v6_fixed_locally_no_paid_retry",
+  "verification": {
+    "affected_tests": "68 passed in1.17s",
+    "full_suite": "172 passed in21.16s after final v6 changes",
+    "git_diff_check": "PASS",
+    "independent_review": "docs/validation/optimization-upload-timeout-review-2026-10-11.json",
+    "py_compile": "PASS",
+    "regressions": "81s boot+100s upload with1200 and300s leases; clipped teardown reserve; shared phase cap total and adapter/spec parity",
+    "verify_package": "PASS current archives and source bindings"
+  }
+}

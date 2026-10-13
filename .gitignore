@@ -18,6 +18,7 @@
 !/data/manifests/*.md
 !/data/manifests/*.json
 !/data/manifests/*.csv
+/data/manifests/*.local.json
 /data/samples/*
 !/data/samples/*.md
 !/data/samples/*.csv
@@ -55,3 +56,5 @@ __pycache__/
 /runpod/terraform.tfvars
 /runpod/*.auto.tfvars
 /runpod/deployment.local.json
+/runpod/*.local.json
+/runpod/runs/

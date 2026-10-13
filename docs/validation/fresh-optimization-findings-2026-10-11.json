@@ -1,0 +1,734 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-11",
+  "status": "findings_only_no_implementation_or_paid_work",
+  "workspace": "/home/arya/School/TA/DSIC-3007",
+  "method": {
+    "order": [
+      "Read handoff and current README/config/WORKFLOW authority",
+      "Inspect current collector/model/capture/validator/reuse/budget source and exact completed L40S raw artifacts",
+      "Refresh stale dsic3007-fresh graph without filesystem persistence; verify graph findings against source",
+      "Form independent cost accounting and candidate conclusions",
+      "Consult and reconcile prior execution plan/TODO/next-direction and supporting saved audits",
+      "Recompute prepared-inventory main census and run existing local suite"
+    ],
+    "graph_limit": "Initial signatures were stale; refreshed fast index. Some generic add/get/append graph edges remain false matches; direct current source authoritative.",
+    "remote_operations": "none; no secrets, cloud API, model downloads or GPU work",
+    "snapshot_commands": "No existing Makefile/agent snapshot scripts present; used existing artifacts, source and test suite. No new diagnostic infrastructure."
+  },
+  "preserved_contracts": [
+    "4096 original input tokens primary, final predictor, actual next-token target outside input; matched 2048 sensitivity only.",
+    "Original FP32 weights at c6f6954f182ffdd9f6ab4f4d772714b7dcd6836b; eager attention/experts; TF32 off; deterministic algorithms; batch one; use_cache=False; no KV cache.",
+    "All eight independently ablated naturally active experts per event; natural downstream routing; no replacement, renormalization, subtraction shortcut, outcome-dependent sampling or dropped layers.",
+    "Mixture/logits atol=1e-6, rtol=1e-5; NLL absolute tolerance 1e-6 nats; routing IDs/FP32 coefficient bytes, survivors, local untargeted rows and cleanup exact.",
+    "Accepted calibration/probe/pilot/main counts, whole code groups, equal-document/domain weighting, bootstrap-t/Holm and precision requirements remain fixed.",
+    "Raw receipts, sealed plans/packages and any verification remain preserved; no paid work authorized."
+  ],
+  "current_implementation_sha256": "f7a7e92c7ac5c92368467da986ea413bffb33b1cda8665b903bea32b8a1b5d62",
+  "raw_evidence": {
+    "attempt": "runpod/runs/dsic-screen-20261011T010215-fb295d6f",
+    "sha256": {
+      "runpod/runs/dsic-screen-20261011T010215-fb295d6f/console.log": "d3588e97d1dce076597ae4ff03aee4a5bfacc3d4587100c37e3b8b6e65b5637c",
+      "runpod/runs/dsic-screen-20261011T010215-fb295d6f/result.json": "edc1826594db61d57c69ea370b583dc4fe246aac37022b9fa62156a56f3f0e9d",
+      "runpod/runs/dsic-screen-20261011T010215-fb295d6f/cleanup.json": "8360cf5965d611eb2847ba2e57c63d9ea335921eaaf38bfac0c79b0f7ca186c6",
+      "runpod/runs/dsic-screen-20261011T010215-fb295d6f/results/runner-receipt.json": "9055b011f4678a53fb62889bf738653cb744defd09509be337915d73791c23b7",
+      "runpod/runs/dsic-screen-20261011T010215-fb295d6f/results/validation.json": "24c8a4cb29d3b68cb786276d0e8efd4bfb3394e17bb4a666083d8c2e0a6d1a5c",
+      "runpod/runs/dsic-screen-20261011T010215-fb295d6f/results/validation.json.cases.jsonl": "bf845ce3e32a091010aca5f7b83abe50aba562b760cdf8f27f57558da5ee76aa",
+      "runpod/runs/dsic-screen-20261011T010215-fb295d6f/results/validation.log": "95eb7965bfc6cd2e623250b028c0d008c8b17e01be7a4d27b6622fa05810d4e6",
+      "runpod/runs/dsic-screen-20261011T010215-fb295d6f/results/gpu-samples.jsonl": "c44e3a68dc29224f5fa34bdfaab036d52c946b0c4ac11532a0a7decb85b7b452",
+      "runpod/runs/dsic-screen-20261011T010215-fb295d6f/results/weights.log": "f7c6555a0fbb77a40783d2ac9b804c089c269571943a4bc35b4e3bec841caced"
+    },
+    "source_sha256": {
+      "src/run_experiment.py": "72a0c9ab882727c3f2aa03c71c81c80c6fc7eab4afcb7accb997c341f6a7fb03",
+      "src/interventions.py": "75848b911c22413889dee878c074d198d289ae47afbee02d6c294e74b6eaf093",
+      "src/model.py": "17938c9de337300ba596b160639c951e82a2b23a05f2cee304d503489ddf47e2",
+      "src/optimized_validation.py": "a9c5932d72739162050f6b6fb31f6b4c63c21ad10fa6a7a7757e57a794c33c67",
+      "src/observation_contract.py": "a747e6fa455bcc3a131bc1e4eac8125cb73a5d1cb117b129e5f01619fd948744",
+      "src/reuse.py": "6eeb60d221cc1a35a1dd9a442cc3fe4f8eb13eb1c79d4f0ee57e58ef91091f8f",
+      "src/execution_budget.py": "0b20a453e7504c2fd047eea1c3929bdb753ae432b5d1ea91b69f80605a1c9230",
+      "src/artifacts.py": "6d3dd4c382420c27d764152b9065b9a07eef8e899a79509991cf74b8c80f482b",
+      "src/planning.py": "f9af4bd447846671dfd3b7b445a653e94050a0f0670bc371271004099fac850c",
+      "src/preparation.py": "84cf737ddc0266601af729fdceffb744488d763ef26db02db301894c1fe0a45e",
+      "src/verify.py": "6d750f101780e36d999dec9d3bc61c931b2d8b60a1079bd96a4f8cf2c259a319",
+      "src/workflow.py": "0d68633acf19bcb665a501fffeef25d04d1e2557fbe58c9e46fd3fed263fa638"
+    },
+    "source_matches_registry_v2_archive": true,
+    "installed_transformers_modeling_source_matches_receipt": true,
+    "plan_manifest_sha256": {
+      "4096": "d2f93f97e395f4bd7534dde69752066e177ef586f90571a357f19e6abfa4efa9",
+      "2048": "e46736e9d346007e3069b61cb25da00a23b0df38a2ca7471272e89fe8c9644ad"
+    }
+  },
+  "measured_diagnostic": {
+    "status": "incomplete",
+    "expected_inputs": 72,
+    "completed_inputs": 17,
+    "incomplete_next_input": 1,
+    "expected_comparisons": 1728,
+    "completed_unique_comparisons": 408,
+    "completed_domains": {
+      "c4": 12,
+      "scientific": 5
+    },
+    "completed_contexts": [
+      4096
+    ],
+    "unmeasured_domains": [
+      "code"
+    ],
+    "unmeasured_contexts": [
+      2048
+    ],
+    "error_maxima": {
+      "nll_abs_error": 0.0,
+      "max_logit_abs_error": 0.0,
+      "max_mixture_abs_error": 0.0
+    },
+    "all_completed_cleanup_and_parameter_checks_pass": true,
+    "image_digest": null,
+    "timings": {
+      "native_baseline_seconds": {
+        "n": 17,
+        "sum": 16.033735955599695,
+        "mean": 0.943160938564688,
+        "median": 0.9198624822311103,
+        "min": 0.9107852298766375,
+        "max": 1.321514436043799
+      },
+      "contribution_baseline_seconds": {
+        "n": 17,
+        "sum": 15.88329394813627,
+        "mean": 0.9343114087138983,
+        "median": 0.9357346100732684,
+        "min": 0.9182922570034862,
+        "max": 0.9402408362366259
+      },
+      "cleanup_seconds": {
+        "n": 17,
+        "sum": 15.61262223450467,
+        "mean": 0.9183895432061571,
+        "median": 0.9181692539714277,
+        "min": 0.9125636401586235,
+        "max": 0.9260754869319499
+      },
+      "synchronized_comparison_total_seconds": {
+        "n": 17,
+        "sum": 632.4927065474913,
+        "mean": 37.20545332632302,
+        "median": 37.18038029083982,
+        "min": 36.94761504838243,
+        "max": 37.845228084828705
+      }
+    },
+    "per_layer": {
+      "0": {
+        "comparisons": 136,
+        "downstream_decoder_layers_per_replay": 15,
+        "native_full_forward_seconds": {
+          "n": 136,
+          "mean": 0.966918690910782,
+          "median": 0.952885814011097,
+          "sum": 131.50094196386635,
+          "min": 0.9309449009597301,
+          "max": 1.127562012989074,
+          "mean_eight_experts_seconds": 7.735349527286256
+        },
+        "optimized_suffix_seconds": {
+          "n": 136,
+          "mean": 0.9115424118833343,
+          "median": 0.8932662841398269,
+          "sum": 123.96976801613346,
+          "min": 0.8733807988464832,
+          "max": 1.0803974536247551,
+          "mean_eight_experts_seconds": 7.292339295066674
+        }
+      },
+      "7": {
+        "comparisons": 136,
+        "downstream_decoder_layers_per_replay": 8,
+        "native_full_forward_seconds": {
+          "n": 136,
+          "mean": 0.9421200261259561,
+          "median": 0.9362793790642172,
+          "sum": 128.12832355313003,
+          "min": 0.9197360319085419,
+          "max": 1.1103217331692576,
+          "mean_eight_experts_seconds": 7.536960209007649
+        },
+        "optimized_suffix_seconds": {
+          "n": 136,
+          "mean": 0.4875038404134102,
+          "median": 0.4761137589812279,
+          "sum": 66.30052229622379,
+          "min": 0.46732223220169544,
+          "max": 0.6693001920357347,
+          "mean_eight_experts_seconds": 3.9000307233072817
+        }
+      },
+      "15": {
+        "comparisons": 136,
+        "downstream_decoder_layers_per_replay": 0,
+        "native_full_forward_seconds": {
+          "n": 136,
+          "mean": 0.9185490523026708,
+          "median": 0.9190684042405337,
+          "sum": 124.92267111316323,
+          "min": 0.9041596292518079,
+          "max": 0.9268668810836971,
+          "mean_eight_experts_seconds": 7.3483924184213665
+        },
+        "optimized_suffix_seconds": {
+          "n": 136,
+          "mean": 0.0024439167498391777,
+          "median": 0.0024489015340805054,
+          "sum": 0.3323726779781282,
+          "min": 0.0023767203092575073,
+          "max": 0.0025479132309556007,
+          "mean_eight_experts_seconds": 0.01955133399871342
+        }
+      }
+    },
+    "timed_operations_seconds": 622.6842517587356,
+    "within_input_unclassified_seconds": 9.808454788755625,
+    "unclassified_scope": "Checks, hook registration, duplicate recomposition, progress writes and dispatch outside explicitly timed forward blocks. Copies/route packing inside forward blocks are not isolated and cannot be inferred from this residual.",
+    "completed_case_persistence_first_write_sum_seconds": 0.23023133166134357,
+    "persistence_scope": "Excludes per-expert progress writes and each persistence_timing row own fsync. Not production persistence.",
+    "gpu_peak_allocated_bytes": 30875910144,
+    "gpu_peak_reserved_bytes": 33067892736,
+    "host_peak_rss_bytes": 28602888192,
+    "telemetry_samples": 78,
+    "memory_scope": "Observed incomplete diagnostic maxima, not full collector/all-context peak bounds"
+  },
+  "lifecycle_phases": {
+    "weights_stage_seconds": 258.0708394050598,
+    "weights_bytes": 27679451403,
+    "weights_stage_scope": "Acquisition plus each-file hash and second verify_model full hash; no download/hash subphase timers.",
+    "validator_subprocess_seconds": 670.2798178195953,
+    "validator_receipt_elapsed_seconds": 668.949267857708,
+    "load_complete_elapsed_log_rounded_seconds": 34.0,
+    "load_start_elapsed_log_rounded_seconds": 0.2,
+    "load_scope": "Approximately 33.8s model acquire including verify_model hashes, safetensors dtype checks and loading. No isolated hashing/load evidence.",
+    "completed_input_comparison_seconds": 632.4927065474913,
+    "incomplete_input18_seconds": 1.8600394972600043,
+    "local_attempt_elapsed_seconds": 1094.1905744075775,
+    "remote_runner_elapsed_seconds": 934.9246773719788,
+    "console_retrieval_teardown_interval_approx_seconds": 27,
+    "unclassified_local_vs_remote_seconds": 159.26589703559875,
+    "teardown": "cleanup.json confirmed attempt pod deleted; volume retained. Saved billing readback records both attempt pods absent at 01:27 UTC; no live read performed now."
+  },
+  "source_accounting": {
+    "unit": "one physical cache-miss input window, with L requested effect layers",
+    "native_effects": {
+      "full_forwards_formula": "2+8L",
+      "all_layer_full_forwards": 26,
+      "primary_only_full_forwards": 10,
+      "suffix_replays": 0
+    },
+    "optimized_effects_current": {
+      "full_forwards": 3,
+      "suffix_replays_formula": "8L",
+      "suffix_decoder_calls_formula": "8*sum(15-layer)",
+      "all_layer_suffix_replays": 24,
+      "all_layer_suffix_decoder_calls": 184
+    },
+    "optimized_effects_rank1": {
+      "full_forwards": 2,
+      "suffix_replays_formula": "8L"
+    },
+    "calibration_probe_native": {
+      "full_forwards": 2,
+      "effect_forwards": 0,
+      "calibration": "all token routes/weights at layers 0/7/15; probe predictor routes only"
+    },
+    "diagnostic_input": {
+      "full_forwards_formula": "3+8L",
+      "all_layer_full_forwards": 27,
+      "suffix_replays": 24,
+      "duplicate_recompositions": 24,
+      "downstream_full_window_route_pack_calls": 368,
+      "explicit_synchronized_clock_calls": 104,
+      "additional_memory_metrics_synchronization": 1,
+      "case_jsonl_fsync_writes": 26
+    },
+    "collector_explicit_sync_calls_formula": "4+8L on CUDA; 28 for L=3, 12 for L=1, 4 for routing-only; scalar finite checks, NLL float(), routing tolist(), where/nonzero and native expert control flow add implicit syncs.",
+    "collector_durable_writes": "One Journal.append flush/fsync per missing/reused complete layer event; one timing sidecar flush/fsync per physical invocation. L=3 -> 4 append/fsync writes; L=1 -> 2. Failure row flush/fsync on exception; initial identity/receipt atomic fsync; seal hashes all bundle files and fsyncs manifest.",
+    "native_mechanics_not_collector": "verify_native costs 13 full forwards per layer (baseline +2 repeats +noop +8 ablations +cleanup), plus 10 independent expert reconstruct loops/layer. With all three layers: 39 full forwards and 30 reconstruction loops/input; 304 paired technical inputs imply 11856 full forwards and 9120 reconstruction loops, before candidate diagnostic validation.",
+    "timing_semantics": "Shared baseline/cleanup/input_total repeated on layer events; count once per physical input, each layer effect once. measure_input total excludes Journal persistence; outer sidecar total includes event persistence/reuse but is sampled before own sidecar fsync. Profile/forecast can use max(total,component sum); separately bound own sidecar write, seal, setup/transfer/final CPU."
+  },
+  "minimum_main_census": {
+    "status": "recomputed_from_checksum_verified_prepared_inventory_not_main_freeze",
+    "prepared_manifest_sha256": "d3321553da95fb1853b1b3e83ad486b1414ea92ba6ed2fcd53c4b30f7fb59ccd",
+    "domains": {
+      "scientific": {
+        "documents": 200,
+        "groups": 200,
+        "P": 12755,
+        "Q": 3200
+      },
+      "code": {
+        "documents": 205,
+        "groups": 200,
+        "P": 12957,
+        "Q": 3278
+      },
+      "c4": {
+        "documents": 200,
+        "groups": 190,
+        "P": 12584,
+        "Q": 3199
+      }
+    },
+    "P": 38296,
+    "Q_each_secondary_layer": 9677,
+    "native_full_forwards": 537792,
+    "optimized_full_forwards": 114888,
+    "rank1_full_forwards": 76592,
+    "suffix_replays": 461200,
+    "suffix_decoder_calls": 1780568,
+    "main_window_layer_sets": "Q windows have all three layers; P-Q have layer15 only. Original main order is [15,0,7]."
+  },
+  "conditional_scale_example": {
+    "label": "assumption_based_diagnostic_component_transfer_not_production_forecast",
+    "formula": "P*(native reference + contribution baseline + cleanup +8 suffix15) + Q*(8 suffix0 +8 suffix7)",
+    "current_main_hours": 60.03545264239535,
+    "rank1_main_hours": 50.00231616926388,
+    "rank1_saving_hours": 10.033136473131469,
+    "rank1_shared_forwards_alone_hours": 19.7086210152029,
+    "all_layer_component_seconds_current": 14.007783242857414,
+    "primary_only_component_seconds_current": 2.8154132244834567,
+    "all_layer_component_seconds_rank1": 13.064622304292726,
+    "primary_only_component_seconds_rank1": 1.8722522859187687,
+    "assumptions": [
+      "Diagnostic components transfer to collector without instrumentation bias",
+      "Observed C4/scientific windows transfer to unseen code and all main windows",
+      "Current minimum candidate equals final pilot-approved allocation"
+    ],
+    "omitted": [
+      "actual collector copies/checks/persistence and timing-sidecar writes",
+      "setup/hash/load/staging/sealing/teardown",
+      "native mechanics/full optimized acceptance",
+      "matched calibration/probes/pilot/sensitivity",
+      "analysis/reporting/host/storage wait/reserve"
+    ],
+    "feasibility": "UNKNOWN; approximately 60/50h illustrations are not measured production forecasts or universal lower bounds"
+  },
+  "identity_and_consumers": [
+    "implementation_identity hashes model.py, interventions.py, run_experiment.py, verify.py, artifacts.py, reuse.py, observation_contract.py and optimized_validation.py. Any candidate edit there changes executor identity.",
+    "collect requires exact native mechanics executor; optimized effects additionally require full_technical PASS with complete checks, contexts, layers, source review and technical plan hashes. Screen PASS or partial zero errors cannot authorize collection.",
+    "VerifiedModelSession refuses implementation/runtime/catalog/seed/directory changes and parameter mutation; do not switch hashes in a live session.",
+    "SealedMeasurementReuse and raw_observation_key bind exact executor including execution mode, dataset/source/content/token/window/predictor/target/layer/operator/stage. Candidate cannot consume old-executor measurements as cache hits.",
+    "Calibration freeze and main freeze also bind executor. Freeze the production implementation before calibration/pilot, or obtain explicit compatibility handling without relabeling old evidence.",
+    "Preserve event IDs, raw schemas and complete-event fsync, regenerate consuming sampling metadata and immutable raw-source links on exact reuse; source timings are not new measured costs."
+  ],
+  "ranked_optimizations": [
+    {
+      "rank": 1,
+      "id": "consolidate_reference_with_cleanup",
+      "title": "Use mandatory final cleanup as the independent native reference",
+      "status": "implementation_ready_proposal_not_implemented",
+      "risk_level": "low_to_medium_control_flow_and_evidence_risk",
+      "locations": [
+        {
+          "path": "src/run_experiment.py",
+          "function": "measure_input",
+          "lines": "134-146,179-202"
+        },
+        {
+          "path": "src/run_experiment.py",
+          "function": "collect",
+          "lines": "367-418"
+        },
+        {
+          "path": "src/optimized_validation.py",
+          "function": "_input_case",
+          "lines": "183-217,311-327",
+          "role": "preserve independent validator"
+        },
+        {
+          "path": "tests/test_optimized_measurement.py",
+          "function": "test_suffix_replay_matches_native_all_eight_effects_and_cleans_up",
+          "lines": "25-49"
+        }
+      ],
+      "supporting_evidence": [
+        {
+          "label": "source_verified",
+          "claim": "Optimized collector executes plain reference, captured baseline, then exact plain cleanup. Events are returned and appended only after cleanup succeeds."
+        },
+        {
+          "label": "measured_diagnostic",
+          "claim": "17 completed inputs: native baseline mean 0.943160939 s; contribution baseline 0.934311409 s; plain cleanup 0.918389543 s. Not timings of measure_input(optimized=True)."
+        },
+        {
+          "label": "source_inferred",
+          "claim": "Removing the initial plain reference saves exactly one full model forward per cache-miss optimized physical input: three full forwards become two. No suffix changes."
+        }
+      ],
+      "proposed_change": [
+        "For optimized effects only, keep the contribution-captured baseline at current native full shapes and all eight independent suffix branches. Remove the initial pristine reference forward and its early comparison.",
+        "After hooks/overrides are removed and all branches are complete, execute the existing plain full cleanup forward. Use it as the independent reference for the captured baseline and preserve cleaned_nll == baseline plus torch.equal(cleaned_logits, captured_logits). Do not relax exact cleanup to assert_close.",
+        "No event returns or Journal.append until the final independent/exact comparison passes. On exception, restore hooks/forward overrides; leave the input incomplete and retain existing failure journal semantics.",
+        "Keep native, calibration and probe branches unchanged. Keep _input_case two independent baselines and separate full native ablations; validation overhead is intentional.",
+        "Retain shared_seconds as the measured captured-baseline/setup component, cleanup_seconds as the single final full reference, per-layer eight-effect seconds, and physical input total. Keep old timing aliases for planning consumers. Use a distinct candidate execution-mode identifier and future receipts."
+      ],
+      "operation_rationale": {
+        "optimized_full_forwards_before": 3,
+        "optimized_full_forwards_after": 2,
+        "unchanged_suffix_replays": "8 * len(requested cache-miss effect layers)",
+        "main_minimum_full_forward_saving": 38296,
+        "speedup_status": "UNKNOWN until actual paired collector benchmark",
+        "conditional_diagnostic_transfer_saving_seconds_per_input": 0.943160938564688,
+        "conditional_primary_only_ratio_before_over_after": 1.503757397257951,
+        "conditional_all_layer_ratio_before_over_after": 1.0721919789640446
+      },
+      "memory_consequences": "Removes independent reference logits and one forward lifetime, but captures still dominate. No assumed peak-fit gain; measure allocated/reserved/RSS and whole-device telemetry. No new persistent GPU cache.",
+      "numerical_and_behavior_risks": [
+        "Baseline equivalence failure is detected later, after eight branches, but still before any complete event persistence; explicitly test this delayed failure.",
+        "Existing exact cleanup is stronger than the early tolerant predictor check, but it does not replace the validator checks of local mixtures, routes, downstream coefficients and parameter integrity.",
+        "Candidate changes invalidate prior receipts/session/reuse/frozen calibration identity even when event numerical payloads match."
+      ],
+      "acceptance_tests": {
+        "local_differential": [
+          "Extend existing tiny 16-layer packed OLMoE fixtures for layers [15], [0,7,15] and ordering [15,0,7]; compare native, preserved optimized baseline and candidate raw routes/weight hex/baseline/all eight ablated NLLs/deltas/event IDs; exclude actual timing/resource differences.",
+          "Instrument forward dispatch: candidate has exactly two full forwards plus eight suffixes per requested layer; native/calibration/probe operation counts are unchanged. Confirm shared times are counted once per physical input.",
+          "Inject captured-baseline/logit corruption that passes individual effect construction; final native reference must reject before any Journal.append. Retain exact equality even for a discrepancy inside atol/rtol.",
+          "Test partial-layer resume, exact raw reuse, source/executor/context/token/target mismatches and timing-sidecar failure; candidate rejects old receipts and old-executor reuse."
+        ],
+        "failure_cleanup": [
+          "Inject baseline expert failure, seventh suffix failure, nonfinite output and cleanup-forward failure; every expert override, routing hook, layer/residual hook is removed, parameters unchanged, subsequent plain forward recovers baseline.",
+          "No failed input creates a complete event; retain existing journal lock cleanup, torn-tail rejection and immutable sealed output behavior. Sidecar failure after successful raw event fsync remains a recorded failure with UNKNOWN missing timing on resume."
+        ],
+        "native_gpu": [
+          "Bounded diagnostic below compares actual current and candidate collector outputs with independently executed native full-forward ablations on all domains, both contexts, layers 0/7/15 and all eight experts.",
+          "Before production, require fresh executor-specific native mechanics receipts and full_technical optimized acceptance over every accepted technical input at both contexts; frozen tolerances, exact routes/survivors/untargeted local rows and cleanup, natural downstream routes vs native ablation, unchanged parameters.",
+          "Benchmark collector wall time including persistence; do not claim speedup from counts, the partial screen or CPU fixtures."
+        ]
+      },
+      "affected_consumers": [
+        "workflow.main collect/collect-sequence",
+        "run_experiment.collect",
+        "optimized_validation._input_case (reference retained)",
+        "planning.plan_main timing aliases",
+        "execution_budget profiles/forecast",
+        "VerifiedModelSession",
+        "SealedMeasurementReuse/raw_observation_key",
+        "calibration/main executor freezes",
+        "offline analyze/reporting raw schema"
+      ],
+      "implementation_slice": "Only this optimized measure_input scheduling change, candidate mode/receipt plumbing, differential and failure/cleanup regressions. Keep decoder math, captures, validator and science unchanged."
+    },
+    {
+      "rank": 2,
+      "id": "guarded_downstream_expert_batch_reuse",
+      "title": "Reuse only complete unchanged downstream expert batches at native shapes",
+      "status": "conditional_prototype_after_component_profile",
+      "risk_level": "high_numerical_and_memory_risk",
+      "locations": [
+        {
+          "path": "src/run_experiment.py",
+          "function": "_replay_from_layer",
+          "lines": "95-110"
+        },
+        {
+          "path": "src/interventions.py",
+          "function": "RoutingCapture._native_forward_with_capture",
+          "lines": "91-112"
+        },
+        {
+          "path": "src/interventions.py",
+          "function": "RoutingCapture.recompose_for_target/remove",
+          "lines": "114-155,203-215"
+        },
+        {
+          "path": "src/optimized_validation.py",
+          "function": "_input_case",
+          "lines": "228-321"
+        },
+        {
+          "path": "transformers/models/olmoe/modeling_olmoe.py",
+          "function": "OlmoeExperts.forward",
+          "lines": "314-338",
+          "source_sha256": "498ab5720463327ab7235f3a3103aefa49d2f93da10c3cfb7ef7002774b05531"
+        }
+      ],
+      "supporting_evidence": [
+        {
+          "label": "source_verified",
+          "claim": "Every early-layer suffix runs full native downstream attention/router/expert loops over the entire original window. Intervention is at the final input token."
+        },
+        {
+          "label": "measured_diagnostic",
+          "claim": "Eight suffixes total mean 7.292339295 s at layer 0 and 3.900030723 s at layer 7, versus 0.019551334 s at layer 15. Expert-vs-attention/dispatch split unmeasured."
+        },
+        {
+          "label": "conditional_operation_count",
+          "claim": "If prefix hidden bytes/routes and native expert batch layouts remain identical, experts outside the baseline/current predictor active-set union have unchanged batches. Union is at most 16 of 64; savings depend on which experts are actually hit and on exact guard success."
+        }
+      ],
+      "proposed_change": [
+        "First profile native suffix attention, routing/expert GEMMs, indexing/scatter, guards and synchronization. Start a narrowly bounded prototype at layer 8 for layer-7 interventions; expand to 8..15 only after measured benefit and numerical agreement.",
+        "During one immutable per-input baseline, record downstream per-expert unweighted output, exact ordered row/slot map and complete FP32 input dependency; parameters/version and input identity remain bound. Do not reuse across windows or interventions from mutated buffers.",
+        "In each branch continue full-shape native eager attention and natural router. Reuse an expert output only when its entire input matrix, ordered row mapping and shape match the baseline exactly and parameters are unchanged; conservative mismatch recomputes the full current expert batch.",
+        "Always run changed expert batches at their actual native branch sizes and row order. Reweight with current branch coefficients and rebuild the complete mixture from zero in ascending native expert/index_add_ order. Do not subtract from baseline mixture, freeze downstream routes or compute only a predictor GEMV.",
+        "Keep use_cache=False, past_key_values=None and full original context; this cache concerns expert outputs only, not attention keys/values. Limit lifetime to one physical input; remove overrides in finally and discard buffers on all failures.",
+        "Persist per-layer hit/miss batch/row counts, guard/recompute/copy/scatter time and memory during diagnosis. If shape changes alter prefix bits, guard misses are expected and savings may vanish; no silent equality relaxation."
+      ],
+      "operation_rationale": {
+        "current_suffix_decoder_calls_per_all_layer_input": 184,
+        "main_minimum_suffix_decoder_calls": 1780568,
+        "conditional_per_downstream_layer_changed_expert_union_max": 16,
+        "expert_gemm_fraction_remaining_if_all_64_hit_and_uniform_batches": "at most 16/64 only under exact unchanged dependency assumptions; not a latency prediction",
+        "speedup_status": "UNKNOWN; no measured expert/attention split or guard hit-rate"
+      },
+      "memory_consequences": "Cache unweighted expert rows costs approximately 4*W*8*H bytes/layer plus exact input/mapping and baseline buffers. For illustrative H=2048, W=4096 this is 256 MiB/layer; eight layers need 2 GiB and 15 need 3.75 GiB for outputs alone. H=2048 is a sizing example, not a verified configuration value here. Add input snapshots, masks, residuals, temporary tensors and allocator reserve. No fit claim from current 30.88GB allocated/33.07GB reserved maxima.",
+      "numerical_and_behavior_risks": [
+        "Causal prefix invariance is mathematical, not FP32 bitwise proof. Changed predictor routing changes expert GEMM batch sizes and can change prefix row rounding; exact whole-input guards must catch this.",
+        "Changing scatter order, skipping a zero contribution, reduced-shape GEMV or reusing weighted outputs under changed coefficients can break frozen tolerances.",
+        "Cache guards/CPU-GPU sync and storage may cost more than recomputation; dense eager attention remains quadratic and unchanged.",
+        "Overrides must be installed only on candidate suffixes. Independent native validation must never consume accelerated cached outputs."
+      ],
+      "acceptance_tests": {
+        "local_differential": [
+          "Add packed-expert fixtures with stable and changed predictor expert sets, expert batch row-count changes, a predictor-only expert, coefficient ties, non-contiguous inputs and repeated branches from immutable buffers.",
+          "Compare cached output and full current native experts at identical shapes; exact row IDs/coefficient bytes/prefix checks, tolerance mixture/logits/NLL and final raw effects.",
+          "Deliberately perturb an earlier prefix hidden row, row order, shape or coefficient; prove guard miss/recompute or fail closed, never stale reuse.",
+          "Verify cache disabled for native/calibration/probe paths, stage/window isolation, mixed hit/miss branches and fallback behavior."
+        ],
+        "failure_cleanup": [
+          "Inject failure at cache capture, guard, GEMM, scatter and later decoder layer; restore every override/hook and preserve parameters; release buffers and recover native baseline with no complete failed event."
+        ],
+        "native_gpu": [
+          "Require separate candidate-identity full native comparison for both contexts/all domains/all eight experts/early layers, including exact downstream routes and local untargeted rows; do not reuse rank-1 acceptance.",
+          "Retain only if paired actual collector total improves beyond observed timing variation with positive memory headroom and bounded guard costs; otherwise retain full-shape fallback and reject candidate."
+        ]
+      },
+      "affected_consumers": [
+        "_replay_from_layer",
+        "RoutingCapture baseline capture and remove",
+        "independent _input_case",
+        "collect receipt/mode gates",
+        "implementation/session/raw reuse identities",
+        "timing forecast and memory profiles"
+      ],
+      "implementation_slice": "After rank 1 and profiling, prototype one downstream MoE layer for layer-7 replay with exact whole-batch guards; no token-only attention or KV cache."
+    }
+  ],
+  "first_implementation_slice": {
+    "candidate_id": "consolidate_reference_with_cleanup",
+    "owner": "previous-session coordinator",
+    "changes": "Only this optimized measure_input scheduling change, candidate mode/receipt plumbing, differential and failure/cleanup regressions. Keep decoder math, captures, validator and science unchanged.",
+    "excluded": "No suffix arithmetic, downstream cache, native validator simplification, tolerance/science changes or removal of final full cleanup.",
+    "acceptance": "Local differential/failure counts and schema tests, then proposed bounded GPU diagnostic; fresh full technical acceptance remains required before collection."
+  },
+  "benchmark_proposal": {
+    "status": "proposal_only_NOT_authorized_or_prepared",
+    "target_candidate": "consolidate_reference_with_cleanup",
+    "purpose": "Measure actual collector schedule versus preserved current optimized collector, with independent native numerical reference; diagnostic outputs cannot authorize scientific collection.",
+    "maximum_all_phase_wall_seconds": 1200,
+    "maximum_all_in_cost_usd": 0.4,
+    "additional_limit": "Further reduce by reconciled remaining cash/time and live all-in quote. Never presume unspent $12 or ten hours now.",
+    "hardware": "One L40S in retained-volume region, original pinned runtime and weight cache; host RAM >=64GB proposed. Check other running verification before launch; do not change or compete with it.",
+    "image_identity": "Future declared digest propagated by reviewed image-identity-v3 helper and checked against frozen requested image; record declaration vs attestation accurately. Cannot relabel old null receipt.",
+    "weights": "Reuse existing verified cache; rehash required assets; no weight redownload. Missing/corrupt cache stops attempt.",
+    "selection": [
+      {
+        "input_id": "03eaf4fa4d52e6dff5f3b24b0e8d2994e13ea36fcafba67c7bf199f09f8e80b3",
+        "document_id": "9ff001ac599b74202da5c6e2e040caaeb04215fb89e360264fcb0b3e23be20f4",
+        "domain": "c4",
+        "source_group": "make10louder.co.uk",
+        "context_length": 4096,
+        "predictor_position": 4095,
+        "target_id": 261,
+        "sample_order": 0,
+        "pair_order": "baseline_then_candidate"
+      },
+      {
+        "input_id": "25fa91b5a3e5053e115ab9abbcef3068eb50471808e2a96759a7bbb47488f32d",
+        "document_id": "1ad97fee7fe1d35e106926e7a29bb2253521943913c4ac7b418d9c2ecfe9aca4",
+        "domain": "scientific",
+        "source_group": "1413836",
+        "context_length": 2048,
+        "predictor_position": 4095,
+        "target_id": 6046,
+        "sample_order": 0,
+        "pair_order": "candidate_then_baseline"
+      },
+      {
+        "input_id": "5c095561ce2c001c260435555de2c2bfc05c4d00551e3ac34e4a3060618aa696",
+        "document_id": "34deb7f6e84bafbe6bbc85d4884237ed9a0e2fda02ab9b3385d3045c36076e29",
+        "domain": "code",
+        "source_group": "iotexpert/docmgr",
+        "context_length": 4096,
+        "predictor_position": 4095,
+        "target_id": 6647,
+        "sample_order": 0,
+        "pair_order": "baseline_then_candidate"
+      },
+      {
+        "input_id": "b13680b131af949a5d145ea37d0452140d41742e891e8f3efe39a4f559aaea84",
+        "document_id": "9ff001ac599b74202da5c6e2e040caaeb04215fb89e360264fcb0b3e23be20f4",
+        "domain": "c4",
+        "source_group": "make10louder.co.uk",
+        "context_length": 2048,
+        "predictor_position": 4095,
+        "target_id": 261,
+        "sample_order": 0,
+        "pair_order": "candidate_then_baseline"
+      },
+      {
+        "input_id": "caa20ee78b858632dc01dd1427b3e6ef02b3d112d441232404c5174da9e5135a",
+        "document_id": "1ad97fee7fe1d35e106926e7a29bb2253521943913c4ac7b418d9c2ecfe9aca4",
+        "domain": "scientific",
+        "source_group": "1413836",
+        "context_length": 4096,
+        "predictor_position": 4095,
+        "target_id": 6046,
+        "sample_order": 0,
+        "pair_order": "baseline_then_candidate"
+      },
+      {
+        "input_id": "04599fbea87a37f411b0111ac16ba0c2db934b3d081c05d36a55fb50049d9a4e",
+        "document_id": "34deb7f6e84bafbe6bbc85d4884237ed9a0e2fda02ab9b3385d3045c36076e29",
+        "domain": "code",
+        "source_group": "iotexpert/docmgr",
+        "context_length": 2048,
+        "predictor_position": 4095,
+        "target_id": 6647,
+        "sample_order": 0,
+        "pair_order": "candidate_then_baseline"
+      }
+    ],
+    "selection_rule": "First sealed technical group per domain, smallest (sample_order,document_id,input_id) 4096 row; exact parent_input_id 2048 match. Six diagnostic windows total, separate from accepted complete technical plans.",
+    "layer_shapes": [
+      [
+        15,
+        0,
+        7
+      ],
+      [
+        15
+      ]
+    ],
+    "measurement": "For each window run both immutable current optimized baseline and rank-1 candidate with all three layers and with primary layer only; eight effects per requested layer. Alternate AB/BA. Warm up one paired all-layer window per context, time and account it separately. One measured pair per cohort/shape is a bounded diagnostic, not statistically precise speedup proof.",
+    "reference": "Six independent _input_case native-vs-suffix cases, preserving all 24 per-expert comparisons per input, plus full candidate events compared to its independently executed native routes/baseline/ablated NLLs. Keep native path free of candidate overrides.",
+    "planned_operation_counts": {
+      "measured_pair_full_forwards": 60,
+      "measured_pair_suffix_replays": 384,
+      "measured_raw_events": 48,
+      "independent_validation_full_forwards": 162,
+      "independent_validation_suffix_replays": 144,
+      "native_comparisons": 144,
+      "warmup_full_forwards": 10,
+      "warmup_suffix_replays": 96,
+      "total_full_forwards": 232,
+      "total_suffix_replays": 624
+    },
+    "phase_allowance_seconds": {
+      "provision_startup_upload_preflight": 120,
+      "cached_weight_verification": 180,
+      "model_hash_load_and_identity": 120,
+      "paired_warmup": 90,
+      "independent_native_checks": 240,
+      "actual_paired_collector_and_durable_persistence": 300,
+      "receipt_finalization": 30,
+      "retrieval_confirmed_teardown": 120
+    },
+    "phase_allowance_evidence": "Planning caps only, not measured durations or proof attempt will finish. No phase may erase another phase cost or bypass the absolute lease.",
+    "quote_example": {
+      "evidence": "historical quote/readback; must refresh before authorization",
+      "compute_usd_per_hour": 1.09,
+      "storage_allowance_usd_per_hour": 0.02,
+      "twenty_minute_compute_plus_storage_usd": 0.37,
+      "headroom_for_other_charges_usd": 0.03
+    },
+    "deadline_formula": "T <= min(1200, remaining_wall_seconds, 3600*(min(0.40, reconciled_allocated_remaining_cash)-fixed_cost_bound)/live_all_in_hourly_burn). Nonpositive/unknown limits stop preflight. Reserve teardown before measurement; start lease before create; enforce deletion confirmation before absolute deadline.",
+    "durability": "Use existing Journal/append_timing_row/_record atomic receipt patterns. fsync complete raw events and per-expert validation progress before visible completion. Unique successor paths; attempt/plan/model/runtime/source hashes; append-only partials with exact discrepancy metrics, event counts, baseline/capture/cleanup/effect/persistence/end-to-end times, phase ledger, memory and nvidia-smi. Save parameter/hook integrity and cache hit/miss status.",
+    "adapter_requirement": "Existing screen.py/v3 packages still run the old 72-window validator. Coordinator must prepare/review a small paired diagnostic adapter and immutable packages before asking for paid approval. Do not present screen.py --run or collect --optimized as a ready command for this proposal; do not forge full_technical receipts to obtain profiles. No adapter built in this investigation.",
+    "stops": [
+      "cap, phase overrun threatening teardown, cash bound, identity mismatch",
+      "any numerical/route/locality/cleanup discrepancy or nonfinite",
+      "fit failure or unexpected competing verification",
+      "missing weight cache or unavailable placement"
+    ],
+    "retry": "One create/attempt; no automatic retry. Incomplete pairs are retained and excluded from speedup aggregates, never zero-filled.",
+    "interpretation": "Report cohort paired elapsed ratios and counts, both first-call/warm and complete persistence totals, and missing cohorts. No complete-workflow feasibility or scientific approval from six windows."
+  },
+  "budget_assessment": {
+    "status": "UNKNOWN",
+    "user_work_ceiling_usd": 12,
+    "user_time_ceiling_hours": 10,
+    "current_wallet_balance": null,
+    "reconciled_remaining_cash": null,
+    "confirmed_clock_start": null,
+    "reconciled_remaining_time": null,
+    "saved_user_reported_balance_usd": 13.99,
+    "saved_report_is_not_live_balance": true,
+    "saved_pod_bill_records": 0,
+    "empty_bill_records_do_not_prove_zero_cost": true,
+    "saved_retained_volume_charge_usd": 0.004861111287027597,
+    "charge_scope": "00:00-01:00 UTC snapshot only; ongoing storage not fully reflected.",
+    "past_work": "Both attempt elapsed/billed work remains spent. Retained weights avoid a future download, not prior charges.",
+    "missing_profiles": [
+      "All three domains x both contexts for actual optimized collector; both layer-set patterns",
+      "native calibration/probe full-window routing serialization",
+      "setup/hash/load/storage/transfer/seal/teardown and diagnostic acceptance",
+      "reuse hit/miss/durable writes and CPU analysis",
+      "actual sufficient-pilot allocation and precision",
+      "live quote/accounting boundaries/current balance/verification status"
+    ],
+    "remaining_acceptance_gates": [
+      "fresh native mechanics at each accepted context for exact executor",
+      "complete full_technical native-vs-optimized all-input checks, not screen",
+      "whole-device/host/temporary allocator fit on actual collector and missing code/2048",
+      "measured complete-workflow cost/time with escalation, reserve and reconciled cash/time",
+      "matched calibration/probe stability, sufficient pilot, exact main freeze and accepted analysis",
+      "explicit paid authorization for any benchmark or scientific collection"
+    ]
+  },
+  "prior_reconciliation": {
+    "agreements": [
+      "O18 redundant reference consolidation confirmed independently",
+      "O19 full-shape unchanged-prefix opportunity confirmed, but no reduced-shape/bitwise assumption accepted",
+      "O20 optimize then benchmark actual collector with all-phase cap"
+    ],
+    "corrections": [
+      "EXECUTION-BUDGET-PLAN historical findings table refers to pre-integration behavior: current plan_main includes C4 and current validator implements native comparisons. Those historical rows are not current source evidence.",
+      "~50h omits the current first native reference; ~60h adds it but both transfer diagnostic timings under unverified assumptions.",
+      "O10 prior no-material-benefit rejection records lack of evidence; rank2 remains conditional on new actual profiles, not acceptance.",
+      "VerifiedModelSession, exact nested reuse, streaming/lazy journal and coefficient hex are already implemented; do not count them as new optimization wins.",
+      "Do not rerun unchanged72 solely for more comparisons before paired collector benchmark preparation."
+    ]
+  },
+  "checks_run": [
+    {
+      "command": "timeout 110s env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/tmp/dsic3007-py314-test-deps python -m pytest -q -p no:cacheprovider",
+      "result": "142 passed in 19.02s",
+      "scope": "existing local CPU/mocked suite, not candidate tests or GPU acceptance"
+    },
+    {
+      "command": "read-only raw JSONL aggregation and SHA256 reconciliation",
+      "result": "408 unique progress comparisons agree with 17 completed arrays, zero recorded errors; raw case hash equals receipt"
+    },
+    {
+      "command": "verify_bundle on both sealed screens and combined prepared-inputs; source ordering census",
+      "result": "main P/Q independently reproduced from checksum-verified data"
+    },
+    {
+      "command": "read-only archive comparison",
+      "result": "seven investigated source files byte-identical to registry-v2 archived source; installed modeling source hash matches L40S receipt"
+    },
+    {
+      "command": "JSON strict parsing; fixed cohort/parent-token identities; phase and operation totals; Markdown presence; raw/source SHA256 recheck",
+      "result": "passed; all six domain/context cohorts and matched windows retained; 1200s cap and 232/624 operation ledger consistent"
+    },
+    {
+      "command": "Protected-file SHA256 snapshot and final whitespace/diff checks",
+      "result": "99 inspected source/test/config/raw/plan/package files unchanged; JSON and Markdown have no trailing whitespace; git diff --check passed"
+    }
+  ],
+  "preservation_verified": {
+    "protected_files_checked": 99,
+    "changed": [],
+    "scope": "Current source/tests, authority/settings/dependency files, exact raw attempt, sealed screens and frozen optimization packages. No remote verification inspection/action."
+  }
+}

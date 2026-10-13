@@ -1,0 +1,35 @@
+{
+  "actual_allocated_host": {
+    "cuda_version": "13.0",
+    "gpu_count": 1,
+    "gpu_id": "NVIDIA L40S",
+    "ram_gb": 125,
+    "region": "US-MO-1",
+    "vcpu": 16
+  },
+  "actual_billed_cost_usd": null,
+  "attempt": "dsic-screen-20261011T005126-10a38d4f",
+  "cleanup": {
+    "coordinator_GET_pod_returned_missing": true,
+    "local_runner_cleanup_receipt_present": false,
+    "network_volume_deletion_requested": false,
+    "resource_mutation_by_coordinator": false
+  },
+  "correction": "preflight reads registry identity; create request attaches ID; knownfatal startup logs fail fast; shorter lease option available",
+  "cost_evidence": "pod cost field quoted1.09/h; invoice/usage not reconciled, failed boot is not assumed free",
+  "decisive_system_log": "unauthorized: repository is private or does not exist, and no registry credentials were provided",
+  "existing_registry": {
+    "credential_values_returned_or_logged": false,
+    "id": "cmv2myqnw003lvauwsz43uqnt",
+    "name": "dsic3007-dockerhub-aryamudas"
+  },
+  "failure_time": "2026-10-11T00:51:28Z",
+  "model_or_screen_started": false,
+  "native_numerical_receipt": false,
+  "paid_retry_launched_by_coordinator": false,
+  "pod_id": "2nvb5rv399uxw7",
+  "recorded_at": "2026-10-11T00:59:01.002808+00:00",
+  "root_cause": "prepared create request omitted already-existing registry credential ID",
+  "status": "first_user_attempt_failed_before_container_start",
+  "user_interrupt_logged_at": "2026-10-11T00:53:51Z"
+}

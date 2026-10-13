@@ -1,0 +1,75 @@
+{
+  "recorded_at": "2026-10-13T05:03:53.858914+00:00",
+  "kind": "global_l40s_user_run_readiness",
+  "package": "data/optimization/path-b-global-preflight-2026-10-13-v4",
+  "identity_sha256": "473750e9d1e2a3f87dbd0cba8f9b3337f967d80b7a48d0d5c86078e049800015",
+  "source_archives_and_local_hashes": "pass",
+  "numerical_implementation_sha256": "52b1c9a3b2a6bfa2e0141d7795a11fa7edff0d8d9b8daa95414dc7e38e61dfbf",
+  "numerical_arithmetic_and_tolerances": "unchanged",
+  "global_volume_id": "cmv66f04p000007l8gngvd5k4",
+  "global_volume_name": "yelling_amber_shark",
+  "global_identity_evidence": "confirmed by live GraphQL globalStoreBuckets query",
+  "official_sdk_source_revision": "3864d374cba523ecee09f3bc95f073f17a64b970",
+  "deployment_contract": "GraphQL podFindAndDeployOnDemand + volumeMounts OBJECT_STORE_VOLUME",
+  "regions": "all eligible live GPU stock regions; not volume location",
+  "operator": "user only for every paid/long command",
+  "setup_authorization": {
+    "cash_cap_usd": 0.2,
+    "wall_seconds": 900,
+    "fixed_cost_planning_allowance_usd": 0.08,
+    "nominal_lease_seconds_at_1_09_plus_0_02": 389.18918918918916
+  },
+  "diagnostic_authorization": {
+    "cash_cap_usd": 0.2,
+    "wall_seconds": 900,
+    "fixed_cost_planning_allowance_usd": 0.03,
+    "nominal_lease_seconds_at_1_09_plus_0_02": 551.3513513513514
+  },
+  "provider_billing_limit": "planning/software guards, not hard provider invoice guarantee; actual object-request costs unmeasured",
+  "local_tests": {
+    "noncollector_suite_passed": 187,
+    "seconds": 35.17,
+    "excluded": "tests/collectors because datasets missing in local environment",
+    "final_new_integration_tests_passed": 14,
+    "final_seconds": 2.44
+  },
+  "local_evidence_scope": "CPU synthetic controller/download regression, package/source checks, read-only metadata; no paid or pretrained GPU execution",
+  "paid_pods_created_by_agent": 0,
+  "model_download_started_by_agent": false,
+  "pretrained_global_runtime_verified": false,
+  "live_check": {
+    "attachment_backend": "official Runpod SDK GraphQL volumeMounts",
+    "available_placements": [
+      {
+        "availability": "LOW",
+        "data_center_id": "EU-NL-1",
+        "gpu": "NVIDIA L40S",
+        "gpu_usd_per_hour": 1.09
+      }
+    ],
+    "blockers": [
+      "fresh pinned model download and checksum verification before benchmark"
+    ],
+    "cuda_capacity_scope": "GPU-wide catalog; exact host CUDA still requires pod read-back",
+    "global_attachment_backend": "official SDK GraphQL volumeMounts",
+    "global_volume_id": "cmv66f04p000007l8gngvd5k4",
+    "gpu": "NVIDIA L40S",
+    "model_path": "/workspace-global/models/OLMoE-fp32",
+    "package_verified": true,
+    "paid_resources_created": 0,
+    "placement_policy": "any_available_data_center; no volume-region filter",
+    "preferred_data_center": "EU-NL-1",
+    "ready_for_paid_run": false,
+    "status": "global_setup_pending",
+    "verified_volume": {
+      "id": "cmv66f04p000007l8gngvd5k4",
+      "name": "yelling_amber_shark"
+    },
+    "volume_identity_evidence": "live GraphQL ID/name read-back",
+    "working_directory": "/tmp/dsic3007-screen-attempts"
+  },
+  "automatic_deployment_retry": false,
+  "volume_deletion": false,
+  "raw_results_storage": "local POSIX disk; retrieve before pod cleanup; retrieval failure may lose local raw files",
+  "cache_ready_gate": "retrieved setup receipt matched to global ID/path/catalog/all asset sizes+hashes plus repeated remote weight verification"
+}

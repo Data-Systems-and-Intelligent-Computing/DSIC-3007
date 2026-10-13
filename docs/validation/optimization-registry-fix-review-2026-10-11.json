@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-11T00:59:18Z",
+  "scope": "Independent local review of the registry-authenticated L40S screen retry preparation and bounded private-image-pull failure handling.",
+  "reported_first_attempt": {
+    "failure": "Private image pull returned unauthorized because the pod create request omitted the already-registered Docker Hub credential ID.",
+    "operator_action": "User interrupted the attempt; coordinator reports a read-only GET of that pod returned 404.",
+    "paid_retry_launched": false
+  },
+  "authorization_boundary": {
+    "local_tests_and_review": true,
+    "paid_api_mutations": false,
+    "pod_create_or_retry": false,
+    "registry_secret_read_or_changed": false,
+    "network_volume_changed_or_deleted": false,
+    "research_settings_changed": false
+  },
+  "validation": {
+    "command": "PYTHONPATH=/tmp/dsic3007-py314-test-deps python -m pytest -q tests/test_runpod_screen.py",
+    "result": "38 passed in 0.85s",
+    "compileall": "pass",
+    "test_scope": "All RunPod calls and SSH lifecycle were mocked. The SSE test returned a synthetic HTTP 200 body with curl exit code 28. No live pod, image pull, model download, or GPU measurement was performed."
+  },
+  "corrective_contract": {
+    "registry_preflight": "Before any POST, read GET /registries/cmv2myqnw003lvauwsz43uqnt and require ID cmv2myqnw003lvauwsz43uqnt and name dsic3007-dockerhub-aryamudas.",
+    "pod_request": "Include the existing registry credential ID in the create request; do not read, export, persist, or log the registry password/token.",
+    "attempt_ownership": "Persist registry ID in attempt metadata and require it to match along with attempt name, image, GPU, and existing volume mount before teardown. Older attempts without a registry ID can match only a response with no registry ID.",
+    "private_image_failure": "Poll pod status within the bounded 600-second boot phase. When EXITED, make a bounded four-second system-log request; accept HTTP 200 with curl timeout exit 28 and parse the returned SSE tail for decisive image-pull failures. A fatal match stops uploads/model work and tears down only this exact attempt once.",
+    "attempt_budget": "CLI cap must be finite and >90 seconds through 1800 seconds; the overall cash cap remains $0.75 and deadline includes startup, staging, load, failure, retrieval, and teardown.",
+    "volumes": "The existing 50GB STANDARD volume k6u810gze3 is reused and retained; registry correction introduces no volume lifecycle call."
+  },
+  "regressions_covered": [
+    "Wrong or missing registry identity blocks before pod creation.",
+    "Fatal unauthorized image-pull SSE stops before any archive/helper upload, performs one POST only, and deletes only the owned pod while preserving the network volume.",
+    "HTTP 200 SSE data is parsed even when curl reports code 28 after its bounded four-second tail request.",
+    "NaN, infinity, 90 seconds, and 1801 seconds are rejected as screen lease caps before preflight.",
+    "Existing lifecycle, account-pod pagination, no-secret logging/request, ambiguous-create guard, runner self-hash, and diagnostic-only synthetic receipt checks remain passing."
+  ],
+  "remaining_limits": [
+    "The registry fix has not been exercised against a live paid create request or actual private image pull.",
+    "Actual pod RAM/VRAM, CUDA runtime, exact billed storage, model weight availability, fit, throughput, and numerical equivalence remain unmeasured.",
+    "Storage is budgeted at a conservative $0.02/hour allowance, not represented as an account-specific all-in invoice."
+  ],
+  "reviewed_file_hashes": {
+    "runpod/screen.py": "1c00efd41b18c614df627bd2f456a6515504b6df20aa14f330ce8292b2ae3b09",
+    "runpod/screen_remote.py": "0de96bc8bc72db8a573e95a91f584c0095d8a6250708e1f37645b225c4f0d320",
+    "tests/test_runpod_screen.py": "ecf642b5939b41c7a6045da7d90e2140a949274e20c30114d68be45e05a4b47a",
+    "runpod_public_v2_schema_snapshot_sha256": "4e6418edfd651844406b346f201eefd5fc1112879a14869e04a510a752d30e56"
+  },
+  "status": "local_mocked_registry_failure_review_pass_retry_not_launched"
+}

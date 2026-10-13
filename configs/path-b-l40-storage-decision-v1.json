@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "kind": "execution_hardware_storage_decision",
+  "selected_on": "2026-10-13",
+  "gpu": "NVIDIA L40S",
+  "scientific_scope": "path-b-v1 unchanged",
+  "storage_choice": "user_creates_global_volume_in_console",
+  "model_preparation": "user_selected_fresh_download_instead_of_copying_network_volume",
+  "model_revision": "c6f6954f182ffdd9f6ab4f4d772714b7dcd6836b",
+  "model_catalog": "data/manifests/model-fp32.json",
+  "global_volume_id": "cmv66f04p000007l8gngvd5k4",
+  "global_volume_model_path": "/workspace-global/models/OLMoE-fp32",
+  "status": "benchmark_retry_authorized_030_usd_900s_user_run",
+  "model_preparation_status": "complete",
+  "benchmark_weights_policy": "completed preparation receipt; no per-run SHA256/F32 scan; explicit user instruction",
+  "paid_authorization": {
+    "preflight_only_maximum_usd": 0.2,
+    "preflight_only_maximum_wall_seconds": 900,
+    "preflight_grant_status": "consumed_by_dsic-screen-20261013T054903-16792cdc",
+    "benchmark_retry_proposal": {
+      "status": "authorized",
+      "authorization_id": "global-path-b-benchmark-2026-10-13-v11",
+      "parent_run": "runpod/runs/dsic-screen-20261013T054903-16792cdc",
+      "maximum_usd": 0.3,
+      "maximum_wall_seconds": 900,
+      "maximum_attempts": 1,
+      "operator": "user",
+      "automatic_retry": false,
+      "study_allowance_reconciliation": "unknown; proposal does not reset the original study allowance"
+    },
+    "automatic_download_inside_preflight": false,
+    "download_setup_cash_and_time_limit": {
+      "maximum_usd": 0.2,
+      "maximum_wall_seconds": 900
+    },
+    "model_resume": {
+      "authorization_id": "global-model-resume-2026-10-13-v2",
+      "parent_run": "runpod/runs/dsic-screen-20261013T051330-477db619",
+      "preceding_resume_run": "runpod/runs/dsic-screen-20261013T052553-60516a78",
+      "startup_seconds": 600,
+      "maximum_usd": 0.3,
+      "maximum_wall_seconds": 900,
+      "maximum_attempts": 1,
+      "operator": "user",
+      "automatic_retry": false
+    },
+    "full_study_authorized": false
+  },
+  "preservation": {
+    "regional_volume_deletion": "user_intends_to_delete; no agent deletion performed",
+    "raw_local_evidence": "preserve",
+    "numerical_tolerances": "unchanged"
+  },
+  "implementation_requirements": [
+    "exact L40S runtime gate and fresh native checks",
+    "official SDK GraphQL volumeMounts OBJECT_STORE_VOLUME with live lookup",
+    "global model files hash/size validation",
+    "workdir and atomic journals on local POSIX disk",
+    "retrieve raw evidence before deleting local disk",
+    "budget includes object request costs and startup/load",
+    "new frozen package and guard ownership bindings"
+  ],
+  "sources": [
+    "https://docs.runpod.io/storage/globalvolume/overview",
+    "https://docs.runpod.io/storage/globalvolume/globalvolume-pods",
+    "https://api.runpod.io/v2/openapi.json"
+  ],
+  "global_volume_name": "yelling_amber_shark",
+  "storage_type": "global",
+  "global_volume_identity_evidence": "confirmed by live official-SDK GraphQL query; ID/name match",
+  "global_volume_mount_path": "/workspace-global",
+  "local_working_directory": "/tmp/dsic3007-screen-attempts",
+  "placement_policy": "any_available_data_center; never filter by volume location",
+  "maximum_gpu_rate_usd_per_hour": 1.09,
+  "required_cuda": "13.0",
+  "setup_host_cuda_floor": "12.8",
+  "setup_compute": "CPU-only download, checksum and F32 metadata; no CUDA initialization",
+  "api_source": "https://github.com/runpod/runpod-python/tree/3864d374cba523ecee09f3bc95f073f17a64b970"
+}

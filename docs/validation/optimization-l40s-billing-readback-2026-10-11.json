@@ -1,0 +1,99 @@
+{
+  "billing_window_interpretation": "requested aligned 00:00-02:00 UTC; includes all recorded charges for these resources in those buckets; may contain incomplete current bucket",
+  "mode": "GET only",
+  "reads": {
+    "first_billing": {
+      "path": "/billing/pods?startTime=2026-10-11T00%3A00%3A00Z&endTime=2026-10-11T02%3A00%3A00Z&bucketSize=hour&podId=2nvb5rv399uxw7",
+      "response": {
+        "metadata": {
+          "query": {
+            "bucketSize": "hour",
+            "endTime": "2026-10-11T02:00:00Z",
+            "podId": "2nvb5rv399uxw7",
+            "startTime": "2026-10-11T00:00:00Z"
+          },
+          "recordCount": 0,
+          "totals": {
+            "cpuAmount": 0,
+            "diskAmount": 0,
+            "gpuAmount": 0,
+            "totalAmount": 0
+          },
+          "uniquePodCount": 0
+        },
+        "records": []
+      }
+    },
+    "first_pod": {
+      "path": "/pods/2nvb5rv399uxw7",
+      "response": null
+    },
+    "second_billing": {
+      "path": "/billing/pods?startTime=2026-10-11T00%3A00%3A00Z&endTime=2026-10-11T02%3A00%3A00Z&bucketSize=hour&podId=f5pda8m7j441qo",
+      "response": {
+        "metadata": {
+          "query": {
+            "bucketSize": "hour",
+            "endTime": "2026-10-11T02:00:00Z",
+            "podId": "f5pda8m7j441qo",
+            "startTime": "2026-10-11T00:00:00Z"
+          },
+          "recordCount": 0,
+          "totals": {
+            "cpuAmount": 0,
+            "diskAmount": 0,
+            "gpuAmount": 0,
+            "totalAmount": 0
+          },
+          "uniquePodCount": 0
+        },
+        "records": []
+      }
+    },
+    "second_pod": {
+      "path": "/pods/f5pda8m7j441qo",
+      "response": null
+    },
+    "volume": {
+      "path": "/network-volumes/k6u810gze3",
+      "response": {
+        "dataCenter": "US-MO-1",
+        "id": "k6u810gze3",
+        "name": "productive_indigo_cardinal",
+        "size": 50,
+        "type": "STANDARD"
+      }
+    },
+    "volume_billing": {
+      "path": "/billing/network-volumes?startTime=2026-10-11T00%3A00%3A00Z&endTime=2026-10-11T02%3A00%3A00Z&bucketSize=hour&networkVolumeId=k6u810gze3",
+      "response": {
+        "metadata": {
+          "query": {
+            "bucketSize": "hour",
+            "endTime": "2026-10-11T02:00:00Z",
+            "networkVolumeId": "k6u810gze3",
+            "startTime": "2026-10-11T00:00:00Z"
+          },
+          "recordCount": 1,
+          "totals": {
+            "highPerformanceAmount": 0,
+            "standardAmount": 0.004861111287027597,
+            "totalAmount": 0.004861111287027597
+          },
+          "uniqueNetworkVolumeCount": 1
+        },
+        "records": [
+          {
+            "endTime": "2026-10-11T01:00:00Z",
+            "highPerformanceAmount": 0,
+            "networkVolumeId": "k6u810gze3",
+            "standardAmount": 0.004861111287027597,
+            "startTime": "2026-10-11T00:00:00Z",
+            "totalAmount": 0.004861111287027597
+          }
+        ]
+      }
+    }
+  },
+  "recorded_at": "2026-10-11T01:27:29.538956+00:00"
+}

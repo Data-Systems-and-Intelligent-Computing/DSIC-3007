@@ -1,0 +1,131 @@
+{
+  "authority": "README.md",
+  "model": {
+    "repo_id": "allenai/OLMoE-1B-7B-0924",
+    "revision": "c6f6954f182ffdd9f6ab4f4d772714b7dcd6836b",
+    "dtype": "float32",
+    "layers": 16,
+    "experts": 64,
+    "active_experts": 8
+  },
+  "domains": [
+    "c4",
+    "scientific",
+    "code"
+  ],
+  "context": {
+    "primary_window": 4096,
+    "sensitivity_window": 2048,
+    "minimum_preceding_tokens": 4095,
+    "window_policy": "fixed_input_tokens_target_outside",
+    "excluded_predictor_target_ids": []
+  },
+  "sampling": {
+    "master_seed": 3007,
+    "source_audit_rule": "c4_hostname_scientific_paper_id_code_repository_id; disjoint_groups_and_duplicate_content",
+    "allocation_rule": "seeded_source_group_order; reviewed_group_disjoint_partitions; nested_document_order_for_calibration_and_probe",
+    "probe_units_per_domain": 32,
+    "probe_positions_per_document": 4,
+    "calibration_position_streams": [
+      3008,
+      3009,
+      3010
+    ],
+    "calibration_document_ladder": [
+      100,
+      250,
+      500
+    ],
+    "calibration_positions_per_document": "all_input_positions_in_one_sampled_window_per_seed",
+    "technical_units_per_domain": 12,
+    "pilot_document_ladder": [
+      20,
+      40,
+      80
+    ],
+    "pilot_positions_per_document": 2,
+    "main_min_scientific_documents": 200,
+    "main_min_code_groups": 200,
+    "main_c4_documents": 200,
+    "main_positions_per_document": 64,
+    "main_secondary_layers": [
+      0,
+      7
+    ],
+    "main_secondary_positions": 16,
+    "primary_layer": 15
+  },
+  "calibration": {
+    "normalized_l1_max": 0.05,
+    "extreme_set_jaccard_min": 0.75,
+    "comparison_pass_fraction_min": 0.9,
+    "normalization_and_comparison_rule": "document_membership_frequencies; sum_absolute_drift_over_64_without_dividing_by_8; top_bottom_8_jaccard",
+    "freeze_rule": "first_larger_budget_250_or_500_passing_candidate_seed_pairs_and_consecutive_average; average_three_seed_tables",
+    "stability_gate_scope": "candidate_seed_pairs_and_consecutive_average"
+  },
+  "controls": {
+    "m0_draws_per_event": 64,
+    "shared_exact_tie_order": true
+  },
+  "planning": {
+    "resolution_nats": 0.01,
+    "target_ci_half_width_nats": 0.005,
+    "planning_replicates": 2000,
+    "position_noise_escalation_rule": "two_positions_per_document; report_position_noise",
+    "pilot_extension_rule": "extend_if_95_ci_half_width_exceeds_0.25_source_group_sd_or_fewer_than_10_groups; stop_insufficient_at_80",
+    "main_allocation_rule": "lowest_measured_gpu_runtime_allocation_meeting_pilot_bootstrap_precision_and_main_minima",
+    "group_safeguards": "pilot_at_least_10_independent_groups; main_at_least_200_scientific_documents_and_200_code_groups",
+    "feasibility_rule": "reviewed_available_main_allocation_with_measured_technical_gpu_runtime; report_no_qualifying_allocation",
+    "variance_projection_rule": "pilot_variance_times_pilot_source_groups_divided_by_planned_main_source_groups"
+  },
+  "analysis": {
+    "primary": "0.5*scientific_document_mean_delta+0.5*code_document_mean_delta",
+    "confidence": 0.95,
+    "method": "paired_bootstrap_t",
+    "initial_replicates": 10000,
+    "minimum_valid_replicate_fraction": 0.95,
+    "resampling_units": {
+      "scientific": "whole_source_group",
+      "code": "whole_source_group",
+      "c4": "hostname"
+    },
+    "standard_error_rule": "G/(G-1)*sum_group(sum_document(D_i-domain_mean))^2/N^2; primary_variance=(scientific_variance+code_variance)/4",
+    "monte_carlo_rule": "fixed_draws; linear_valid_draw_quantiles; two_sided_tail_(count+1)/(valid+1)_then_Holm",
+    "degeneracy_rule": "report_all_degenerate_draws; require_at_least_95_percent_valid",
+    "c4_hostname_safeguards": "descriptive_only; hostname_bootstrap_t_ci_if_at_least_10_groups_and_95_percent_valid_draws; no_confirmatory_test",
+    "secondary_test_rule": "paired_two_sided_bootstrap_t_then_Holm_scientific_code",
+    "holm_domains": [
+      "scientific",
+      "code"
+    ]
+  },
+  "sensitivity": {
+    "subset_fraction": 0.25,
+    "subset_rule": "frozen_source_stratified",
+    "position_rule": "preserve_main_predictor_and_target",
+    "whole_code_groups": true,
+    "calibration_rule": "matched_2048_calibration"
+  },
+  "mechanics": {
+    "acceptance_tolerances": {
+      "atol": 1e-06,
+      "rtol": 1e-05
+    },
+    "nll_atol": 1e-06,
+    "technical_sample_rule": {
+      "positions": 4,
+      "rule": "first_last_two_interior_thirds; all_available_if_fewer",
+      "layers": [
+        0,
+        7,
+        15
+      ],
+      "experts": "all_eight"
+    },
+    "exact_checks": [
+      "routing",
+      "survivors",
+      "cleanup"
+    ]
+  }
+}

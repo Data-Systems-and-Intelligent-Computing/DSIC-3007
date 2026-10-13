@@ -1,0 +1,723 @@
+{
+  "schema_version": 1,
+  "generated_on": "2026-10-11",
+  "status": "proposal_only_no_implementation_or_paid_work",
+  "recommendation": "B",
+  "scope": "/home/arya/School/TA/DSIC-3007",
+  "report": "docs/validation/FRESH-FEASIBILITY-FINDINGS-2026-10-11.md",
+  "evidence_labels": {
+    "MEASURED": "Raw receipt observation",
+    "DERIVED": "Calculation from observed data/current source; runtime transfer is not a bound",
+    "ASSUMED": "Prospective allowance or unmeasured hypothesis",
+    "UNKNOWN": "Missing evidence"
+  },
+  "evidence": {
+    "run_path": "runpod/runs/dsic-screen-20261011T043533-f31ba85d",
+    "receipt_sha256": {
+      "validation.json": "5ce792585f2fe6740b8bf1502fb489740623cca43195664091eee7a1168e5722",
+      "validation.json.timings.jsonl": "4f21178d6880fa05a9ca8773cd3262da254bf50b08b0f2eae24ff38e56faa4e4",
+      "validation.json.progress.jsonl": "743c1e88874ce0203bb085d4d5c2b57114f7600e240c7a5558b82514bb984e7b",
+      "validation.json.events.jsonl": "bfcc5cd44949a076c3c40d0d431a39954625f6aa11fa84ec8cd7fffb65431555",
+      "runner-receipt.json": "368a44cc8ce915ce218d40ef50d34a8bbd10af6f740f6d055e87e24d27cae15c"
+    },
+    "diagnostic_only": true,
+    "windows": 6,
+    "independent_source_units": 3,
+    "paired_input_shape_comparisons": 12,
+    "native_expert_comparisons": 144,
+    "paired_layer_events": 24,
+    "paired_baseline_routing_effects_exact": true,
+    "max_recorded_native_error": {
+      "max_mixture_abs_error": 0.0,
+      "max_logit_abs_error": 0.0,
+      "nll_abs_error": 0.0
+    },
+    "confounding": "4096 baseline-first and2048 candidate-first; one observation per domain/context/shape",
+    "timing_means": {
+      "4096": {
+        "primary": {
+          "n": 3,
+          "durable_seconds": 1.9014058156559865,
+          "capture_seconds": 0.9385590801636378,
+          "cleanup_seconds": 0.9358819661041101,
+          "effects_seconds": {
+            "15": 0.019114706044395764
+          }
+        },
+        "three_layers": {
+          "n": 3,
+          "durable_seconds": 12.60510266882678,
+          "capture_seconds": 0.9528134601811568,
+          "cleanup_seconds": 0.9410227878640095,
+          "effects_seconds": {
+            "0": 6.946358021969597,
+            "15": 0.019123007232944172,
+            "7": 3.7174749951809645
+          }
+        }
+      },
+      "2048": {
+        "primary": {
+          "n": 3,
+          "durable_seconds": 1.1699736875792344,
+          "capture_seconds": 0.5699546188116074,
+          "cleanup_seconds": 0.5640782422075669,
+          "effects_seconds": {
+            "15": 0.018330836047728855
+          }
+        },
+        "three_layers": {
+          "n": 3,
+          "durable_seconds": 7.629948494955897,
+          "capture_seconds": 0.5811058264225721,
+          "cleanup_seconds": 0.5669862708697716,
+          "effects_seconds": {
+            "0": 4.189113322645426,
+            "15": 0.018332896754145622,
+            "7": 2.2345780109365783
+          }
+        }
+      }
+    },
+    "native_input_seconds": {
+      "4096": 37.532303926845394,
+      "2048": 23.07486482647558
+    },
+    "memory_observed_bytes": {
+      "cuda_allocated": 30506363904,
+      "cuda_reserved": 33072087040,
+      "host_rss": 28577452032
+    },
+    "current_implementation_sha256": "23a838e6f838915ce622ee2b63cf9fbd03b3fe10365711a5a95e67f990233304",
+    "matches_successful_candidate_identity": true,
+    "source_sha256": {
+      "model.py": "17938c9de337300ba596b160639c951e82a2b23a05f2cee304d503489ddf47e2",
+      "interventions.py": "75848b911c22413889dee878c074d198d289ae47afbee02d6c294e74b6eaf093",
+      "run_experiment.py": "a2d10452cd3287267f180585dbdc98d14e3fa799b2f2ea6846999a65d0226732",
+      "verify.py": "6d750f101780e36d999dec9d3bc61c931b2d8b60a1079bd96a4f8cf2c259a319",
+      "artifacts.py": "6d3dd4c382420c27d764152b9065b9a07eef8e899a79509991cf74b8c80f482b",
+      "reuse.py": "6eeb60d221cc1a35a1dd9a442cc3fe4f8eb13eb1c79d4f0ee57e58ef91091f8f",
+      "observation_contract.py": "a747e6fa455bcc3a131bc1e4eac8125cb73a5d1cb117b129e5f01619fd948744",
+      "optimized_validation.py": "077aacabae2e40f4b0a194c9384f3cd4bd6bd98b89642b6da1ecbbd44541c2d4"
+    }
+  },
+  "accounting": {
+    "status": "UNKNOWN_REMAINING_BUDGET",
+    "original_ceiling_usd": 12,
+    "original_ceiling_hours": 10,
+    "remaining_cash_usd": null,
+    "remaining_wall_hours": null,
+    "nominal_rate_usd_per_hour": 1.11,
+    "rate_source": "Exact historical attempt receipt, not live offer or invoice",
+    "successful_attempt_seconds": 659.6499004364014,
+    "preceding_upload_failure_seconds": 131.17422914505005,
+    "two_attempt_active_seconds": 790.8241295814514,
+    "continuous_span_seconds": 1629.8225674629211,
+    "two_attempt_nominal_usd": 0.2438374399542809,
+    "other_prior_spend_not_zero": true,
+    "retained_volume_cost_unknown": true,
+    "admission_formula": "min(remaining_wall_hours-offline_hours,(remaining_cash_usd-fixed_costs)/hourly_rate) >= all_remaining_gpu_hours_including_reserve",
+    "original_additional_budget_vs_fresh_12_usd": [
+      75.05939253020222,
+      77.82821682515116
+    ]
+  },
+  "census": {
+    "evidence_status": "DERIVED_RECOMPUTED_READ_ONLY",
+    "prepared_manifest_sha256": "d3321553da95fb1853b1b3e83ad486b1414ea92ba6ed2fcd53c4b30f7fb59ccd",
+    "source_review_sha256": "8431ba4f125c85a37491b0cfed4b1aa9a750772f4962c378f63506b0a7a2d877",
+    "main": {
+      "scientific": {
+        "documents": 200,
+        "groups": 200,
+        "P": 12755,
+        "Q": 3200
+      },
+      "code": {
+        "documents": 205,
+        "groups": 200,
+        "P": 12957,
+        "Q": 3278
+      },
+      "c4": {
+        "documents": 200,
+        "groups": 190,
+        "P": 12584,
+        "Q": 3199
+      }
+    },
+    "main_totals": {
+      "documents": 605,
+      "groups": 590,
+      "P": 38296,
+      "Q": 9677
+    },
+    "sensitivity": {
+      "scientific": {
+        "documents": 50,
+        "groups": 50,
+        "P": 3200,
+        "Q": 800
+      },
+      "code": {
+        "documents": 51,
+        "groups": 48,
+        "P": 3234,
+        "Q": 816
+      },
+      "c4": {
+        "documents": 50,
+        "groups": 49,
+        "P": 3119,
+        "Q": 799
+      }
+    },
+    "technical_windows_per_context": 152,
+    "probe_windows_per_context": 384,
+    "calibration_100_exact_subset_250_all_seeds_contexts": true,
+    "calibration_500_plan_status": "prospective_not_materialized",
+    "original_pilot_windows": {
+      "20": 120,
+      "40": 240,
+      "80": 482
+    },
+    "B_pilot_windows": {
+      "20": 320,
+      "40": 640,
+      "80": 1288
+    },
+    "B_main_windows": 3240,
+    "B_optional_sensitivity_windows": 808,
+    "reviewed_main_pool": {
+      "scientific_documents": 6540,
+      "code_files": 3171,
+      "code_groups": 3092,
+      "c4_documents": 895
+    },
+    "calibration_nested_logical_windows_per_context": {
+      "250": 2250,
+      "500": 4500
+    },
+    "calibration_distinct_input_ids_per_context_through250": 2246,
+    "calibration_cross_seed_duplicates_through250_per_context": 4,
+    "calibration_distinct_windows_through500": null,
+    "calibration_ledger_policy": "Conservatively charge2250/4500 nested logical windows; cross-seed exact reuse can save4 executions/context at250;500 not materialized."
+  },
+  "ledger": {
+    "units": "hours",
+    "low_high_meaning": "250 calibration/20-unit pilot versus500 calibration/80-unit pilot; not a confidence interval",
+    "full_forward_proxy_seconds": {
+      "4096": 0.94,
+      "2048": 0.57
+    },
+    "stages": [
+      {
+        "stage": "native_mechanics",
+        "original_hours": [
+          2.4864666666666664,
+          2.4864666666666664
+        ],
+        "recommended_B_hours": [
+          0.5159555555555555,
+          0.5159555555555555
+        ],
+        "evidence_status": "DERIVED_WITH_ASSUMED_FORWARD_PROXY",
+        "basis": "13 full forwards per layer per input; 152 inputs/context. Reconstruction overhead unmeasured."
+      },
+      {
+        "stage": "optimized_validation",
+        "original_hours": [
+          2.5589693473624413,
+          2.5589693473624413
+        ],
+        "recommended_B_hours": [
+          0.43738519333333337,
+          0.43738519333333337
+        ],
+        "evidence_status": "DERIVED",
+        "basis": "Original measured independent comparison means; B projected 11 native forwards plus eight final-layer replay effects."
+      },
+      {
+        "stage": "technical_collection",
+        "original_hours": [
+          0.8543688269152686,
+          0.8543688269152686
+        ],
+        "recommended_B_hours": [
+          0.08028157888325277,
+          0.08028157888325277
+        ],
+        "evidence_status": "DERIVED",
+        "basis": "152 inputs/context, no fusion or validation-event reuse credited."
+      },
+      {
+        "stage": "calibration",
+        "original_hours": [
+          1.8874999999999997,
+          3.7749999999999995
+        ],
+        "recommended_B_hours": [
+          1.175,
+          2.35
+        ],
+        "evidence_status": "ASSUMED_RUNTIME_DERIVED_COUNTS",
+        "basis": "Nested logical windows through250/500; conservatively charge2250/4500. Actual unique through250=2246/context. Two forwards each; B one context/layer."
+      },
+      {
+        "stage": "probe",
+        "original_hours": [
+          0.32213333333333327,
+          0.32213333333333327
+        ],
+        "recommended_B_hours": [
+          0.2005333333333333,
+          0.2005333333333333
+        ],
+        "evidence_status": "ASSUMED_RUNTIME_DERIVED_COUNTS",
+        "basis": "384 windows/context; B one context/layer; all three domains."
+      },
+      {
+        "stage": "pilot",
+        "original_hours": [
+          0.06338019385519955,
+          0.2545771119850515
+        ],
+        "recommended_B_hours": [
+          0.16901385028053215,
+          0.6802807473791419
+        ],
+        "evidence_status": "DERIVED",
+        "basis": "Original2 positions all3 domains; B8 positions scientific/code only,20 to80 units."
+      },
+      {
+        "stage": "main",
+        "original_hours": [
+          48.998864323470954,
+          48.998864323470954
+        ],
+        "recommended_B_hours": [
+          1.7112652340903878,
+          1.7112652340903878
+        ],
+        "evidence_status": "DERIVED",
+        "basis": "Minimum candidate, not final allocation or full runtime measurement."
+      },
+      {
+        "stage": "sensitivity",
+        "original_hours": [
+          7.438221610349741,
+          7.438221610349741
+        ],
+        "recommended_B_hours": [
+          0,
+          0
+        ],
+        "evidence_status": "DERIVED",
+        "basis": "B explicitly defers context-robustness claims."
+      },
+      {
+        "stage": "setup_hash_load_shutdown",
+        "original_hours": [
+          0.5,
+          0.5
+        ],
+        "recommended_B_hours": [
+          0.5,
+          0.5
+        ],
+        "evidence_status": "ASSUMED",
+        "basis": "Cached ready image/model; verified shared session. Queue/build/download excluded."
+      },
+      {
+        "stage": "additional_io_seal_transfer",
+        "original_hours": [
+          0.25,
+          0.25
+        ],
+        "recommended_B_hours": [
+          0.25,
+          0.25
+        ],
+        "evidence_status": "ASSUMED",
+        "basis": "Beyond normal effect fsync; calibration serialization not measured."
+      }
+    ],
+    "totals": {
+      "original": {
+        "subtotal_hours": [
+          65.3599043019536,
+          67.43860122008346
+        ],
+        "reserve_fraction": 0.2,
+        "gpu_hours": [
+          78.43188516234433,
+          80.92632146410014
+        ],
+        "nominal_usd": [
+          87.05939253020222,
+          89.82821682515116
+        ],
+        "offline_hours_assumed": 0.5,
+        "total_wall_hours": [
+          78.93188516234433,
+          81.42632146410014
+        ]
+      },
+      "recommended_B": {
+        "subtotal_hours": [
+          5.039434745476395,
+          6.725701642575005
+        ],
+        "reserve_fraction": 0.2,
+        "gpu_hours": [
+          6.047321694571674,
+          8.070841971090005
+        ],
+        "nominal_usd": [
+          6.712527080974559,
+          8.958634587909906
+        ],
+        "offline_hours_assumed": 0.5,
+        "total_wall_hours": [
+          6.547321694571674,
+          8.570841971090005
+        ]
+      }
+    },
+    "analysis_includes": "calibration stability,2000 planning bootstrap draws,10000 final bootstrap-t draws,Holm,sealing/reports",
+    "caveats": [
+      "No scientific variance estimate or power proof",
+      "Minimum main allocation only",
+      "Calibration serialization unmeasured",
+      "Native reconstruction overhead excluded from simple forward estimate; reserve is assumed",
+      "Effect timing includes event/timing fsync, not all production sidecar overhead",
+      "Past spend and idle wall are not reset",
+      "Fresh image build/download or queue invalidates allowance"
+    ]
+  },
+  "paths": [
+    {
+      "id": "A",
+      "classification": "SAME_ESTIMAND_IMPLEMENTATION_CHANGE_IF_NEW_GATES_PASS",
+      "name": "Original complete design with exact restructuring",
+      "forecast_key": "original",
+      "best_case_floor_hours_original_outcomes_with_zero_lower_replay": 23.331387709390583,
+      "required_overall_speedup_against_10h": [
+        7.843188516234433,
+        8.092632146410015
+      ],
+      "algorithm": "Cache immutable baseline prefix and unchanged expert outputs; recompute touched expert batches in native shapes/order; natural changed-row routes. Alternative KV row execution requires new numerical gates. Fuse duplicate technical checks without losing independent references.",
+      "counterexample": "Touched experts can carry most rows; unchanged expert count is not runtime share. Baseline/cleanup floor remains.",
+      "effort_assumed": "multi-day to multi-week",
+      "numerical_risk": "high",
+      "decision": "Do not admit original workflow within12USD/10h without measured >=8x total speedup or larger budget."
+    },
+    {
+      "id": "B",
+      "classification": "SAME_PRIMARY_POPULATION_ESTIMAND_MODIFIED_DESIGN_AND_NARROWER_CLAIMS",
+      "name": "Focused fixed4096 layer15 study",
+      "forecast_key": "recommended_B",
+      "model_precision": "original FP32 OLMoE, eager, TF32 off, batch1, no cache",
+      "main": {
+        "scientific_documents": 200,
+        "code_source_groups": 200,
+        "code_files_current_selection": 205,
+        "positions_per_document": 8,
+        "layer": 15,
+        "experts_per_position": 8,
+        "context": 4096,
+        "target_outside_input": true
+      },
+      "calibration": {
+        "domains": [
+          "c4",
+          "scientific",
+          "code"
+        ],
+        "seeds": [
+          3008,
+          3009,
+          3010
+        ],
+        "nested_documents": [
+          100,
+          250,
+          500
+        ],
+        "layer": 15,
+        "gate_change": "Existing thresholds applied to explicitly enumerated layer15 comparisons only; no old freeze inherited"
+      },
+      "probe": {
+        "domains": 3,
+        "documents_per_domain": 32,
+        "positions": 4,
+        "layer": 15
+      },
+      "pilot": {
+        "domains": [
+          "scientific",
+          "code"
+        ],
+        "nested_units": [
+          20,
+          40,
+          80
+        ],
+        "positions": 8,
+        "whole_code_groups": true
+      },
+      "removed_claims": [
+        "lower-layer causal patterns",
+        "C4 outcome evaluation",
+        "matched2048 robustness"
+      ],
+      "kept_claim": "equal-domain document-weighted expected M2-minus-M1 discrimination at exact4096 layer15",
+      "inference": "paired whole-source-group bootstrap-t;10000 draws;>=95% valid;Holm; preserve unequal code-group influence",
+      "precision_target_status": "UNKNOWN until accepted pilot/main; predeclare precision-limited reporting or insufficient-pilot stop",
+      "effort_assumed": "1-3 coordinator days",
+      "numerical_risk": "low arithmetic change; receipt/planning integration material"
+    },
+    {
+      "id": "C",
+      "classification": "DIFFERENT_ANCHOR_OFFSET_ESTIMAND_AND_MODIFIED_ASSURANCE",
+      "name": "Shared-window multi-position final-layer experiment",
+      "anchors_per_document": 4,
+      "predictor_offsets_per_anchor": 16,
+      "effective_context_tokens": [
+        4081,
+        4096
+      ],
+      "main_windows_max": 1620,
+      "main_effect_vectors_max": 25920,
+      "main_hours_assumed": 0.9836856,
+      "technical_hours_assumed": 1.7,
+      "technical_design": "32 disjoint source-group blocks11/11/10 by domain; all16 rows and8 independent native ablations =4096 comparisons; fused controls",
+      "total_gpu_hours_assumed_approx": [
+        5.9,
+        7.7
+      ],
+      "nominal_usd_assumed_approx": [
+        6.5,
+        8.5
+      ],
+      "offline_hours_assumed": 0.5,
+      "algorithm": "Capture16 contribution rows during native-shape final expert loop; independently recompose each row/effect; sequential norm/head initially; exact causal masking and immutable baseline",
+      "claim_change": "uniform anchors times offsets; not uniform fixed4096 positions; targets may be masked inside complete input",
+      "risks": [
+        "block correlation",
+        "boundary weighting",
+        "short-anchor availability",
+        "different numerical head batch shapes",
+        "assurance fusion unmeasured"
+      ],
+      "effort_assumed": "3-7+ coordinator days",
+      "decision": "Radical fallback requiring explicit new protocol, separate identity and prospective variance evaluation."
+    }
+  ],
+  "decisions": [
+    {
+      "action": "KEEP",
+      "item": "All8 effects and exact cleanup",
+      "reason": "Final-layer eight-effect cost .019s/input is negligible; retain raw audit/control value"
+    },
+    {
+      "action": "ADJUST",
+      "item": "64 to8 uniform positions/document",
+      "saved_B_main_windows_vs_two_domain_layer15_64": 22472,
+      "statistical_effect": "SE inflation between1 andsqrt8 in simple variance model; pilot required"
+    },
+    {
+      "action": "CUT",
+      "item": "Lower layers and C4 outcome evaluation",
+      "claim_loss": "depth and C4 generalization; C4 still in M1 calibration"
+    },
+    {
+      "action": "CUT",
+      "item": "Matched2048 promised sensitivity",
+      "optional_added_hours_before_reserve_approx": [
+        1.73,
+        2.44
+      ],
+      "claim_loss": "no context robustness conclusion"
+    },
+    {
+      "action": "ADJUST",
+      "item": "Versioned calibration/technical layer scope",
+      "required_evidence": "new scope-specific acceptance; no inherited PASS"
+    },
+    {
+      "action": "REPLACE_ONLY_WITH_APPROVAL",
+      "item": "BF16/TF32,model or anchored-window experiment",
+      "reason": "changed routes/numerics or scientific estimand; speedup unknown"
+    },
+    {
+      "action": "KEEP",
+      "item": "200 independent units/domain and cluster inference",
+      "reason": "protect independent population evidence; positions are repeated measurements"
+    }
+  ],
+  "statistics": {
+    "variance_model": "(tau_squared + sigma_squared/m)/n, illustrative balanced hierarchy",
+    "position_SE_ratio_64_to8_range": [
+      1,
+      2.8284271247461903
+    ],
+    "normal_halfwidth_formula": "1.96*s/sqrt(2*n), illustrative only",
+    "sd_allowed_at_n200_halfwidth005": 0.05102040816326531,
+    "illustrative_groups_per_domain_for_sd": {
+      "0.05": 193,
+      "0.10": 769,
+      "0.20": 3074
+    },
+    "no_power_claim": true
+  },
+  "first_coordinator_slice": {
+    "action": "versioned proposal compiler and complete remaining-stage cost ledger before executor edits",
+    "targets": [
+      "src/preparation.py::make_plan",
+      "src/preparation.py::sample_positions",
+      "src/planning.py::plan_main",
+      "src/workflow.py::shorten_plan",
+      "src/execution_budget.py"
+    ],
+    "next_targets": [
+      "src/verify.py::verify_native",
+      "src/optimized_validation.py::_validate_full_technical_pair",
+      "src/optimized_validation.py::validate_optimized",
+      "src/run_experiment.py::collect",
+      "src/analyze.py::calibration_freeze",
+      "src/analyze.py::analyze_bundle"
+    ],
+    "checks_proposed": [
+      "whole-code-group preservation",
+      "uniform nested position counts",
+      "pilot/main partition disjointness",
+      "scope-incompatible receipts rejected",
+      "cache mismatch and corrupt raw data fail closed",
+      "failure injection restores hooks/parameters",
+      "no complete partial eight-effect event",
+      "C internal rows rejected by old final-token identity"
+    ]
+  },
+  "cheapest_gpu_experiment": {
+    "status": "PROPOSAL_ONLY_NOT_AUTHORIZED_OR_RUN",
+    "purpose": "B numerical scoped diagnostic plus missing calibration/probe durable timing",
+    "max_seconds": 1080,
+    "nominal_rate_usd_per_hour": 1.11,
+    "fixed_allowance_usd": 0.03,
+    "max_nominal_usd": 0.363,
+    "further_limited_by_reconciled_remaining_budget": true,
+    "automatic_retry": false,
+    "phase_caps_seconds": {
+      "setup_hash_load": 300,
+      "warmup": 45,
+      "independent_validation": 150,
+      "throughput": 120,
+      "seal_transfer": 60,
+      "cleanup": 90,
+      "reserve": 315
+    },
+    "counts": {
+      "technical_windows": 12,
+      "all_eight_independent_comparisons": 96,
+      "calibration_unique_inputs": 6,
+      "probe_unique_inputs": 6,
+      "primary_unique_inputs": 12,
+      "throughput_repetitions": 2
+    },
+    "acceptance": [
+      "original mixture/logit atol1e-6 rtol1e-5 and NLL1e-6",
+      "exact route,survivor,cleanup identities",
+      "all frozen cases complete",
+      "durable calibration/probe timings included in full remaining ledger",
+      "conservative projected total with reserve fits reconciled wallet/time"
+    ],
+    "not_proven": [
+      "full technical acceptance",
+      "scientific precision",
+      "power",
+      "main result"
+    ],
+    "full_B_technical_separate_launch_estimate": {
+      "hours_with_setup_reserve": 1.6,
+      "nominal_usd": 1.78
+    }
+  },
+  "required_approvals": [
+    "B scope and8-position sampling/pilot",
+    "layer15 calibration/technical comparison family",
+    "precision-limited reporting policy or strict insufficiency stop",
+    "reconciled paid envelope",
+    "separate C population/assurance approval if selected"
+  ],
+  "blockers": [
+    "remaining funds/time unknown",
+    "no full technical acceptance",
+    "no calibration stability result",
+    "no pilot variance or final sample allocation",
+    "calibration serialization unmeasured",
+    "existing code hardcodes original scopes"
+  ],
+  "closest_deliverable_if_B_not_admitted": "accepted mechanics plus calibrated source-disjoint pilot with achieved uncertainty; if gates fail, explicitly incomplete feasibility study",
+  "checks_performed": [
+    "raw timing/progress/receipt summaries",
+    "144 native error field maxima",
+    "24 paired layer-event exact equality",
+    "streamed prepared inventory count reproduction",
+    "exact100-subset250 calibration identity checks",
+    "current source and implementation identity inspection",
+    "derived full-stage arithmetic",
+    "cross-seed calibration input-ID union2246 versus2250 logical observations"
+  ],
+  "not_performed": [
+    "tests",
+    "model execution",
+    "scientific pilot",
+    "cloud mutation",
+    "paid validation",
+    "download",
+    "source/settings/protocol changes"
+  ],
+  "sources": [
+    {
+      "kind": "primary_documentation",
+      "url": "https://docs.pytorch.org/docs/main/notes/numerical_accuracy.html",
+      "use": "batch/slice mathematical equivalence does not guarantee floating point identity"
+    },
+    {
+      "kind": "local_handoff",
+      "path": "docs/validation/FRESH-FEASIBILITY-AUDIT-HANDOFF-PROMPT.md"
+    },
+    {
+      "kind": "current_config",
+      "path": "configs/research.json"
+    },
+    {
+      "kind": "current_source",
+      "paths": [
+        "src/run_experiment.py",
+        "src/interventions.py",
+        "src/model.py",
+        "src/optimized_validation.py",
+        "src/preparation.py",
+        "src/planning.py",
+        "src/reuse.py",
+        "src/observation_contract.py",
+        "src/verify.py",
+        "src/analyze.py"
+      ]
+    }
+  ],
+  "closest_deliverable_forecast": {
+    "gpu_hours_approx": [
+      4.0,
+      6.02
+    ],
+    "nominal_usd_approx": [
+      4.43,
+      6.68
+    ],
+    "offline_hours_assumed": 0.5,
+    "status": "DERIVED_FROM_B_WITH_MAIN_REMOVED_NOT_MEASURED"
+  }
+}

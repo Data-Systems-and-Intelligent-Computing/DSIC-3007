@@ -1,0 +1,129 @@
+{
+  "authorization": {
+    "commands_expected_over_two_minutes_operator": "user",
+    "paid_operations_started_by_coordinator": false,
+    "research_settings_change": false,
+    "scientific_collection": false,
+    "single_diagnostic_screen": true
+  },
+  "bounds": {
+    "attempt_cash_planning_allowance_usd": 0.75,
+    "attempts": 1,
+    "automatic_retries": false,
+    "boot_seconds": 600,
+    "guard": "local detached process, starts cleanup60s before deadline; requires awake connected local machine and responsive provider API",
+    "overall_seconds": 1800,
+    "planned_30min_compute_plus_storage_usd": 0.555,
+    "provider_enforced_ttl_or_spending_limit": false,
+    "retained_network_storage_continues_to_bill": true,
+    "storage_allowance_usd_per_hour": 0.02,
+    "storage_evidence": "conservative estimate based on published .10/GB-month container and .07/GB-month STANDARD volume; not invoice measurement",
+    "storage_source": "https://docs.runpod.io/pods/storage/types",
+    "user_network_volume_deleted": false
+  },
+  "candidate": {
+    "archives": {
+      "screen.tar.gz": {
+        "sha256": "6ab77c8fc5d3830f1d08d77492bd14523c85a66c987bef58051aec328db4d0ba",
+        "size_bytes": 8725857
+      },
+      "source.tar.gz": {
+        "sha256": "d75b001347003d5967f14ed6cf5ee5fa1955fd96af62b3000d0f9e4c10e98b7e",
+        "size_bytes": 305814
+      }
+    },
+    "identity_path": "data/optimization/user-screen-2026-10-11/identity.json",
+    "identity_sha256": "c3d83bca413872e345a422fd206450308cf3c7918149264fdb3b4f1d6f14f6a4",
+    "implementation_sha256": "f7a7e92c7ac5c92368467da986ea413bffb33b1cda8665b903bea32b8a1b5d62",
+    "pinned_image_is_runtime_only": true,
+    "previous_candidate_preserved": true,
+    "source_files": 57
+  },
+  "checks": [
+    {
+      "command": "PYTHONPATH=/tmp/dsic3007-py314-test-deps python -m pytest -q",
+      "result": "128 passed in 18.70s",
+      "scope": "CPU/synthetic and mocked lifecycle; no pretrained GPU proof"
+    },
+    {
+      "command": "focused tests/test_runpod_screen.py",
+      "result": "31 passed in 0.62s",
+      "scope": "independent worker; mocked cloud and synthetic staging"
+    },
+    {
+      "command": "python -m compileall -q runpod src tests; git diff --check",
+      "result": "pass"
+    },
+    {
+      "command": "extract actual frozen archives to new /tmp candidate, verify source/implementation and both sealed plans",
+      "result": "pass; 57 whitelisted files and contexts4096/2048; no GPU called"
+    },
+    {
+      "command": "python runpod/screen.py",
+      "result": "PASS read-only; no POST/DELETE"
+    }
+  ],
+  "coordinator_changed_remote_resources": false,
+  "independent_review": {
+    "path": "docs/validation/optimization-user-run-review-2026-10-11.json",
+    "sha256": "9d3a0d6de529db9df600ee188eabe37a362de36ccb6c1752bea22d18f91ccb72"
+  },
+  "logging": {
+    "comparison_progress": "stdout emitted after durable comparison record flush and fsync",
+    "gpu_samples": "observations only, not proven fit",
+    "guard": "runpod/runs/latest/guard.log",
+    "local": "runpod/runs/latest/console.log",
+    "remote_partial_results": "/workspace/screen-attempts/<unique attempt>/results",
+    "retrieved_results": "runpod/runs/latest/results"
+  },
+  "preflight": {
+    "account_pods_empty": true,
+    "actual_pod_quote_and_allocation": "not_provisioned_not_measured",
+    "cuda_13_catalog_available": true,
+    "host_offer": {
+      "ram_gb": 125,
+      "source": "user_report",
+      "vcpu": 16,
+      "vram_gb": 48
+    },
+    "host_ram_gate": "RESTv2 Pod GpuConfig.memory means total SYSTEM RAM; Catalog GPU memory means VRAM; min64 hostRAM checked on ready pod",
+    "mode": "read_only",
+    "passed_at_utc": "2026-10-11T00:49:30+00:00",
+    "region": "US-MO-1",
+    "region_stock": "LOW",
+    "secure_l40s_catalog_rate_usd_per_hour": 1.09,
+    "volume_gb": 50,
+    "volume_id": "k6u810gze3",
+    "volume_type": "STANDARD"
+  },
+  "protected_files_verified_unchanged": {
+    "README.md": "2f857b3c96f559b5cb063d5c58d123c5f97917d44b20376534b54c145f0920e9",
+    "configs/research.json": "2daadce595cfe6f38747c70c31e07052ed49a926080513873a82abf0ccf24fb4",
+    "src/verify.py": "6d750f101780e36d999dec9d3bc61c931b2d8b60a1079bd96a4f8cf2c259a319"
+  },
+  "remaining_work": {
+    "blockers": [
+      "user execution of bounded screen; model staging/runtime access not exercised on GPU",
+      "native L40S numerical comparisons and whole-device fit unknown",
+      "full accepted technical plans need fresh native mechanics and complete optimized acceptance before collection",
+      "native representative calibration/probe/effect profiles and actual staging/overhead measurements missing",
+      "calibration stability, sufficient pilot and actual allocation pending",
+      "ten-hour accounting start unconfirmed; full $12 and time feasibility unknown"
+    ],
+    "budget_ceiling_usd": 12,
+    "budget_result_path": "docs/validation/optimization-user-run-budget-result-2026-10-11.json",
+    "buffer_usd": 1.99,
+    "cash_boundary_confirmed_by_user": true,
+    "quoted_arithmetic_only": {
+      "12_usd_at_1_11_hourly_gpu_hours": 10.81081081081081,
+      "ten_hours_before_20percent_reserve": 8.333333333333334
+    },
+    "remaining_hours_ceiling": 10,
+    "time_accounting_start_confirmed": false,
+    "user_reported_balance_usd": 13.99,
+    "workflow_feasibility": "UNKNOWN"
+  },
+  "status": "local_preparation_complete_read_only_preflight_pass_awaiting_user_long_command",
+  "user_command": "python runpod/screen.py --run",
+  "written_at": "2026-10-11T00:50:34.575372+00:00"
+}

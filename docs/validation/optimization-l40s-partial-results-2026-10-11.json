@@ -1,0 +1,194 @@
+{
+  "attempt": "dsic-screen-20261011T010215-fb295d6f",
+  "budget": {
+    "balance_currently_verified": false,
+    "billing_readback": "optimization-l40s-billing-readback-2026-10-11.json",
+    "first_attempt_conservative_elapsed_upper_seconds": 454.1,
+    "formal_complete_workflow_forecast": "UNKNOWN",
+    "pod_bill_status": "unknown; empty current billing records do not establish no charges",
+    "pod_billing_records_returned": 0,
+    "provisional_remaining_work_cash_after_nominal_compute_only_usd": 11.531212020526594,
+    "provisional_time_if_10h_started_before_first_attempt_hours": 9.569919284886785,
+    "read_pod_rate_usd_per_hour": 1.09,
+    "retained_volume_bill_window": "00:00-01:00 UTC on 2026-10-11; ongoing storage not fully billed yet",
+    "retained_volume_reported_billing_usd": 0.004861111287027597,
+    "this_attempt_nominal_compute_usd": 0.33129659058451655,
+    "time_accounting_start_confirmed": false,
+    "two_attempts_conservative_elapsed_seconds": 1548.2905744075774,
+    "two_attempts_nominal_compute_upper_usd": 0.4687879794734054,
+    "user_remaining_work_ceiling_usd": 12,
+    "user_reported_balance_usd": 13.99,
+    "user_time_ceiling_hours": 10
+  },
+  "evidence": {
+    "both_pods_absent_on_fresh_GET": true,
+    "candidate_implementation_sha256": "f7a7e92c7ac5c92368467da986ea413bffb33b1cda8665b903bea32b8a1b5d62",
+    "case_report_sha256": "bf845ce3e32a091010aca5f7b83abe50aba562b760cdf8f27f57558da5ee76aa",
+    "completed_contexts": [
+      4096
+    ],
+    "completed_inputs": 17,
+    "domain_coverage": {
+      "c4": 12,
+      "code": 0,
+      "scientific": 5
+    },
+    "expected_expert_comparisons": 1728,
+    "expected_inputs": 72,
+    "expert_comparisons": 408,
+    "independent_review": "optimization-l40s-partial-review-2026-10-11.json",
+    "local_lease_elapsed_seconds": 1094.1905744075775,
+    "memory_interpretation": "partial observed maxima, not whole-workflow peak upper bounds",
+    "network_volume_retained": true,
+    "observed_component_seconds": {
+      "cleanup_seconds": {
+        "max": 0.9260754869319499,
+        "mean": 0.9183895432061571,
+        "min": 0.9125636401586235,
+        "n": 17
+      },
+      "contribution_baseline_seconds": {
+        "max": 0.9402408362366259,
+        "mean": 0.9343114087138983,
+        "min": 0.9182922570034862,
+        "n": 17
+      },
+      "native_ablation_seconds_by_layer": {
+        "0": {
+          "max": 7.952451282646507,
+          "mean": 7.735349527286256,
+          "min": 7.602931402623653,
+          "n": 17
+        },
+        "15": {
+          "max": 7.40180375194177,
+          "mean": 7.3483924184213665,
+          "min": 7.246762306429446,
+          "n": 17
+        },
+        "7": {
+          "max": 7.670222137589008,
+          "mean": 7.536960209007649,
+          "min": 7.376288053113967,
+          "n": 17
+        }
+      },
+      "native_baseline_seconds": {
+        "max": 1.321514436043799,
+        "mean": 0.943160938564688,
+        "min": 0.9107852298766375,
+        "n": 17
+      },
+      "optimized_suffix_seconds_by_layer": {
+        "0": {
+          "max": 7.453611795324832,
+          "mean": 7.292339295066674,
+          "min": 7.135554435662925,
+          "n": 17
+        },
+        "15": {
+          "max": 0.019659308716654778,
+          "mean": 0.01955133399871342,
+          "min": 0.01943584717810154,
+          "n": 17
+        },
+        "7": {
+          "max": 4.0044797118753195,
+          "mean": 3.9000307233072817,
+          "min": 3.7961807372048497,
+          "n": 17
+        }
+      },
+      "synchronized_comparison_total_seconds": {
+        "max": 37.845228084828705,
+        "mean": 37.20545332632302,
+        "min": 36.94761504838243,
+        "n": 17
+      }
+    },
+    "observed_gpu_peak_allocated_bytes": 30875910144,
+    "observed_gpu_peak_reserved_bytes": 33067892736,
+    "observed_host_peak_rss_bytes": 28602888192,
+    "receipt_image_digest": null,
+    "stop_reason": "elapsed cap reached during input validation",
+    "validation_receipt_sha256": "24c8a4cb29d3b68cb786276d0e8efd4bfb3394e17bb4a666083d8c2e0a6d1a5c",
+    "weights_stage_seconds": 258.0708394050598
+  },
+  "future_run_fix": {
+    "change": "Bind RESEARCH_IMAGE_DIGEST from digest-pinned frozen candidate after archive/helper/implementation verification; reject conflict; controller requires exact requested pinned image. Child validator inherits binding even when SSH omitted container environment.",
+    "identity_interpretation": "declared image identity linked to controller read-back, not in-container attestation",
+    "native_verification": "unrun; old partial receipt cannot be relabeled with the future image binding",
+    "new_package": "data/optimization/user-screen-2026-10-11-image-identity-v3",
+    "old_receipts_rewritten": false,
+    "scientific_implementation_unchanged": true,
+    "status": "local tested fix only, no paid run"
+  },
+  "illustrative_main_4096_extrapolation": {
+    "P": 38296,
+    "Q_each_secondary_layer": 9677,
+    "assumptions": [
+      "17 observed C4/scientific windows transfer to all main domains, sizes and event counts",
+      "diagnostic synchronized components transfer to actual optimized production collector",
+      "main layer0/7 positions are subsets of layer15 positions, so baseline/cleanup counted once"
+    ],
+    "baseline_plus_cleanup_plus_layer15_seconds_A": 1.8722522859187687,
+    "formula": "(P*A + Q*B)/3600",
+    "hours": 50.00231616926388,
+    "interpretation": "Strong evidence to hold full collection under the current $12/10h envelope; not a verified universal lower bound or a feasibility verdict.",
+    "layer0_plus_layer7_suffix_seconds_B": 11.192370018373957,
+    "nominal_compute_usd_at_observed_rate": 54.50252462449763,
+    "omissions": [
+      "2048 context and code domain unmeasured",
+      "calibration, probe, pilot, sensitivity, complete technical acceptance, validation, analysis, report, CPU/storage waits, model loading and reserve",
+      "production capture and event persistence overhead"
+    ],
+    "source_audit_correction": "This illustrative ~50h estimate omits the current optimized collector pristine reference forward. See optimization-next-direction-2026-10-11.json: adding its observed diagnostic component gives about60h, still assumption-based and not a complete production forecast.",
+    "status": "assumption_based_adverse_budget_signal_not_production_forecast"
+  },
+  "local_integration_checks": {
+    "all_new_l40s_evidence_json_parsed": true,
+    "candidate_implementation_unchanged": true,
+    "checked_at": "2026-10-11T01:32:02.356304+00:00",
+    "diff_check": "git diff --check passed",
+    "full_suite": {
+      "command": "PYTHONPATH=/tmp/dsic3007-py314-test-deps python -m pytest -q",
+      "result": "142 passed in 18.80s",
+      "scope": "local CPU/mocked lifecycle checks; not new GPU evidence"
+    },
+    "no_new_paid_run_launched": true,
+    "prior_raw_validation_receipt_hash_unchanged": true,
+    "protected_README_research_and_native_verify_hashes_unchanged": true,
+    "screen_archive": {
+      "sha256": "6ab77c8fc5d3830f1d08d77492bd14523c85a66c987bef58051aec328db4d0ba",
+      "size_bytes": 8725857
+    },
+    "source_archive": {
+      "sha256": "0ba3ebce9928c7cb6f980897664dbac529e9d3b847d55c885ee67481a34d6e19",
+      "size_bytes": 308672
+    },
+    "syntax": "python -m py_compile runpod/screen.py runpod/screen_remote.py passed",
+    "v3_package_archive_and_local_file_hashes": "verify_package passed"
+  },
+  "next_bounded_gpu_proposal": {
+    "aggregate_limit": "smaller of 20min/$0.40 and reconciled remaining $12/10h; guard counted through teardown; one create/no retry",
+    "all_in_attempt_cash_cap_usd": 0.4,
+    "cache": "reuse retained weights only after catalog/hash verification; staging/hash/loading still count",
+    "comparisons": 432,
+    "hardware": "one secure L40S 48GB, host RAM >=64GB, US-MO-1 retained volume, existing pinned image/runtime",
+    "lease_cap_seconds": 1200,
+    "native_full_forwards": 486,
+    "nominal_compute_max_usd": 0.36333333333333334,
+    "numerics": "FP32/eager/batch1/no KV cache/TF32 off; original tolerances and all8 experts/layers0,7,15 unchanged",
+    "planning_storage_allowance_max_usd": 0.006666666666666666,
+    "purpose": "cover missing code/2048 and obtain balanced domain/context diagnostic timings before any further full-workflow decision",
+    "readiness": "sampling/order and successor sealed package for this balanced diagnostic must be prepared and reviewed before paid authorization; current v3 still packages original72",
+    "scientific_collection_authorized": false,
+    "selection": "18 predeclared diagnostic windows: one deterministic existing position per each of the three sealed technical groups/domain at each context; alternate domain/context so a timeout has balanced coverage. Preserve original 72-window plans and technical acceptance requirement. This smaller diagnostic is not a full screen PASS.",
+    "status": "proposal_only_requires_new_paid_authorization",
+    "stop": "cap, discrepancy/nonfinite, changed identity, fit failure, other running verification; preserve partial data",
+    "suffix_replays": 432
+  },
+  "recorded_at": "2026-10-11T01:29:49.625864+00:00",
+  "schema_version": 1,
+  "status": "partial_native_diagnostic_no_collection_approval"
+}

@@ -1,0 +1,249 @@
+{
+  "attempt": "runpod/runs/dsic-screen-20261011T043533-f31ba85d",
+  "candidate_component_means": [
+    {
+      "cleanup_seconds": 0.9410227878640095,
+      "context_length": 4096,
+      "eight_effects_mean_seconds_by_layer": {
+        "0": 6.946358021969597,
+        "15": 0.019123007232944172,
+        "7": 3.7174749951809645
+      },
+      "event_journal_write_seconds": 0.018416070689757664,
+      "layer0_7_effect_fraction_of_measurement": 0.8478087093963802,
+      "measurement_seconds": 12.5781121365726,
+      "n_inputs": 3,
+      "shared_seconds": 0.9528134601811568
+    },
+    {
+      "cleanup_seconds": 0.5669862708697716,
+      "context_length": 2048,
+      "eight_effects_mean_seconds_by_layer": {
+        "0": 4.189113322645426,
+        "15": 0.018332896754145622,
+        "7": 2.2345780109365783
+      },
+      "event_journal_write_seconds": 0.033792128786444664,
+      "layer0_7_effect_fraction_of_measurement": 0.8461843567875791,
+      "measurement_seconds": 7.59136148293813,
+      "n_inputs": 3,
+      "shared_seconds": 0.5811058264225721
+    }
+  ],
+  "coordinator_launched_paid_work": false,
+  "cost_and_limits": {
+    "attempt_compute_nominal_usd": 0.19972733096546597,
+    "attempt_compute_plus_storage_allowance_usd": 0.2033920526345571,
+    "attempt_with_fixed_assumption_usd": 0.2333920526345571,
+    "computed_lease_seconds": 1037.837837934494,
+    "interpretation": "Nominal catalog-price arithmetic and storage/fixed-cost planning allowances, not actual invoice. Retained-volume charges between/outside attempts and all earlier work count. Active attempt sum is not continuous wall time. Current wallet and original ten-hour accounting boundary UNKNOWN.",
+    "operator_cash_limit_usd": 0.35,
+    "operator_time_limit_seconds": 1060.0,
+    "two_latest_attempts_active_seconds": 790.8241295814514,
+    "two_latest_attempts_compute_plus_storage_allowance_usd": 0.24383743995428087,
+    "two_latest_attempts_wall_span_seconds": 1629.8225674629211,
+    "two_latest_attempts_with_two_fixed_assumptions_usd": 0.3038374399542809,
+    "wall_span_minus_active_seconds": 838.9984378814697
+  },
+  "coverage": {
+    "all_raw_events": 60,
+    "contexts": [
+      4096,
+      2048
+    ],
+    "distinct_documents": 3,
+    "distinct_source_groups": 3,
+    "domains": [
+      "c4",
+      "scientific",
+      "code"
+    ],
+    "exact_paired_effect_values": 192,
+    "exact_paired_event_rows": 24,
+    "independent_native_comparisons": 144,
+    "layer_shapes": [
+      [
+        15,
+        0,
+        7
+      ],
+      [
+        15
+      ]
+    ],
+    "measured_pairs": 12,
+    "measured_raw_events": 48,
+    "selected_input_windows": 6,
+    "timing_rows": 28,
+    "warmup_raw_events": 12
+  },
+  "hardware_runtime": {
+    "attention": "eager",
+    "batch_size": 1,
+    "cache": false,
+    "cuda": "13.0",
+    "deterministic_algorithms": true,
+    "dtype": "float32",
+    "experts": "eager",
+    "gpu_memory_bytes": 47665709056,
+    "gpu_name": "NVIDIA L40S",
+    "image_digest": "docker.io/aryamudas/dsic-3007@sha256:ae58005a9187a2e69f3d63bd3802eea063ae206801239abdc20e9286f77612d3",
+    "loss_dtype": "float64",
+    "modeling_source_sha256": "498ab5720463327ab7235f3a3103aefa49d2f93da10c3cfb7ef7002774b05531",
+    "python": "3.14.6",
+    "software": {
+      "numpy": "2.4.6",
+      "safetensors": "0.8.0",
+      "tokenizers": "0.22.2",
+      "torch": "2.12.1",
+      "transformers": "5.12.1"
+    },
+    "tf32": false
+  },
+  "identities": {
+    "baseline_implementation_sha256": "f7a7e92c7ac5c92368467da986ea413bffb33b1cda8665b903bea32b8a1b5d62",
+    "baseline_mode": "native_shape_suffix_v1",
+    "candidate_implementation_sha256": "23a838e6f838915ce622ee2b63cf9fbd03b3fe10365711a5a95e67f990233304",
+    "candidate_mode": "native_shape_suffix_cleanup_reference_v2",
+    "plan_manifest_sha256": {
+      "2048": "e46736e9d346007e3069b61cb25da00a23b0df38a2ca7471272e89fe8c9644ad",
+      "4096": "d2f93f97e395f4bd7534dde69752066e177ef586f90571a357f19e6abfa4efa9"
+    },
+    "selection_sha256": "f3a97d4688f5f2ad890cce82f0424f954bde7a4e601e5f7b0c32e83417c6ad98",
+    "source_review_sha256": "8431ba4f125c85a37491b0cfed4b1aa9a750772f4962c378f63506b0a7a2d877"
+  },
+  "independent_review_sha256": "c3c6f6d0ecbf729fc6f72eb9a7980f9a80b9b8ae70772521ce74bfc1f3db369d",
+  "independent_review_status": "complete; no blocking discrepancy; source-unit/order/timing/image/lifecycle limits recorded",
+  "interpretation_limits": [
+    "Six matched windows from three documents/groups;12pairs are not12independent source units.",
+    "One measured observation per domain/context/layer-shape; no uncertainty intervals or repeatability proof.",
+    "AB/BA alternates by input but4096 all baseline-first and2048 all candidate-first; order and context effects are confounded.",
+    "Layer shapes for an input share its data/model/cache state; warmup/native checks precede measured arms.",
+    "Diagnostic agreement proves observed candidate/native comparisons, not scientific finding stability or full technical plan coverage.",
+    "Image is a declared digest bound to controller readback, not in-container attestation.",
+    "Attempt.json retains creating status; result/runner receipt/cleanup corroborate completion. Raw records preserved."
+  ],
+  "main4096_conditional_illustration": {
+    "P": 38296,
+    "Q": 9677,
+    "assumptions": "Transfer means from one warmed selected input per domain/shape at4096 uniformly to retained census. Applies collector-shaped elapsed including event/timing fsync, excludes setup, othercontexts, calibration/probe/pilot, analysis/reserve. Three documents are not representative proof. No universal lower bound or complete-workflow forecast.",
+    "candidate_nominal_compute_plus_storage_allowance_usd": 54.38873939905275,
+    "new_hours": 48.99886432347095,
+    "old_hours": 58.93171956146774,
+    "primary_only_inputs": 28619,
+    "rate_assumption": "Use attempt catalog1.09/hour plus storage allowance0.02/hour throughout transferred main scenario; not live future quote or actual invoice.",
+    "saved_hours": 9.93285523799679,
+    "three_layer_inputs": 9677
+  },
+  "measured_elapsed_groups": [
+    {
+      "baseline_mean_seconds": 2.8421335636327663,
+      "candidate_mean_seconds": 1.9014058156559865,
+      "context_length": 4096,
+      "elapsed_reduction_percent": 33.09935043215766,
+      "layer_shape": [
+        15
+      ],
+      "n_pairs": 3,
+      "pooled_baseline_over_candidate": 1.4947537975485934,
+      "scope": "pre-arm synchronization through raw event and timing sidecar fsync; progress fsync excluded"
+    },
+    {
+      "baseline_mean_seconds": 13.518153349558512,
+      "candidate_mean_seconds": 12.60510266882678,
+      "context_length": 4096,
+      "elapsed_reduction_percent": 6.754255978029377,
+      "layer_shape": [
+        15,
+        0,
+        7
+      ],
+      "n_pairs": 3,
+      "pooled_baseline_over_candidate": 1.0724350054672513,
+      "scope": "pre-arm synchronization through raw event and timing sidecar fsync; progress fsync excluded"
+    },
+    {
+      "baseline_mean_seconds": 1.7411178884406884,
+      "candidate_mean_seconds": 1.1699736875792344,
+      "context_length": 2048,
+      "elapsed_reduction_percent": 32.80330439732371,
+      "layer_shape": [
+        15
+      ],
+      "n_pairs": 3,
+      "pooled_baseline_over_candidate": 1.4881684151745287,
+      "scope": "pre-arm synchronization through raw event and timing sidecar fsync; progress fsync excluded"
+    },
+    {
+      "baseline_mean_seconds": 8.16599767220517,
+      "candidate_mean_seconds": 7.629948494955897,
+      "context_length": 2048,
+      "elapsed_reduction_percent": 6.564405217427849,
+      "layer_shape": [
+        15,
+        0,
+        7
+      ],
+      "n_pairs": 3,
+      "pooled_baseline_over_candidate": 1.070255936537927,
+      "scope": "pre-arm synchronization through raw event and timing sidecar fsync; progress fsync excluded"
+    }
+  ],
+  "next_local_work": "Profile/prototype guarded unchanged downstream expert-batch reuse for layers0/7; native shape/input/row-map/parameter guard, recompute changed batches; frozen tolerances. Address baseline/cleanup per-input cost as well before claiming10h feasibility. No further paid work or protocol changes.",
+  "numerical": {
+    "cleanup": "Exact per-arm checks required before persistence; successful receipt/global parameter versions and hook checks",
+    "max_native_errors": {
+      "max_logit_abs_error": 0.0,
+      "max_mixture_abs_error": 0.0,
+      "nll_abs_error": 0.0
+    },
+    "paired_baseline_nll_routes_and_all_effects": "exact equality in24 measured event pairs",
+    "parameter_versions_unchanged": true
+  },
+  "observed_memory_only": {
+    "interpretation": "observed peaks in diagnostic; not universal fit bounds or all-workflow acceptance",
+    "max_event_cuda_peak_allocated_bytes": 30506363904,
+    "max_event_cuda_peak_reserved_bytes": 33072087040,
+    "max_event_host_max_rss_kib": 27907668
+  },
+  "phase_ledger": {
+    "benchmark_child_total_seconds": 403.97552132606506,
+    "cached_weight_hash_verification_seconds": 82.83571147918701,
+    "download": "none; cache-only verification82.84s counted, repeated model identity/load checks30.29s counted",
+    "independent_native_checks_seconds": 181.94203066825867,
+    "model_hash_load_seconds": 30.293466806411743,
+    "paired_collector_and_durable_persistence_both_arms_seconds": 149.18961715698242,
+    "remaining_setup_retrieval_teardown_and_other_overheads_seconds": 172.8386676311493,
+    "warmup_seconds": 42.07241630554199,
+    "whole_attempt_seconds": 659.6499004364014
+  },
+  "raw_receipts_modified": false,
+  "raw_sha256": {
+    "runpod/runs/dsic-screen-20261011T043533-f31ba85d/attempt.json": "5db9fd92b6d51c4320cf8c69a541bbe21c4622ce1ba961ea025c9a8b0128dd63",
+    "runpod/runs/dsic-screen-20261011T043533-f31ba85d/cleanup.json": "d50586f78c0720a6ce8fd3b7b1f46a1532fb290b643c763a8a8c2bec74a02eae",
+    "runpod/runs/dsic-screen-20261011T043533-f31ba85d/console.log": "3742b29c9f04b8f3849c47a272158b6f761af0f40374a7a4c36de5c985bbd821",
+    "runpod/runs/dsic-screen-20261011T043533-f31ba85d/result.json": "21c4f9b843c82be2ef8dff8e0501f47004016a3308607bc18d885cc295824a7c",
+    "runpod/runs/dsic-screen-20261011T043533-f31ba85d/results/gpu-samples.jsonl": "aaf9ef3dd34e12534b65b6d1f4fe9315039b544333ad7d1953113a026e123773",
+    "runpod/runs/dsic-screen-20261011T043533-f31ba85d/results/runner-receipt.json": "368a44cc8ce915ce218d40ef50d34a8bbd10af6f740f6d055e87e24d27cae15c",
+    "runpod/runs/dsic-screen-20261011T043533-f31ba85d/results/validation.json": "5ce792585f2fe6740b8bf1502fb489740623cca43195664091eee7a1168e5722",
+    "runpod/runs/dsic-screen-20261011T043533-f31ba85d/results/validation.json.events.jsonl": "bfcc5cd44949a076c3c40d0d431a39954625f6aa11fa84ec8cd7fffb65431555",
+    "runpod/runs/dsic-screen-20261011T043533-f31ba85d/results/validation.json.progress.jsonl": "743c1e88874ce0203bb085d4d5c2b57114f7600e240c7a5558b82514bb984e7b",
+    "runpod/runs/dsic-screen-20261011T043533-f31ba85d/results/validation.json.timings.jsonl": "4f21178d6880fa05a9ca8773cd3262da254bf50b08b0f2eae24ff38e56faa4e4"
+  },
+  "recorded_at_utc": "2026-10-11T04:51:44.737737+00:00",
+  "research_settings_changed": false,
+  "review": "docs/validation/optimization-paired-results-review-2026-10-11.json",
+  "schema_version": 1,
+  "status": "paired_diagnostic_PASS_no_full_technical_or_scientific_approval",
+  "teardown": {
+    "current_API_recheck": "not performed in this analysis; local owned-pod deletion receipt confirms run-end teardown",
+    "local_receipt": {
+      "confirmed_at": 1791693993.4470868,
+      "pod_id": "l8w9i7ksz0kafb",
+      "status": "confirmed",
+      "volume_deleted": false
+    },
+    "network_volume_retained": true
+  },
+  "workflow_feasibility": "UNKNOWN; conditional main4096 estimate about49h remains adverse against10h; do not launch fullcollection"
+}
