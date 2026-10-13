@@ -1,45 +1,8 @@
-# Code, tests, locks, README, manifests and ignore rules belong in Git.
-# Personal material and large assets stay local or in external storage.
-/AGENTS.md
-/EXPERIMENT_PROTOCOL.md
-/OPERATIONAL.md
-/TODO.md
-/learning/
-/references/
-/history/
-/models/
-/results/
-
-# Keep small input manifests/templates; exclude corpus bytes and downloads.
-/data/*
-!/data/manifests/
-!/data/samples/
-/data/manifests/*
-!/data/manifests/*.md
-!/data/manifests/*.json
-!/data/manifests/*.csv
-/data/manifests/*.local.json
-/data/samples/*
-!/data/samples/*.md
-!/data/samples/*.csv
-
-# Keep literature notes and small validation evidence/tools, not local materials.
-/docs/*
-!/docs/literature/
-!/docs/validation/
-/docs/literature/*
-!/docs/literature/*.md
-/docs/validation/*
-!/docs/validation/*.md
-!/docs/validation/*.json
-!/docs/validation/*.py
-
-# Environments, caches, credentials and machine tooling.
+.archive/
 .venv/
 __pycache__/
 *.py[cod]
 .pytest_cache/
-.ruff_cache/
 .codebase-memory/
 .env
 .env.*
@@ -47,14 +10,16 @@ __pycache__/
 .aws/
 .codex/
 .agents/
-
-# RunPod deployment state and local credentials; IaC and provider lock belong in Git.
-/runpod/.terraform/
-/runpod/*.tfstate
-/runpod/*.tfstate.*
-/runpod/*.tfplan
-/runpod/terraform.tfvars
-/runpod/*.auto.tfvars
-/runpod/deployment.local.json
-/runpod/*.local.json
-/runpod/runs/
+references/
+docs/figures/
+docs/draft-teori-dasar-arya.md
+models/
+results/
+data/*
+!data/manifests/
+data/manifests/*.local.json
+terraform/.terraform/
+terraform/*.tfstate*
+terraform/*.tfplan
+terraform/*.tfvars
+terraform/*.auto.tfvars*

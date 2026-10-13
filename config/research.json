@@ -1,0 +1,47 @@
+{
+  "model": {
+    "repo": "allenai/OLMoE-1B-7B-0924",
+    "revision": "c6f6954f182ffdd9f6ab4f4d772714b7dcd6836b",
+    "layers": 16,
+    "experts": 64,
+    "active_experts": 8
+  },
+  "context": 4096,
+  "layer": 15,
+  "seed": 3007,
+  "domains": ["c4", "scientific", "code"],
+  "outcome_domains": ["scientific", "code"],
+  "sampling": {
+    "technical_groups": 12,
+    "technical_positions": 4,
+    "probe_documents": 32,
+    "probe_positions": 4,
+    "positions": 8,
+    "pilot_ladder": [20, 40, 80],
+    "main_min_scientific_documents": 200,
+    "main_min_code_groups": 200
+  },
+  "calibration": {
+    "seeds": [3008, 3009, 3010],
+    "ladder": [100, 250, 500],
+    "l1_max": 0.05,
+    "jaccard_min": 0.75,
+    "pass_fraction": 0.9
+  },
+  "numerical": {"atol": 1e-6, "rtol": 1e-5, "nll_atol": 1e-6},
+  "analysis": {
+    "confidence": 0.95,
+    "bootstrap_draws": 10000,
+    "planning_draws": 2000,
+    "valid_fraction": 0.95,
+    "m0_draws": 64,
+    "target_halfwidth": 0.005,
+    "pilot_halfwidth_sd_fraction": 0.25,
+    "minimum_pilot_groups": 10
+  },
+  "data_sources": {
+    "c4": {"repo": "allenai/c4", "revision": "1588ec454efa1a09f29cd18ddd04fe05fc8653a2", "split": "validation", "subset": "en"},
+    "scientific": {"repo": "common-pile/peS2o", "revision": "2caeba1585aaafa3c965410d80af85b09ed11cd9", "split": "train"},
+    "code": {"repo": "bigcode/starcoderdata", "revision": "9fc30b578cedaec69e47302df72cf00feed7c8c4", "split": "train", "subset": "python"}
+  }
+}

@@ -10,7 +10,7 @@ yang sama.
 
 Arya selected **Path B** after comparing the original design, fresh feasibility
 findings, and the supervisor's theory draft. The scope decision is recorded in
-[configs/path-b-decision-v1.json](configs/path-b-decision-v1.json). This amendment
+[docs/path-b-decision-v1.json](docs/path-b-decision-v1.json). This amendment
 defines the active scope throughout this README. The earlier design is archived
 separately; historical settings and raw evidence remain preserved.
 
@@ -33,20 +33,6 @@ separately; historical settings and raw evidence remain preserved.
 - The article is a goal; M3/M5, mean ablation and equivalence tests remain
   separate prospective decisions. Existing matched/mismatched comparisons can
   reuse the same complete eight-effect measurements.
-
-**Implementation status:** the local migration is implemented in
-[configs/research-path-b-v1.json](configs/research-path-b-v1.json) and the workflow
-defaults to that version. Stage domains/layers, receipt scope, calibration family,
-analysis and remaining-workflow budget admission now follow Path B. Original
-`configs/research.json`, old sealed plans and raw evidence remain historical.
-Native acceptance for the changed implementation is pending. Follow the
-[migration and verification record](docs/validation/PATH-B-IMPLEMENTATION-2026-10-12.md).
-
-The original **$0.20 / 15-minute diagnostic grant was consumed** by the failed
-2026-10-13 benchmark attempt. The earlier **$0.60 retry was withdrawn**. Arya now authorized one
-**$0.30 / 900-second user-run benchmark attempt**. Full scientific
-collection is not authorized; invoices and remaining original $12/10h study
-allowance are unreconciled.
 
 ## Calibration, Sampling dan Numerical Gates
 
@@ -107,9 +93,9 @@ Keputusan 2026-10-08 memilih **weights FP32 asli** dari branch `fp32`, dikunci
 pada commit `c6f6954f182ffdd9f6ab4f4d772714b7dcd6836b`, bukan casting weights
 BF16 lokal menjadi FP32. [Manifest model](data/manifests/model-fp32.json)
 mencatat identitas file yang diharapkan. Diagnostic GPU terdahulu memakai
-model pinned tersebut, tetapi bukan penerimaan penuh Path B. Preflight memakai
-cache remote yang harus diverifikasi ulang; keberadaan manifest atau plan lokal
-tidak membuktikan kesiapan cache/runtime saat ini.
+model pinned tersebut, tetapi bukan penerimaan implementasi baru. Akuisisi
+memverifikasi identitas file sekali; cache tersiap tidak di-hash ulang pada setiap
+run. Keberadaan katalog lokal tidak membuktikan readiness runtime GPU.
 
 Tidak ada fine-tuning, LoRA, router training, atau recovery training. Model
 base dipilih karena outcome adalah next-token prediction pada natural corpus;
@@ -268,9 +254,6 @@ Main minimal 200 scientific documents dan 200 code groups; jumlah final dipilih
 melalui aturan pilot yang mempertimbangkan precision, group safeguards dan
 feasibility. Target tersebut belum membuktikan effect size atau achieved power.
 
-Minimum-main dry-run lokal berisi **200 scientific documents + 205 code files
-pada 200 whole code groups**, atau **3.240 windows / 25.920 expert effects yang
-direncanakan**. Ini census desain, bukan observasi atau main allocation final.
 Fallback jika target precision tidak muat budget masih harus diputuskan dengan
 pilot evidence sebelum main outcomes.
 
@@ -333,79 +316,23 @@ unique domain knowledge, domain exclusivity, atau keamanan permanent pruning.
 Domain sendiri tidak diintervensi; keuntungan M2 tidak mengisolasi causal
 effect dari semantic domain terhadap semua source-associated properties.
 
-README dan [configs/research-path-b-v1.json](configs/research-path-b-v1.json)
+README dan [config/research.json](config/research.json)
 menetapkan studi aktif. Keputusan tercatat dalam
-[path-b-decision-v1.json](configs/path-b-decision-v1.json); konfigurasi
-`configs/research.json` adalah desain historis.
+[path-b-decision-v1.json](docs/path-b-decision-v1.json); konfigurasi dan implementasi lama tersedia melalui recovery tag
+`archive/path-b-before-rebuild-2026-10-13`.
 Detail evidence literatur tersedia
 di [prior-work ledger](docs/literature/prior-work-ledger.md).
 
-## Lokasi Kerja
+## Implementasi dan Eksekusi
 
-`src/` contains preparation, routing/effect collection, local analysis and
-private R2 transfer. The retained collector/profiler is in `src/collectors/`.
-Root dependencies are pinned and locked separately from its environment.
-CPU regression checks are implementation evidence; pretrained FP32 GPU
-mechanism, fit and runtime verification remain pending.
+Implementasi baru memakai `config/`, `scripts/`, dan `terraform/`.
+[WORKFLOW.md](WORKFLOW.md) menjelaskan konfigurasi, preparation, verifikasi GPU,
+calibration, pilot, main, resume, retrieval, dan cleanup.
+[Catatan rebuild](docs/rebuild.md) mencatat recovery, optimizations yang dipertahankan,
+checks yang dijalankan, serta batas evidence. Parameter executable ada di
+[config/research.json](config/research.json); aturan ilmiah tetap mengikuti README ini.
 
-`paper/` berisi naskah penelitian; `references/` berisi sumber paper,
-sedangkan `docs/literature/` mencatat evidence literatur. Data retained ada di
-`data/collection-10k-v1/`; target model FP32 di
-`models/OLMoE-1B-7B-0924-fp32/` merupakan target local model path, bukan bukti
-cache remote siap. Snapshot BF16 lama di
-`models/OLMoE-1B-7B-0924/` tetap dipertahankan.
-`runpod/` berisi bounded preflight runner dan default-disabled Terraform.
-Prepared inputs aktif: `data/prepared-inputs/path-b-v1-2026-10-12/`;
-sealed plans: `data/plans/path-b-v1-2026-10-12/`.
-Local verification is recorded in the current execution note below. Path B
-GPU attempts have not completed native acceptance or benchmark timings.
-Tidak ada scientific results baru atau achieved-precision proof.
-
-The fresh-clone workflow is in [WORKFLOW.md](WORKFLOW.md). Missing local-only
-documents are intentional and are not prerequisites for this restart.
-Ask Arya about unresolved scientific rules.
-
-## Testing Biaya — L40S + Global Volume
-
-Model preparation is **complete** on Global Volume `yelling_amber_shark`, ID
-`cmv66f04p000007l8gngvd5k4`, at `/workspace-global/models/OLMoE-fp32`.
-The successful retrieved setup receipt verifies all12 assets,27,679,451,403 bytes,
-exact catalog sizes/SHA256 and F32 metadata. See the
-[preparation receipt](docs/validation/global-model-preparation-success-2026-10-13.json).
-Do not repeat setup/resume. Work/results use ephemeral local POSIX disk and are
-retrieved before pod deletion; the Global Volume is retained. Region follows
-L40S stock without a volume-region restriction. The pinned runtime is CUDA13.0;
-benchmark hosts must advertise CUDA >=13.0 and pass actual pod read-back checks.
-
-Arya instructed removal of repeated weight verification. Current v11 loads
-weights directly from the prepared Global Volume without another SHA256/F32/
-architecture verification pass. The existing completed preparation receipt is
-required, but it is not fresh verification of current bytes. Cheap presence/size
-checks remain. No model preparation is repeated. Native comparison gates,
-FP32/eager, context4096/layer15 and all8 effects remain unchanged.
-
-No local model copy, cache proof or disk resize is included; disk remains35GB.
-The120/125/190s Path B timeout corrections remain. Changed loader source means
-changed implementation identity; fresh native acceptance is pending.
-The earlier $.60 proposal remains withdrawn. Current grant is one user-run
-**$.30 / 900s** benchmark with no automatic retry. Setup/resume remain disabled.
-At the configured guard rate and allowances, effective lease is about875.68s
-including finalization/retrieval/cleanup. This is a planning guard, not an invoice
-guarantee. Remaining study funds/invoices are unreconciled.
-
-Offline source-package verification:
-
-```bash
-python -u runpod/path_b_preflight.py
-```
-
-User-run benchmark command (one attempt):
-
-```bash
-python -u runpod/path_b_preflight.py --run --benchmark-authorization-id global-path-b-benchmark-2026-10-13-v11
-```
-
-Durable log: `runpod/runs/latest/console.log`.
-[Weight verification removal](docs/validation/PATH-B-WEIGHTS-REVERIFICATION-REMOVAL-2026-10-13.md) is the historical v10 change record.
-Old frozen packages and raw receipts are preserved. No scientific results or
-measured loading speed are claimed by this local fix.
+CPU/synthetic checks adalah evidence implementasi. Native acceptance pretrained
+FP32 GPU, measured production throughput, calibration stability dan achieved
+precision untuk implementasi baru belum ditetapkan. Historical findings tidak
+menggantikan pengukuran tersebut.

@@ -1,10 +1,6 @@
-*
+**
 !pyproject.toml
 !uv.lock
-!.python-version
-!src/
-!src/**
-!configs/
-!configs/research.json
-src/**/__pycache__/
-src/**/*.pyc
+!terraform/
+!terraform/Dockerfile
+!terraform/bootstrap.sh

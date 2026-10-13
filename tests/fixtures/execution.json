@@ -1,0 +1,13 @@
+{
+  "runpod": {
+    "image": "example.invalid/path-b:test",
+    "gpu_type": "MOCK-GPU",
+    "data_center": "MOCK-DC",
+    "network_volume_id": "",
+    "ssh_public_key_path": "../tests/fixtures/key.pub",
+    "volume_gb": 80,
+    "container_disk_gb": 35,
+    "min_ram_gb": 64,
+    "allowed_cuda_versions": ["13.0"]
+  }
+}

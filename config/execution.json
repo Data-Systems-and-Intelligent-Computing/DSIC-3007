@@ -1,0 +1,31 @@
+{
+  "input_files": {
+    "c4": ["data/collection-10k-v1/c4/*.jsonl", "data/supplements/c4-*/c4/*.jsonl"],
+    "scientific": ["data/collection-10k-v1/scientific/*.jsonl"],
+    "code": ["data/collection-10k-v1/code/*.jsonl", "data/supplements/code-*/code/*.jsonl"]
+  },
+  "tokenizer_path": "data/tokenizer-fp32",
+  "prepared_path": "data/prepared",
+  "results_path": "results/path-b",
+  "model_path": "/workspace/models/OLMoE-fp32",
+  "device": "cuda:0",
+  "max_seconds": null,
+  "remaining_usd": null,
+  "remaining_wall_hours": null,
+  "hourly_usd": null,
+  "fixed_remaining_usd": null,
+  "remaining_overhead_seconds": null,
+  "remaining_offline_seconds": null,
+  "reserve_fraction": 0.2,
+  "runpod": {
+    "image": "",
+    "gpu_type": "NVIDIA L40S",
+    "data_center": "",
+    "network_volume_id": "",
+    "ssh_public_key_path": "~/.ssh/id_ed25519.pub",
+    "volume_gb": 80,
+    "container_disk_gb": 35,
+    "min_ram_gb": 64,
+    "allowed_cuda_versions": ["13.0"]
+  }
+}
