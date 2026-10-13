@@ -84,7 +84,7 @@ The connected tiny-model workflow executes benchmark → calibration → nested 
 
 Terraform validates against the installed pinned provider. Two mock plans check
 one-pod provisioning and compute release while retaining protected network storage.
-Shell syntax and Python compilation are checked. Final local run: **32 passed in 12.83 seconds** (Python 3.14.6), **2 Terraform
+Shell syntax and Python compilation are checked. Final local run: **32 passed in 11.96 seconds** (Python 3.14.6), **2 Terraform
 mock plans passed** (Terraform 1.13.4), Terraform validation/format, shell syntax,
 Python compilation, dependency-lock check and Git whitespace checks passed.
 These checks are not pretrained runtime proof.
