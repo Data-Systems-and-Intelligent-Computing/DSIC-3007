@@ -8,9 +8,15 @@ yang sama.
 
 ## Fokus dan Pertanyaan Penelitian
 
-**RQ utama:** apakah raw domain-conditioned utilization (M2) menghasilkan
-tambahan high/low causal discrimination atas global utilization (M1),
-di bawah single-expert token-local zero-output ablation?
+**Pertanyaan primer:** pada lapisan MoE terakhir OLMoE FP32, apakah M2 memberi tambahan
+causal discrimination (CD) dibanding M1 pada agregat teks ilmiah dan kode berbobot sama?
+Delta positif menunjukkan tambahan CD oleh M2.
+
+Pertanyaan sekunder menguji selisih M2–M1 per domain pada lapisan pertama, tengah, dan
+terakhir OLMoE. Enam kontras lapisan × domain memakai koreksi Holm. Perubahan CD menurut
+kedalaman diringkas secara deskriptif, tanpa uji formal interaksi lapisan. Arah dan
+besaran M2–M1 pada Qwen1.5-MoE-A2.7B BF16 serta DeepSeek-V2-Lite BF16 diperiksa secara
+eksploratif dan terpisah per model.
 
 Domain conditioning dapat mempertahankan pola penggunaan expert yang tertutup
 oleh campuran domain. Namun, sering digunakan dalam suatu domain belum tentu
@@ -21,9 +27,12 @@ Kontribusi penelitian adalah perbandingan paired M2-versus-M1 dengan global
 baseline, intervensi, dan populasi evaluasi yang dinyatakan eksplisit. Penelitian
 tidak mengusulkan routing frequency atau expert ablation sebagai metode baru.
 
-Analisis pendukung membahas keunggulan M2 pada scientific/code, sinyal
-per-token routing weight dan matched/mismatched domain rankings pada layer 15.
-Perbandingan depth dan causal outcomes C4 ditunda.
+Analisis sekunder yang dipra-spesifikasikan mencakup proporsi kejadian ketika pasangan
+high/low M1 dan M2 berbeda beserta delta pada subset itu; Kendall tau-b untuk skor M1,
+M2, M3, dan utilisasi per domain terhadap efek penghilangan; serta sensitivitas M1
+leave-one-domain-out. Kendall melaporkan konkordansi, diskordansi, ties, tau-b, dan
+proporsi pasangan tak ties yang konkordan. C4 menyumbang kalibrasi dan kontrol ranking;
+outcome kausal C4 tidak dikumpulkan.
 
 ## Model
 
@@ -39,9 +48,12 @@ model pinned tersebut, tetapi bukan penerimaan implementasi baru. Akuisisi
 memverifikasi identitas file sekali; cache tersiap tidak di-hash ulang pada setiap
 run. Keberadaan katalog lokal tidak membuktikan readiness runtime GPU.
 
-Tidak ada fine-tuning, LoRA, router training, atau recovery training. Model
-base dipilih karena outcome adalah next-token prediction pada natural corpus;
-instruction-following bukan objek pengukuran penelitian ini.
+Generalisasi lintas model memakai checkpoint BF16 Qwen1.5-MoE-A2.7B dan
+DeepSeek-V2-Lite, bukan bobot FP32 asli. Hasilnya eksploratif, dianalisis
+terpisah, tidak digabungkan lintas tokenizer, dan tidak masuk keluarga Holm
+OLMoE. Tidak ada fine-tuning, LoRA, router training, atau recovery training.
+Outcome adalah next-token prediction pada natural corpus; instruction-following
+bukan objek pengukuran.
 
 ## Domain dan Data
 
@@ -55,10 +67,20 @@ Domain ditentukan dari sumber dataset. Scientific dan code memberikan kontras
 distribusi token terhadap general web. Natural text menyediakan target
 next-token sebenarnya, sehingga core tidak memerlukan gold QA answers.
 
-Retained inventory berisi 10.000 dokumen/domain: 1.500 calibration dan 8.500
-evaluation-pool. Angka ini adalah persediaan; final eligible counts dan main
-sample ditentukan setelah audit dan pilot. Supplements dan prepared successor
-Path B tersimpan terpisah; inventory awal bukan batas seluruh eligible pool.
+Snapshot persiapan OLMoE per 15 Oktober 2026 mencatat 34.591 record di seluruh partisi,
+termasuk cadangan dan data yang dikecualikan. Angka berikut adalah ketersediaan
+dokumen/kelompok sumber, bukan pengukuran yang sudah selesai.
+
+| Partisi | C4 | Scientific | Code |
+|---|---:|---:|---:|
+| Verifikasi teknis | 12 / 12 | 12 / 12 | 14 / 12 |
+| Kalibrasi tersedia | 500 / 483 | 500 / 500 | 500 / 488 |
+| Probe tetap | 32 / 26 | 32 / 32 | 32 / 31 |
+| Cadangan pilot | 0 / 0 | 80 / 80 | 80 / 80 |
+| Inventory utama | 0 / 0 | 6.542 / 6.542 | 3.171 / 3.092 |
+
+Jumlah kelompok dan dokumen berbeda pada sebagian partisi kode/C4. Alokasi akhir main
+dibekukan setelah pilot; C4 tidak memiliki alokasi pilot atau main.
 
 ## Pemisahan Data dan Sampling
 
@@ -84,15 +106,16 @@ tokens** sebelum predictor terakhir dan target di luar window. Predictor dan tar
 dari dokumen yang sama, tanpa concatenation antar-dokumen. Posisi dipilih lebih
 dulu, kemudian konteks aslinya dibentuk menurut window policy.
 
-- **Layer 15 saja:** seluruh technical, calibration, probe, pilot dan main.
-- **Pilot dan main:** delapan uniform seeded nested positions/dokumen;
-  dokumen dengan kurang dari delapan eligible positions memakai seluruhnya.
-  Seluruh eligible files dalam selected code groups tetap disertakan.
-- **Layer 0/7 dan matched 2048:** ditunda, termasuk matched 2k calibration.
+Lapisan OLMoE pertama, tengah, dan terakhir adalah 0, 7, dan 15; layer 15 menjadi
+primer. Generalisasi BF16 memakai layer 0/11/23 pada Qwen1.5-MoE-A2.7B dan 1/13/26 pada
+DeepSeek-V2-Lite (blok 0 DeepSeek padat). Setiap kombinasi model/layer yang dianalisis
+memerlukan verifikasi dan kalibrasinya sendiri. Konfigurasi Path B yang dapat dijalankan
+saat ini masih layer 15 saja; pengukuran multi-layer dan lintas model belum terlaksana.
 
-Actual position counts dilaporkan. Delapan posisi mempertahankan pengukuran
-berulang dalam dokumen dengan biaya lebih kecil daripada desain 64 posisi;
-ketidakpastian aktual tetap harus dinilai melalui pilot.
+Pilot dan main memilih hingga delapan posisi seragam bertingkat per dokumen dengan seed
+utama 3007; dokumen dengan kurang dari delapan posisi eligible memakai seluruhnya. Semua
+berkas eligible dalam kelompok kode terpilih tetap disertakan. Matched 2048 tetap di
+luar rancangan.
 
 ## Metric Routing
 
@@ -114,24 +137,27 @@ Untuk tiap calibration document, hitung proporsi sampled eligible positions
 yang memilih expert `e`. Kemudian rata-ratakan document means dengan bobot
 dokumen sama dalam domain tersebut. Ini menghindari dominasi dokumen panjang.
 
-Gunakan nested budgets 100→250→500 dokumen/domain dan tiga position seeds.
-Satu full window/dokumen/seed mengamati semua input positions. Freeze budget
-yang lebih besar pada comparison pertama yang lolos. Fixed-probe selection
-agreement dilaporkan bersama frozen rankings. Calibration tanpa ablation.
+Gunakan nested budgets 100→250→500 dokumen/domain dan seeds 3008, 3009, 3010. Satu full
+window/dokumen/seed mengamati semua input positions. Untuk OLMoE, stabilitas ranking
+mensyaratkan drift L1 ≤0,05 dan Jaccard top-8 serta bottom-8 masing-masing ≥0,75 pada
+sedikitnya 90% perbandingan yang ditetapkan. Fixed-probe selection agreement dilaporkan
+bersama ranking beku. Kalibrasi tanpa ablasi.
 
 Utilization adalah active-set membership frequency, bukan mean routing weight.
 Dengan top-8 dan denominator konsisten, jumlah utilization semua expert adalah
 delapan. Semua skor dihitung per layer.
 
-### M0 dan M4 — Kontrol
+### M0 dan M3 — Kontrol
 
 **M0** memakai uniform random ordered pair dari dua distinct active experts,
 dengan 64 seeded draws/event. Expected CD nol; finite draws tidak harus nol.
 Randomization variability dilaporkan terpisah dari source-sampling uncertainty.
 
-**M4** memakai native effective routing coefficient pada token/layer yang diuji.
-Ini diagnostic positive control. Sinyal lemah memicu pemeriksaan mekanisme;
+**M3** memakai native effective routing coefficient pada token/layer yang diuji
+sebagai kontrol positif diagnostik. Sinyal lemah memicu pemeriksaan mekanisme;
 setelah mekanisme terbukti benar, hasil lemah tetap dapat menjadi temuan sah.
+Kunci keluaran Path B saat ini masih bernama M4 dan perlu diselaraskan sebelum
+pilot.
 
 ## Intervensi dan Outcome
 
@@ -180,35 +206,40 @@ pada endpoint, meskipun final sample sizes dapat berbeda. C4 tidak masuk primary
 
 ## Pilot dan Penetapan Main
 
-Pilot memakai nested **20→40→80 scientific documents dan whole code groups**,
-dengan **delapan posisi/dokumen**, sama dengan main. Semua eligible files dalam
-selected code groups ikut. Extend jika ada kurang dari 10 independent groups
-atau 95% CI halfwidth melebihi 0.25 × source-group SD; laporkan insufficiency
-jika batas pilot terakhir belum cukup.
+Pilot memakai nested **20→40→80 dokumen scientific dan kelompok kode**, dengan hingga
+**delapan posisi/dokumen**, sama dengan main. Semua berkas eligible dalam kelompok kode
+terpilih disertakan. Kecukupan dan alokasi dinilai dari proyeksi varians; tidak
+digunakan aturan tambahan halfwidth dibagi akar jumlah kelompok.
 
 Cluster variance dan 2000 bootstrap-t draws menentukan precision projection;
 measured full-technical runtime memilih qualifying allocation tercepat dari
 reviewed inventory. Main freeze juga memerlukan ledger biaya/waktu seluruh
 tahap tersisa, evidence per tahap, reconciled remaining limits dan ≥20% reserve.
 
-Target planning adalah resolution **0.01 nats** dengan CI half-width **0.005**.
-Main minimal 200 scientific documents dan 200 code groups; jumlah final dipilih
-melalui aturan pilot yang mempertimbangkan precision, group safeguards dan
-feasibility. Target tersebut belum membuktikan effect size atau achieved power.
+Main minimal 200 dokumen scientific dan 200 kelompok kode; jumlah final dipilih
+melalui aturan pilot yang mempertimbangkan presisi, perlindungan jumlah kelompok,
+inventory eligible, dan kelayakan komputasi. Target setengah lebar interval
+primer ditetapkan sebagai fraksi eta dari ceiling oracle pilot. Nilai eta masih
+placeholder sampai skala ceiling diketahui dan harus dibekukan sebelum hasil
+utama. Target presisi tidak membuktikan effect size atau achieved power.
 
 Fallback jika target precision tidak muat budget masih harus diputuskan dengan
 pilot evidence sebelum main outcomes.
 
-Exact main IDs, positions dan analysis dibekukan sebelum main outcomes.
+Sebelum pilot, protokol, rencana analisis, konfigurasi, identitas data dan
+checkpoint, pemetaan lapisan, toleransi, alokasi awal, serta kode diberi tag
+versi dan dicatat di OSF. Setelah pilot, alokasi utama dibekukan sebagai versi
+bertanggal sebelum outcome utama. Exact main IDs, positions, dan analysis
+dibekukan sebelum outcome; amendemen dicatat dengan tanggal dan alasan.
 Perluasan pilot mengikuti projection rules; main tidak ditambah untuk mengejar
 signifikansi atau membuat M2 menang.
 
 ## Analisis Statistik
 
 Primary menggunakan paired two-sided **95% bootstrap-t**, conditional pada
-frozen calibration. Resampling dilakukan atas whole scientific source groups dan whole
-code groups, dengan semua files serta draw multiplicities dipertahankan.
-Code bootstrap menghitung ulang document-weighted ratio dan standard error.
+kalibrasi yang dibekukan. Resampling mengambil kelompok sumber scientific dan
+kelompok kode secara terpisah; semua file dan multiplicities dipertahankan.
+Estimasi kode tetap berbobot dokumen, bukan rerata kelompok kode.
 
 Document means dihitung sebelum inference. Domain cluster variance tetap
 `G/(G−1) × Σg[Σi∈g(Di−Dbar)]²/N²`; primary variance
@@ -220,23 +251,30 @@ quantiles; tail probabilities `(count+1)/(valid_draws+1)` sebelum Holm correctio
 Laporkan degeneracy dan wajibkan ≥95% valid draws untuk interval. Expert effects,
 layers dan repeated forwards tidak menambah independent source observations.
 
-Scientific/code layer-15 advantages adalah dua confirmatory secondary claims
-dengan Holm correction. Path B tidak mengoleksi main/pilot outcomes C4 atau
-layer 0/7; tidak ada interval atau claim untuk outcomes yang ditunda tersebut.
+Satu uji primer dua sisi menguji delta agregat OLMoE layer 15. Enam kontras sekunder
+Holm mencakup tiga lapisan OLMoE dikalikan dua domain. Estimasi tiap lapisan dilaporkan
+dengan interval; pola kedalaman bersifat deskriptif dan tidak menjadi uji formal
+interaksi. Generalisasi BF16 dilaporkan terpisah secara eksploratif tanpa koreksi lintas
+model.
 
-Laporkan absolute CD_M1, CD_M2 dan paired difference beserta uncertainty.
-Interval yang melintasi nol menunjukkan ketidakpastian; tidak membuktikan
-equivalence. Core tidak menetapkan practical-null claim.
+Untuk setiap kejadian, ceiling oracle adalah rentang efek penghilangan yang diukur,
+`max(DeltaL_e) − min(DeltaL_e)` di antara expert aktif. Laporkan CD_M1, CD_M2, M0, dan
+ceiling oracle beserta ketidakpastiannya. Delta primer dinormalisasi terhadap ceiling
+oracle agregat dengan bobot dokumen dan domain yang sama; rasio dihitung ulang pada
+setiap bootstrap resample dan tidak dilaporkan jika ceiling nol. Ceiling ini batas pada
+pasangan yang diukur, bukan ranking yang dapat dipakai tanpa mengetahui efek intervensi.
+Interval yang melintasi nol menunjukkan ketidakpastian, bukan bukti ekuivalensi.
 
 ## Sensitivitas dan Batas Scope
 
 Matched/mismatched domain rankings tetap tersedia dari complete eight-effect
 measurements yang sama; reselecting pairs tidak memerlukan ablation tambahan.
-C4 tetap menyumbang calibration untuk M1 dan mismatched-ranking controls.
-Matched **2048**, causal outcomes C4 dan layer 0/7 ditunda. Path B tidak dapat
-menyimpulkan robustness menurut panjang context, depth atau C4 causal outcomes.
+C4 tetap menyumbang kalibrasi M1 dan kontrol ranking mismatched, tetapi tidak menjadi
+domain outcome kausal. Matched **2048** juga tetap ditunda. Kedalaman OLMoE kini dicakup
+melalui lapisan 0/7/15 sesuai rancangan di atas; hasil lintas kedalaman baru tersedia
+setelah tiap lapisan diverifikasi dan diukur.
 
-M3 domain enrichment, M5 activation norm, mean ablation, equivalence tests,
+Domain-enrichment score, M5 activation norm, mean ablation, equivalence tests,
 B/C operators, layer 4/11, context 1024, equal-token/
 token-pooled M1, tambahan domains/models dan Do-style scoring tetap di luar
 core. Adopsinya membutuhkan keputusan ilmiah tersendiri dan tidak menggantikan
@@ -244,9 +282,10 @@ primary comparison yang sudah dipilih.
 
 ## Hipotesis dan Batas Interpretasi
 
-Ekspektasi yang diuji adalah manfaat M2 pada scientific/code serta sinyal
-positif M4 pada layer 15.
-Ekspektasi ini tidak menjadi syarat hasil penelitian harus positif.
+Ekspektasi yang diuji adalah tambahan CD M2 atas M1 pada endpoint OLMoE layer 15 dan
+sinyal positif kontrol koefisien routing native. Nama kontrol pada naskah dan kunci
+keluaran Path B perlu diselaraskan sebelum pilot. Ekspektasi ini tidak menjadi syarat
+hasil penelitian harus positif.
 
 Keabsahan measurement bergantung pada native/no-op reconstruction, target
 alignment, local zero-output, unchanged survivors dan cleanup yang benar.
@@ -273,6 +312,13 @@ calibration, pilot, main, resume, retrieval, dan cleanup.
 [Catatan rebuild](docs/rebuild.md) mencatat recovery, optimizations yang dipertahankan,
 checks yang dijalankan, serta batas evidence. Parameter executable ada di
 [config/research.json](config/research.json); aturan ilmiah tetap mengikuti README ini.
+
+Diagnostik terbatas OLMoE FP32 pada 15 Oktober 2026 memakai A40, sembilan
+jendela, dan hingga 72 perbandingan dengan ablasi native; selisih campuran,
+logits, dan NLL tercatat nol pada kasus yang diperiksa. Ini bukan verifikasi
+lengkap per lapisan, estimasi efek, atau hasil ilmiah. Kalibrasi, probe, pilot,
+dan pengumpulan utama belum menghasilkan estimasi M2–M1. Tanggal dan anggaran
+GPU-jam masih menunggu profil satu kejadian.
 
 CPU/synthetic checks adalah evidence implementasi. Native acceptance pretrained
 FP32 GPU, measured production throughput, calibration stability dan achieved
