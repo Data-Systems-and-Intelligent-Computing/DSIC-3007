@@ -58,7 +58,7 @@ resource "runpod_pod" "research" {
   volume_mount_path     = "/workspace"
   ports                 = ["22/tcp"]
   env = {
-    PATH_B_MODEL_PATH = "/workspace/models/OLMoE-fp32"
+    PATH_B_MODEL_PATH = local.execution.model_path
     PUBLIC_KEY        = file(pathexpand(local.settings.ssh_public_key_path))
   }
   lifecycle {

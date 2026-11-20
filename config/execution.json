@@ -17,15 +17,32 @@
   "remaining_overhead_seconds": null,
   "remaining_offline_seconds": null,
   "reserve_fraction": 0.2,
+  "diagnostic": {
+    "mode": "benchmark",
+    "windows": 9,
+    "max_seconds": 1200,
+    "ssh_ready_seconds": 420,
+    "transfer_seconds": 180,
+    "retrieval_seconds": 120,
+    "poll_seconds": 10
+  },
   "runpod": {
-    "image": "",
-    "gpu_type": "NVIDIA L40S",
-    "data_center": "",
-    "network_volume_id": "",
+    "remote_root": "/root/path-b",
+    "terraform_managed": false,
+    "image": "aryamudas/dsic-3007@sha256:a0463dcfbf2fa7f947dc2afa3fc3c62542786b752ba5c826b50287cefbef2478",
+    "gpu_type": "NVIDIA A40",
+    "data_center": "CA-MTL-1",
+    "registry_id": "cmv2myqnw003lvauwsz43uqnt",
+    "network_volume_id": "2fkb3b9n7h",
+    "ssh_host": "69.30.85.145",
+    "ssh_port": 22158,
+    "ssh_connect_seconds": 10,
+    "ssh_attempts": 3,
+    "acquisition_python": "/usr/bin/python3",
     "ssh_public_key_path": "~/.ssh/id_ed25519.pub",
-    "volume_gb": 80,
-    "container_disk_gb": 35,
-    "min_ram_gb": 64,
-    "allowed_cuda_versions": ["13.0"]
+    "volume_gb": 50,
+    "container_disk_gb": 50,
+    "min_ram_gb": 50,
+    "allowed_cuda_versions": ["13.0", "13.2"]
   }
 }

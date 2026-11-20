@@ -48,7 +48,7 @@ def synchronize(model):
         torch.cuda.synchronize(device)
 
 
-def load_model(research, execution):
+def load_model(research, execution, timings=None):
     from transformers import AutoModelForCausalLM
     from scripts.common import ROOT, read_json
     if not execution["device"].startswith("cuda") or not torch.cuda.is_available():
@@ -64,10 +64,16 @@ def load_model(research, execution):
         if not path.is_file() or path.stat().st_size != asset["size_bytes"]:
             raise ValueError(f"Prepared pinned model asset missing/wrong size: {asset['path']}")
     # Local files only: downloading belongs to acquisition, never to GPU startup.
+    constructor_start = time.monotonic()
     model = AutoModelForCausalLM.from_pretrained(
         execution["model_path"], local_files_only=True, dtype="auto",
         attn_implementation="eager", experts_implementation="eager",
-    ).to(execution["device"]).eval()
+    )
+    constructor_seconds = time.monotonic() - constructor_start
+    transfer_start = time.monotonic()
+    model = model.to(execution["device"]).eval()
+    synchronize(model)
+    transfer_seconds = time.monotonic() - transfer_start
     cfg = model.config
     expected = research["model"]
     if (cfg.model_type != "olmoe" or cfg.num_hidden_layers != expected["layers"]
@@ -77,7 +83,12 @@ def load_model(research, execution):
     if research["layer"] != len(model.model.layers) - 1:
         raise ValueError("Final-layer optimization cannot be used for another layer")
     synchronize(model)
-    print(f"Loaded model in {time.monotonic() - started:.2f}s: {runtime(model)}", flush=True)
+    elapsed = time.monotonic() - started
+    if timings is not None:
+        timings.update(from_pretrained_seconds=constructor_seconds, to_gpu_seconds=transfer_seconds,
+                       total_load_seconds=elapsed)
+    print(f"Loaded model in {elapsed:.2f}s (from_pretrained={constructor_seconds:.2f}s, "
+          f"to_gpu={transfer_seconds:.2f}s): {runtime(model)}", flush=True)
     return model
 
 
@@ -109,7 +120,7 @@ def capture(model, layer, optimized=False, ablate=None, noop=False):
     previous_override = experts.__dict__.get("forward")
 
     def residual_hook(module, inputs):
-        state["residual"] = inputs[0][0, -1].detach().clone()
+        state["residual"] = inputs[0].detach().clone()
 
     def expert_before(module, inputs):
         hidden, ids, weights = inputs
@@ -181,8 +192,13 @@ def recompose(state, expert=None):
 
 
 def suffix(model, state, expert=None):
-    row = recompose(state, expert) + state["residual"][None, :]
-    return model.lm_head(model.model.norm(row[None, :, :]))[0, -1].detach().clone()
+    # Match the native residual addition and RMSNorm shapes. Normalizing one
+    # token alone can select a different FP32 reduction path on CUDA.
+    mixture = state["mixture"].clone()
+    mixture[-1:] = recompose(state, expert)
+    hidden = state["residual"] + mixture[None, :, :]
+    hidden = model.model.norm(hidden)
+    return model.lm_head(hidden[:, -1:, :])[0, -1].detach().clone()
 
 
 @torch.inference_mode()
@@ -261,7 +277,12 @@ def verify(model, ids, target, research):
         actual_nll = nll(actual, target)
         error = abs(actual_nll - optimized["ablated_nll"][slot])
         if error > tol["nll_atol"]:
-            raise ValueError("Optimized ablated NLL exceeds frozen tolerance")
+            raise ValueError("Optimized ablated NLL exceeds frozen tolerance: "
+                             f"expert={expert}, slot={slot}, target={target}, "
+                             f"optimized_nll={optimized['ablated_nll'][slot]:.17g}, native_nll={actual_nll:.17g}, "
+                             f"absolute_error={error:.17g}, limit={tol['nll_atol']:.17g}, "
+                             f"max_logit_error={float((logits[slot] - actual).abs().max()):.17g}, "
+                             f"max_mixture_error={float((mixtures[slot] - ablation['mixture'][-1:]).abs().max()):.17g}")
         errors["mixture"] = max(errors["mixture"], float((mixtures[slot] - ablation["mixture"][-1:]).abs().max()))
         errors["logit"] = max(errors["logit"], float((logits[slot] - actual).abs().max()))
         errors["nll"] = max(errors["nll"], error)

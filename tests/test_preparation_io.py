@@ -1,5 +1,7 @@
 import copy
+import hashlib
 import json
+import shutil
 import sqlite3
 import zlib
 
@@ -15,6 +17,55 @@ from scripts.prepare import audit_groups, partition, prepare
 @pytest.fixture
 def research():
     return copy.deepcopy(read_json("config/research.json"))
+
+
+@pytest.mark.parametrize("case", ["valid", "fp16", "checksum", "revision", "bad-header"])
+def test_acquisition_checks_pinned_bytes_and_fp32_without_loading_tensors(tmp_path, monkeypatch, case):
+    import scripts.acquire_model as acquisition
+    from safetensors.numpy import save_file
+    source = tmp_path / "source.safetensors"
+    save_file({"weight": np.arange(8, dtype=np.float16 if case == "fp16" else np.float32)},
+              str(source), metadata={"fixture": "independent safetensors writer"})
+    if case == "bad-header":
+        with source.open("r+b") as stream:
+            stream.write((source.stat().st_size + 1).to_bytes(8, "little"))
+    asset = {"path": "model.safetensors", "size_bytes": source.stat().st_size,
+             "sha256": hashlib.sha256(source.read_bytes()).hexdigest()}
+    if case == "checksum":
+        asset["sha256"] = "0" * 64
+    manifests = tmp_path / "data/manifests"
+    manifests.mkdir(parents=True)
+    catalog = {"repo_id": "fixture/model", "revision": "pinned", "files": [asset]}
+    (manifests / "model-fp32.json").write_text(json.dumps(catalog))
+    research = {"model": {"repo": "fixture/model", "revision": "other" if case == "revision" else "pinned"}}
+    execution = {"model_path": str(tmp_path / "network/model")}
+    monkeypatch.setattr(acquisition, "ROOT", tmp_path)
+    downloads = []
+
+    def download(*, repo_id, revision, filename, local_dir):
+        assert (repo_id, revision, filename) == ("fixture/model", "pinned", "model.safetensors")
+        downloads.append(filename)
+        local_dir.mkdir(parents=True, exist_ok=True)
+        target = local_dir / filename
+        shutil.copy2(source, target)
+        return str(target)
+
+    monkeypatch.setattr(acquisition, "hf_hub_download", download)
+    marker = tmp_path / "network/model/path-b-acquisition.json"
+    if case != "valid":
+        with pytest.raises(ValueError, match={"fp16": "FP32", "checksum": "verification failed",
+                "revision": "differs", "bad-header": "header length"}[case]):
+            acquisition.acquire(research, execution)
+        assert not marker.exists()
+        assert downloads == ([] if case == "revision" else ["model.safetensors"])
+    else:
+        acquisition.acquire(research, execution)
+        assert json.loads(marker.read_text())["files"] == [asset]
+        assert (tmp_path / "network/model/model.safetensors").read_bytes() == source.read_bytes()
+        # A completed acquisition is reused without another download or full hash.
+        monkeypatch.setattr(acquisition, "hf_hub_download", lambda **kw: pytest.fail("Unexpected repeated download"))
+        monkeypatch.setattr(acquisition.hashlib, "sha256", lambda: pytest.fail("Unexpected repeated hash"))
+        acquisition.acquire(research, execution)
 
 
 def doc(identity, domain="code", aliases=None, content=None, tokens=10, context=4):
@@ -125,6 +176,12 @@ def test_online_export_and_transfer_corruption(tmp_path, research):
     export(source, target)
     check(target)
     assert sqlite3.connect(target / "pilot.sqlite").execute("SELECT count(*) FROM events").fetchone()[0] == 1
+    # A retrieved backup can be exported again for restoration on a new pod.
+    restored = tmp_path / "restored"
+    export(target, restored)
+    check(restored)
+    assert all(item["path"] != "transfer.json" for item in read_json(restored / "transfer.json"))
+    assert sqlite3.connect(restored / "pilot.sqlite").execute("SELECT count(*) FROM events").fetchone()[0] == 1
     journal.close()
     with (target / "pilot.sqlite").open("ab") as out:
         out.write(b"corrupted")

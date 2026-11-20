@@ -8,7 +8,7 @@ import torch
 from transformers import OlmoeConfig, OlmoeForCausalLM
 
 from scripts.analyze import analyze
-from scripts.benchmark import benchmark, require_benchmark
+from scripts.benchmark import benchmark, diagnostic_cases, require_benchmark, runtime_projection, technical_cases
 from scripts.calibrate import calibrate
 from scripts.common import digest, load_prepared, read_json, records, write_json
 from scripts.experiment import collect
@@ -95,6 +95,69 @@ def test_diagnostic_cannot_grant_full_acceptance(tmp_path):
     info, _, _ = load_prepared(execution, research)
     with pytest.raises(ValueError, match="Full fresh technical"):
         require_benchmark(research, execution, info, model)
+
+
+def test_diagnostic_interleaves_domains_and_independent_groups():
+    domains = ["c4", "scientific", "code"]
+    cases = [({"domain": domain, "group": f"{domain}-{group}", "id": f"{domain}-{group}"}, position)
+             for domain in domains for group in range(4) for position in (4095, 6000, 8000, 10000)]
+    selected = diagnostic_cases(cases, domains, 9)
+    assert [doc["domain"] for doc, _ in selected] == domains * 3
+    for domain in domains:
+        assert len({doc["group"] for doc, _ in selected if doc["domain"] == domain}) == 3
+    # Selection is deterministic and never rewrites full technical cases.
+    assert selected == diagnostic_cases(cases, domains, 9)
+    assert len(cases) == 48 and len(diagnostic_cases(cases, domains, 100)) == 48
+    with pytest.raises(ValueError, match="positive integer"):
+        diagnostic_cases(cases, domains, 0)
+
+
+def test_small_benchmark_reports_timing_without_collecting_other_stages(tmp_path):
+    research, execution, model = fixture_study(tmp_path)
+    summary = benchmark(research, execution, model=model, limit=9)
+    assert summary["complete"] and summary["diagnostic"] and summary["comparisons"] == 72
+    assert summary["warmup_seconds"] > 0
+    for domain in research["domains"]:
+        assert summary["rates"][domain]["verification"]["count"] == 3
+        assert summary["rates"][domain]["verification"]["mean"] > 0
+        assert summary["rates"][domain]["routing"]["count"] == 3
+        assert summary["rates"][domain]["effects"]["count"] == 3
+    rows = list(records(tmp_path / "results/benchmark-diagnostic.sqlite"))
+    events = [row for _, row in rows if "verification" in row]
+    assert len(events) == 9 and all(row["verification_seconds"] > 0 for row in events)
+    assert "not a main allocation" in summary["runtime_projection"]["evidence"]
+    assert not (tmp_path / "results/calibration.sqlite").exists()
+    assert not (tmp_path / "results/pilot.sqlite").exists()
+    assert not (tmp_path / "results/main-plan.json").exists()
+    assert not (tmp_path / "results/benchmark.json").exists()
+
+
+def test_runtime_projection_counts_whole_code_groups_and_separates_native_cost(tmp_path):
+    research, execution, _ = fixture_study(tmp_path)
+    _, documents, _ = load_prepared(execution, research)
+    research["sampling"].update(main_min_scientific_documents=2, main_min_code_groups=2)
+    rates = {d: {mode: {"mean": value, "max": value * 2} for mode, value in
+                 (("routing", i), ("effects", i * 10), ("verification", i * 100))}
+             for i, d in enumerate(research["domains"], 1)}
+    projection = runtime_projection(documents, research, rates, load_seconds=7)
+    scenarios = {r["scenario"]: r for r in projection["scenarios"]}
+    minimum = scenarios["main_minimum"]
+    assert minimum["groups"] == {"scientific": 2, "code": 2}
+    assert minimum["documents"] == {"scientific": 2, "code": 4}
+    assert minimum["windows"] == {"scientific": 4, "code": 8}
+    assert minimum["work_seconds_mean"] == 4 * 20 + 8 * 30
+    assert minimum["work_seconds_observed_max"] == 2 * minimum["work_seconds_mean"]
+    assert projection["load_seconds"] == 7  # Not charged once per window or folded into work.
+    assert scenarios["pilot_10"]["windows"] == {"scientific": 20, "code": 40}
+    assert scenarios["main_inventory"]["windows"] == {"scientific": 40, "code": 80}
+    assert scenarios["full_technical"]["work_seconds_mean"] == 4 * (111 + 222 + 333)
+    # The first calibration rung cannot freeze; probe is added only to later rungs.
+    assert not scenarios["calibration_1"]["freeze_eligible"]
+    assert not scenarios["calibration_1"]["includes_probe"]
+    assert scenarios["calibration_2_plus_probe"]["includes_probe"]
+    # A single-domain receipt cannot pretend other-domain rates were measured.
+    incomplete = runtime_projection(documents, research, {"c4": rates["c4"]}, 7)
+    assert all(not r["available"] for r in incomplete["scenarios"])
 
 
 def test_prepared_token_corruption_is_detected(tmp_path):

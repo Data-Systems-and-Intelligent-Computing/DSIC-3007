@@ -14,7 +14,7 @@ def export(source, destination):
     destination.mkdir(parents=True, exist_ok=True)
     included = []
     for path in source.rglob("*"):
-        if not path.is_file() or path.name.endswith(("-journal", "-wal", "-shm", ".tmp")):
+        if not path.is_file() or path.name.endswith(("-journal", "-wal", "-shm", ".tmp")) or path == source / "transfer.json":
             continue
         relative = path.relative_to(source)
         target = destination / relative
@@ -49,6 +49,7 @@ def check(directory):
 def main():
     p = parser(__doc__)
     p.add_argument("--check", type=Path)
+    p.add_argument("--destination", type=Path, default=ROOT / "export")
     args = p.parse_args()
     if args.check:
         check(args.check)
@@ -57,7 +58,7 @@ def main():
         source = Path(execution["results_path"])
         if not source.exists():
             raise ValueError("No results to retrieve; preserve the pod and inspect its paths")
-        export(source, ROOT / "export")
+        export(source, args.destination)
 
 
 if __name__ == "__main__":

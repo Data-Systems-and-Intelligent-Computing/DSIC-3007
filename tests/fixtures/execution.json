@@ -1,4 +1,5 @@
 {
+  "model_path": "/workspace/models/OLMoE-fp32",
   "runpod": {
     "image": "example.invalid/path-b:test",
     "gpu_type": "MOCK-GPU",
