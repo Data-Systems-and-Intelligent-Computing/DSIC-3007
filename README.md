@@ -6,64 +6,6 @@ global pada **OLMoE-1B-7B-0924 base**. Kontribusi diukur melalui perubahan
 next-token loss setelah satu expert aktif diintervensi pada token dan layer
 yang sama.
 
-## Amendment — Path B selected, 2026-10-12
-
-Arya selected **Path B** after comparing the original design, fresh feasibility
-findings, and the supervisor's theory draft. The scope decision is recorded in
-[docs/path-b-decision-v1.json](docs/path-b-decision-v1.json). This amendment
-defines the active scope throughout this README. The earlier design is archived
-separately; historical settings and raw evidence remain preserved.
-
-- Primary remains original FP32 OLMoE, exact **4096 input tokens**, layer **15**,
-  scientific/code equal-domain paired M2-minus-M1 discrimination, and all eight
-  individual zero-contribution effects without replacement or renormalization.
-- Main and pilot use **eight uniformly sampled nested positions/document**.
-  Main retains at least **200 scientific documents and 200 whole code groups**;
-  every eligible file in selected code groups remains included.
-- C4 remains in calibration/probe and equal-domain M1. Main/pilot effects cover
-  scientific/code. **C4 outcomes, lower-layer outcomes, and matched2048 sensitivity
-  are deferred**; depth/C4/context-robustness claims are not part of this scope.
-- Technical, calibration and probe scope becomes **layer15/4096**, retaining all
-  three calibration domains, three seeds, the nested100/250/500 ladder, existing
-  stability thresholds, and frozen numerical tolerances. New scoped acceptance
-  must be established; old diagnostic PASS receipts do not grant full acceptance.
-- Paired source-group inference, controls and target CI halfwidth **.005 nat**
-  remain. The fallback policy if that precision cannot fit the budget is pending
-  and must be settled before main outcomes, using the pilot planning evidence.
-- The article is a goal; M3/M5, mean ablation and equivalence tests remain
-  separate prospective decisions. Existing matched/mismatched comparisons can
-  reuse the same complete eight-effect measurements.
-
-## Calibration, Sampling dan Numerical Gates
-
-Master seed **3007**; calibration position seeds **3008, 3009, 3010**.
-Technical, calibration, probe, pilot dan main terpisah menurut audited source
-groups: C4 hostname, scientific paper ID dan code repository/component ID.
-Duplicate content, article variants, repository aliases dan known clones diaudit
-sebelum sampling. Technical reserve tetap **12 groups/domain**, dengan empat
-posisi deterministik/dokumen: first, last dan dua interior thirds, seluruhnya
-pada layer 15 dengan delapan expert individual.
-
-Fixed probe memakai **32 dokumen/domain × 4 posisi/dokumen**. Calibration memakai
-nested **100→250→500 dokumen/domain**, satu full window/dokumen/seed, dan native
-routing pada semua input positions. Utilization dirata-ratakan dengan bobot
-dokumen sama lalu bobot tiga seed sama; M1 memberi bobot domain sama.
-
-Stability tetap **L1 drift ≤0.05** atas 64 utilization values, tanpa dibagi delapan,
-dan **top-8 serta bottom-8 Jaccard ≥0.75**, lolos pada **≥90%** perbandingan
-domain/layer. Setiap candidate seed-pair dan consecutive averaged-table budget
-comparison harus memenuhi aturan tersebut. Freeze 250 setelah 100→250 lolos,
-atau 500 setelah 250→500 lolos; predecessor seed stability tidak diwajibkan.
-Jika tidak ada candidate lolos, laporkan instability. Simpan seed/budget tables,
-frozen rankings dan probe selection agreements.
-
-Routing, survivor coefficients dan cleanup harus exact. FP32 mixture/logit
-checks tetap **atol=1e-6, rtol=1e-5**; NLL tolerance **1e-6 nat**.
-Receipt penerimaan baru untuk scope/implementation Path B masih diperlukan.
-
-Desain sebelumnya dan inventory awal tersimpan di
-[arsip desain 2026-10-10](docs/validation/README-HISTORICAL-DESIGN-2026-10-10.md).
-
 ## Fokus dan Pertanyaan Penelitian
 
 **RQ utama:** apakah raw domain-conditioned utilization (M2) menghasilkan
