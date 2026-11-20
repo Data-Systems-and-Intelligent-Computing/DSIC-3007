@@ -21,6 +21,21 @@ Kontribusi penelitian adalah perbandingan paired M2-versus-M1 dengan global
 baseline, intervensi, dan populasi evaluasi yang dinyatakan eksplisit. Penelitian
 tidak mengusulkan routing frequency atau expert ablation sebagai metode baru.
 
+## Proposal Seminar
+
+Naskah Bab I–III untuk seminar proposal 2026 tersedia di
+[`paper/proposal-sempro-v2/`](paper/proposal-sempro-v2/README.md), dengan PDF,
+sumber LaTeX, bibliografi, dan lampiran protokol teknis. Proposal tersebut
+mengembangkan pertanyaan lintas kedalaman pada OLMoE serta pemeriksaan
+generalisasi eksploratif pada Qwen1.5-MoE-A2.7B BF16 dan DeepSeek-V2-Lite BF16.
+
+Proposal seminar adalah dokumen akademik; konfigurasi dan README ini tetap
+menjadi acuan untuk pipeline Path B yang dapat dijalankan. Path B saat ini
+membatasi pengukuran kausal pada OLMoE layer 15 dan domain scientific/code.
+Proposal mencatat diagnostik awal yang terbatas, bukan hasil penelitian utama.
+Nilai target presisi pilot, toleransi numerik BF16, serta tanggal dan anggaran
+GPU masih perlu ditetapkan sebelum tahap terkait.
+
 Analisis pendukung membahas keunggulan M2 pada scientific/code, sinyal
 per-token routing weight dan matched/mismatched domain rankings pada layer 15.
 Perbandingan depth dan causal outcomes C4 ditunda.
